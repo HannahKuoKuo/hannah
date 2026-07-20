@@ -1,0 +1,5 @@
+moviepy>=2.1
+ffmpeg-python>=0.2
+opencv-python-headless>=4.10
+pillow>=10.0
+imageio-ffmpeg>=0.5
