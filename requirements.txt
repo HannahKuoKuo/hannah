@@ -1,0 +1,5 @@
+# 剪片環境 Python 依賴
+moviepy>=2.1          # 高階剪輯：裁切、串接、字幕、轉場、配樂
+ffmpeg-python>=0.2    # ffmpeg 的 Python 介面，適合轉檔、壓縮
+opencv-python-headless>=4.10  # 影格級處理、濾鏡、影像分析
+pillow>=10.0          # 圖片處理（縮圖、浮水印素材）
