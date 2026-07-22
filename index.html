@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>產品名稱 | 一句話說明你的價值主張</title>
+  <meta name="description" content="在這裡填入一句吸引台灣客群點擊的產品/服務簡介，會顯示在 Google 搜尋結果與社群分享預覽中。" />
+
+  <!-- Open Graph (社群分享預覽，例如 Facebook / Line) -->
+  <meta property="og:title" content="產品名稱 | 一句話說明你的價值主張" />
+  <meta property="og:description" content="在這裡填入一句吸引台灣客群點擊的產品/服務簡介。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.svg" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- === 追蹤碼區（廣告成效追蹤，之後換成你自己的 ID）=== -->
+  <!-- Google Analytics 4
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+  <!-- Meta (Facebook/Instagram) Pixel
+  <script>
+    !function(f,b,e,v,n,t,s){...}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  -->
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#top" class="nav__logo">品牌 / LOGO</a>
+      <a href="#cta" class="btn btn--nav">立即諮詢</a>
+    </div>
+  </header>
+
+  <!-- Hero 主視覺區 -->
+  <section id="top" class="hero">
+    <div class="container hero__inner">
+      <h1 class="hero__title">一句話說明你的核心價值主張</h1>
+      <p class="hero__subtitle">用一到兩句話補充說明，讓台灣客戶知道這個產品/服務能幫他們解決什麼問題。</p>
+      <a href="#cta" class="btn btn--primary">立即了解方案</a>
+    </div>
+  </section>
+
+  <!-- 特色 / 價值主張 -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section__title">為什麼選擇我們</h2>
+      <div class="features__grid">
+        <div class="feature-card">
+          <h3>特色一</h3>
+          <p>說明這個特色能為客戶帶來什麼好處。</p>
+        </div>
+        <div class="feature-card">
+          <h3>特色二</h3>
+          <p>說明這個特色能為客戶帶來什麼好處。</p>
+        </div>
+        <div class="feature-card">
+          <h3>特色三</h3>
+          <p>說明這個特色能為客戶帶來什麼好處。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 產品/服務介紹 -->
+  <section class="about">
+    <div class="container about__inner">
+      <div class="about__text">
+        <h2 class="section__title">產品 / 服務介紹</h2>
+        <p>在這裡詳細介紹你的產品或服務內容、規格、使用情境，讓潛在客戶更了解細節。可以分段說明不同面向。</p>
+      </div>
+      <div class="about__image">
+        <img src="assets/product-placeholder.svg" alt="產品示意圖" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 客戶見證 / 信任背書 -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section__title">客戶怎麼說</h2>
+      <div class="testimonials__grid">
+        <blockquote class="testimonial">
+          <p>「在這裡放一段真實客戶的推薦或使用心得，能有效提升信任感。」</p>
+          <cite>— 客戶名稱，職稱/公司</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p>「第二段客戶見證，內容盡量具體、有數字更好。」</p>
+          <cite>— 客戶名稱，職稱/公司</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常見問題 -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="section__title">常見問題</h2>
+      <div class="faq__item">
+        <h3>常見問題一？</h3>
+        <p>這裡填入回答內容。</p>
+      </div>
+      <div class="faq__item">
+        <h3>常見問題二？</h3>
+        <p>這裡填入回答內容。</p>
+      </div>
+      <div class="faq__item">
+        <h3>常見問題三？</h3>
+        <p>這裡填入回答內容。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最終行動呼籲 CTA -->
+  <section id="cta" class="cta">
+    <div class="container cta__inner">
+      <h2>準備好開始了嗎？</h2>
+      <p>留下聯絡方式，我們將盡快與您聯繫。</p>
+      <form class="cta__form" id="leadForm">
+        <input type="text" name="name" placeholder="您的姓名" required />
+        <input type="tel" name="phone" placeholder="聯絡電話" required />
+        <input type="email" name="email" placeholder="電子信箱" />
+        <button type="submit" class="btn btn--primary">送出諮詢</button>
+      </form>
+      <p class="cta__note" id="formNote"></p>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; <span id="year"></span> 品牌名稱. All rights reserved.</p>
+      <p><a href="https://example.com.au" target="_blank" rel="noopener">前往澳洲官方網站</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
