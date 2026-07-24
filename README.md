@@ -4,12 +4,13 @@
 介紹 HEXA 旗下三大墨爾本建案，導向諮詢表單供業務跟進。
 
 三大建案（原始英文官網）：
-- [Panorama Box Hill](https://hexa.com.au/en/portfolio/panorama/)
-- [Lumina Townhomes](https://luminatownhomes.com.au/)
-- [FOUND Warehouse](https://foundhuntingdale.com.au/)
+- [Panorama Box Hill](https://hexa.com.au/en/portfolio/panorama/) — 住宅公寓，Box Hill
+- [Lumina Townhomes](https://luminatownhomes.com.au/) — 聯排別墅，Wollert
+- [FOUND](https://foundhuntingdale.com.au/) — **商用工業地產**（倉庫／自儲空間／辦公室），Huntingdale + Braeside，由 Sportie Property Group 與 HEXA Group 聯合開發
 
-> 目前這個執行環境的網路政策擋掉了對這三個網域的連線，所以無法自動抓取官網內容。
-> 頁面中所有「請補充」的地方，需要你從官網或業主資料手動貼上正確內容。
+> 這個執行環境的網路政策擋掉了對這三個網域的連線，無法自動抓取官網內容。
+> 目前內容是依你提供的官網截圖手動謄寫，畫面字體過小或模糊之處（例如 Lumina 的通勤時間表、各案坪數與房型配比）
+> 標記為「待確認」，尚未用猜測數字填入，需要你對照官網或業主資料補上。
 
 ## 檔案結構
 
@@ -28,7 +29,7 @@ assets/      圖片素材（目前為佔位圖，請替換成正式素材）
 - **建案詳細區塊**（各自獨立、可分開編輯）：
   - `#panorama` Panorama Box Hill
   - `#lumina` Lumina Townhomes
-  - `#found` FOUND Warehouse
+  - `#found` FOUND
   - 每個區塊都有：地點、建築類型、戶型坪數、預計完工、賣點條列、連回官方英文原始頁面的按鈕
 - **常見問題**：海外購屋資格、付款匯款流程、代管出租，可依實際情況調整
 - **諮詢表單**（`#cta`）：姓名、電話、Email、感興趣建案（複選）
@@ -50,25 +51,23 @@ npm run dev
 - [ ] HEXA 品牌實績一句話（成立年份／已完成建案數／開發總額等）
 
 **三大建案總覽卡片**
-- [ ] 每張卡片的一句話賣點
+- [x] 每張卡片的一句話賣點（已依官網內容初填，可再潤飾）
 - [ ] 三張建案示意圖（目前為佔位圖）
 
-**Panorama Box Hill**
-- [ ] 完整地址、建築類型／樓層規劃
-- [ ] 戶型與坪數區間、預計完工／交屋時間
-- [ ] 主要賣點條列
+**Panorama Box Hill**（住宅公寓）
+- [x] 接待中心地址、建築設計／規模、地段定位
+- [ ] 戶型與坪數區間、車位規劃、預計完工／交屋時間
 - [ ] 建案圖片
 
-**Lumina Townhomes**
-- [ ] 完整地址、建築類型／戶數規劃
-- [ ] 戶型與坪數區間、預計完工／交屋時間
-- [ ] 主要賣點條列
+**Lumina Townhomes**（聯排別墅）
+- [x] 地址、案名系列、總體規劃背景
+- [ ] 生活機能條列的正確地名與通勤時間（官網截圖字體過小，需對照原文核對）
+- [ ] 戶型與坪數區間、房型配比、預計完工／交屋時間
 - [ ] 建案圖片
 
-**FOUND Warehouse**
-- [ ] 完整地址、改建特色說明
-- [ ] 戶型與坪數區間、預計完工／交屋時間
-- [ ] 主要賣點條列
+**FOUND**（商用工業地產，非住宅）
+- [x] 兩處基地地址、產品定位、開發團隊
+- [ ] 坪數區間、單價、預計完工時間
 - [ ] 建案圖片
 
 **其他**
