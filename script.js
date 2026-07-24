@@ -14,3 +14,40 @@ leadForm.addEventListener("submit", (event) => {
   formNote.textContent = "感謝您的諮詢，專人將盡快與您聯繫並提供建案資料！";
   leadForm.reset();
 });
+
+document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+  const track = carousel.querySelector(".carousel__track");
+  const slides = Array.from(track.children);
+  const prevBtn = carousel.querySelector(".carousel__btn--prev");
+  const nextBtn = carousel.querySelector(".carousel__btn--next");
+  const dotsWrap = carousel.querySelector(".carousel__dots");
+
+  if (slides.length <= 1) {
+    carousel.classList.add("carousel--single");
+    return;
+  }
+
+  let index = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "carousel__dot";
+    dot.setAttribute("aria-label", `第 ${i + 1} 張圖片`);
+    dot.addEventListener("click", () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  const dots = Array.from(dotsWrap.children);
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((dot, di) => dot.classList.toggle("is-active", di === index));
+  }
+
+  prevBtn.addEventListener("click", () => goTo(index - 1));
+  nextBtn.addEventListener("click", () => goTo(index + 1));
+
+  goTo(0);
+});
