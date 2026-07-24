@@ -163,6 +163,47 @@ h1, h2, h3 {
   flex-wrap: wrap;
 }
 
+/* 關於 HEXA */
+.about-company {
+  padding: 80px 0;
+}
+
+.about-company__intro {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.about-company__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 8px;
+  background: var(--color-bg-alt);
+  border: 1px solid #ececee;
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.hero__stat-num {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.hero__stat-label {
+  color: var(--color-text-muted);
+  font-size: .85rem;
+}
+
 /* 為什麼選擇墨爾本 */
 .features {
   padding: 80px 0;
@@ -525,7 +566,8 @@ h1, h2, h3 {
 
 /* 響應式：手機版 */
 @media (max-width: 900px) {
-  .features__grid {
+  .features__grid,
+  .about-company__stats {
     grid-template-columns: repeat(2, 1fr);
   }
 
