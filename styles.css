@@ -75,6 +75,7 @@ h1, h2, h3 {
 .btn--nav {
   padding: 8px 20px;
   font-size: .9rem;
+  white-space: nowrap;
 }
 
 /* 導覽列 */
@@ -91,6 +92,7 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   padding-top: 14px;
   padding-bottom: 14px;
 }
@@ -98,8 +100,27 @@ h1, h2, h3 {
 .nav__logo {
   font-weight: 700;
   font-size: 1.1rem;
+  letter-spacing: .05em;
   color: var(--color-text);
   text-decoration: none;
+}
+
+.nav__links {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav__links a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: .9rem;
+  white-space: nowrap;
+}
+
+.nav__links a:hover {
+  color: var(--color-text);
 }
 
 /* Hero */
@@ -117,7 +138,7 @@ h1, h2, h3 {
 }
 
 .hero__title {
-  font-size: 2.6rem;
+  font-size: 2.4rem;
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
@@ -125,37 +146,9 @@ h1, h2, h3 {
 
 .hero__subtitle {
   color: var(--color-text-muted);
-  max-width: 560px;
+  max-width: 620px;
   margin: 0 auto 40px;
   font-size: 1.1rem;
-}
-
-.hero__stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  max-width: 780px;
-  margin: 0 auto 40px;
-}
-
-.hero__stat {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 16px 8px;
-  background: #fff;
-  border: 1px solid #ececee;
-  border-radius: var(--radius);
-}
-
-.hero__stat-num {
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.hero__stat-label {
-  color: var(--color-text-muted);
-  font-size: .85rem;
 }
 
 .hero__actions {
@@ -165,7 +158,7 @@ h1, h2, h3 {
   flex-wrap: wrap;
 }
 
-/* 建案亮點 */
+/* 為什麼選擇墨爾本 */
 .features {
   padding: 80px 0;
 }
@@ -188,115 +181,97 @@ h1, h2, h3 {
   margin: 0;
 }
 
-/* 地點交通 */
-.location {
+/* 三大建案總覽 */
+.projects-overview {
   padding: 80px 0;
   background: var(--color-bg-alt);
 }
 
-.location__inner {
+.projects-overview__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.project-card {
+  display: block;
+  background: #fff;
+  border: 1px solid #ececee;
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.08);
+}
+
+.project-card img {
+  width: 100%;
+  display: block;
+}
+
+.project-card h3 {
+  margin: 16px 20px 4px;
+  font-size: 1.1rem;
+}
+
+.project-card p {
+  margin: 0 20px 20px;
+  color: var(--color-text-muted);
+  font-size: .9rem;
+}
+
+.project-card__tag {
+  display: inline-block;
+  margin: 16px 20px 0;
+  padding: 4px 12px;
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+/* 建案詳細區塊 */
+.project-detail {
+  padding: 80px 0;
+  scroll-margin-top: 72px;
+}
+
+.project-detail--alt {
+  background: var(--color-bg-alt);
+}
+
+.project-detail__inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
 }
 
-.location__list {
-  margin: 0;
-  padding-left: 20px;
+.project-detail__location {
   color: var(--color-text-muted);
-}
-
-.location__list li {
-  margin-bottom: 12px;
-}
-
-.map-placeholder {
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius);
-  background: #e6e7ea;
-  color: #9aa1ad;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 24px;
-}
-
-.location__map iframe {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border: 0;
-  border-radius: var(--radius);
-}
-
-/* 格局規劃 */
-.floorplans {
-  padding: 80px 0;
-}
-
-.floorplans__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.floorplan-card {
-  border: 1px solid #ececee;
-  border-radius: var(--radius);
-  overflow: hidden;
-  text-align: center;
-}
-
-.floorplan-card img {
-  width: 100%;
-  display: block;
-}
-
-.floorplan-card h3 {
-  margin: 20px 20px 8px;
-  font-size: 1.05rem;
-}
-
-.floorplan-card p {
-  margin: 0 20px 20px;
-  color: var(--color-text-muted);
-  font-size: .9rem;
-}
-
-.floorplans__note {
-  margin: 24px 0 0;
-  text-align: center;
-  color: var(--color-text-muted);
-  font-size: .85rem;
-}
-
-/* 接待中心 */
-.sales-center {
-  padding: 80px 0;
-  background: var(--color-bg-alt);
-}
-
-.sales-center__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  text-align: center;
-}
-
-.sales-center__item h3 {
-  font-size: 1rem;
-}
-
-.sales-center__item p {
-  color: var(--color-text-muted);
-  margin: 0;
-}
-
-.sales-center__item a {
-  color: var(--color-primary);
   font-weight: 700;
-  text-decoration: none;
+}
+
+.project-detail__list {
+  color: var(--color-text-muted);
+  padding-left: 20px;
+  margin: 16px 0 24px;
+}
+
+.project-detail__list li {
+  margin-bottom: 10px;
+}
+
+.project-detail__image img {
+  width: 100%;
+  border-radius: var(--radius);
+  display: block;
 }
 
 /* FAQ */
@@ -326,6 +301,7 @@ h1, h2, h3 {
   background: var(--color-text);
   color: #fff;
   text-align: center;
+  scroll-margin-top: 72px;
 }
 
 .cta p {
@@ -339,17 +315,36 @@ h1, h2, h3 {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  text-align: left;
 }
 
-.cta__form input,
-.cta__form select {
+.cta__form input {
   padding: 14px 16px;
   border-radius: var(--radius);
   border: none;
   font-size: 1rem;
   font-family: inherit;
-  background: #fff;
-  color: var(--color-text);
+}
+
+.cta__checkboxes {
+  border: 1px solid #3a3f4b;
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin: 0;
+}
+
+.cta__checkboxes legend {
+  padding: 0 4px;
+  font-size: .85rem;
+  color: #cfd3da;
+}
+
+.cta__checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .9rem;
+  margin: 8px 0;
 }
 
 .cta__note {
@@ -383,12 +378,12 @@ h1, h2, h3 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .floorplans__grid {
+  .projects-overview__grid {
     grid-template-columns: 1fr;
   }
 
-  .sales-center__grid {
-    grid-template-columns: 1fr;
+  .nav__links {
+    display: none;
   }
 }
 
@@ -398,19 +393,15 @@ h1, h2, h3 {
   }
 
   .hero__title {
-    font-size: 1.9rem;
-  }
-
-  .hero__stats {
-    grid-template-columns: repeat(2, 1fr);
+    font-size: 1.8rem;
   }
 
   .features__grid,
-  .location__inner {
+  .project-detail__inner {
     grid-template-columns: 1fr;
   }
 
-  .location__map {
+  .project-detail--alt .project-detail__image {
     order: -1;
   }
 }
