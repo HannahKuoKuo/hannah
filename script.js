@@ -11,6 +11,6 @@ leadForm.addEventListener("submit", (event) => {
   // gtag('event', 'generate_lead');
   // fbq('track', 'Lead');
 
-  formNote.textContent = "感謝您的諮詢，我們將盡快與您聯繫！";
+  formNote.textContent = "感謝您的預約，接待中心將盡快與您聯繫安排賞屋！";
   leadForm.reset();
 });

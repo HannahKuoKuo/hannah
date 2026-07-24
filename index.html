@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>產品名稱 | 一句話說明你的價值主張</title>
-  <meta name="description" content="在這裡填入一句吸引台灣客群點擊的產品/服務簡介，會顯示在 Google 搜尋結果與社群分享預覽中。" />
+  <title>建案名稱 | 一句話說明建案定位（例如：捷運宅 / 首購/ 豪宅）</title>
+  <meta name="description" content="在這裡填入建案的一句話簡介（地區＋類型＋亮點），會顯示在 Google 搜尋結果與社群分享預覽中。" />
 
   <!-- Open Graph (社群分享預覽，例如 Facebook / Line) -->
-  <meta property="og:title" content="產品名稱 | 一句話說明你的價值主張" />
-  <meta property="og:description" content="在這裡填入一句吸引台灣客群點擊的產品/服務簡介。" />
+  <meta property="og:title" content="建案名稱 | 一句話說明建案定位" />
+  <meta property="og:description" content="在這裡填入建案的一句話簡介。" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/og-image.svg" />
 
@@ -38,67 +38,118 @@
   <!-- 導覽列 -->
   <header class="nav">
     <div class="container nav__inner">
-      <a href="#top" class="nav__logo">品牌 / LOGO</a>
-      <a href="#cta" class="btn btn--nav">立即諮詢</a>
+      <a href="#top" class="nav__logo">建案名稱</a>
+      <a href="#cta" class="btn btn--nav">預約賞屋</a>
     </div>
   </header>
 
   <!-- Hero 主視覺區 -->
   <section id="top" class="hero">
     <div class="container hero__inner">
-      <h1 class="hero__title">一句話說明你的核心價值主張</h1>
-      <p class="hero__subtitle">用一到兩句話補充說明，讓台灣客戶知道這個產品/服務能幫他們解決什麼問題。</p>
-      <a href="#cta" class="btn btn--primary">立即了解方案</a>
+      <p class="hero__eyebrow">縣市／行政區＋案名系列（例如：板橋江翠重劃區）</p>
+      <h1 class="hero__title">建案名稱</h1>
+      <p class="hero__subtitle">用一到兩句話說明建案定位與最大賣點，例如地段、生活機能或建築特色。</p>
+      <div class="hero__stats">
+        <div class="hero__stat"><span class="hero__stat-num">坪數區間</span><span class="hero__stat-label">22-45 坪</span></div>
+        <div class="hero__stat"><span class="hero__stat-num">規劃戶數</span><span class="hero__stat-label">共 XX 戶</span></div>
+        <div class="hero__stat"><span class="hero__stat-num">樓層規劃</span><span class="hero__stat-label">地上 XX 層</span></div>
+        <div class="hero__stat"><span class="hero__stat-num">預計交屋</span><span class="hero__stat-label">民國 XXX 年</span></div>
+      </div>
+      <div class="hero__actions">
+        <a href="#cta" class="btn btn--primary">立即預約賞屋</a>
+        <a href="tel:0800000000" class="btn btn--outline">來電洽詢 0800-000-000</a>
+      </div>
     </div>
   </section>
 
-  <!-- 特色 / 價值主張 -->
+  <!-- 建案亮點 -->
   <section class="features">
     <div class="container">
-      <h2 class="section__title">為什麼選擇我們</h2>
+      <h2 class="section__title">建案四大亮點</h2>
       <div class="features__grid">
         <div class="feature-card">
-          <h3>特色一</h3>
-          <p>說明這個特色能為客戶帶來什麼好處。</p>
+          <h3>精華地段</h3>
+          <p>說明基地位置優勢，例如鄰近捷運站、重劃區發展、雙北通勤時間等。</p>
         </div>
         <div class="feature-card">
-          <h3>特色二</h3>
-          <p>說明這個特色能為客戶帶來什麼好處。</p>
+          <h3>生活機能</h3>
+          <p>說明周邊生活圈，例如學區、公園綠地、大型商場、市場等。</p>
         </div>
         <div class="feature-card">
-          <h3>特色三</h3>
-          <p>說明這個特色能為客戶帶來什麼好處。</p>
+          <h3>建築工法</h3>
+          <p>說明建材與工法特色，例如結構系統、隔音隔熱、耐震設計等。</p>
+        </div>
+        <div class="feature-card">
+          <h3>公共設施</h3>
+          <p>說明公設規劃方向，例如社區大廳、健身房、閱覽室、頂樓花園等。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 產品/服務介紹 -->
-  <section class="about">
-    <div class="container about__inner">
-      <div class="about__text">
-        <h2 class="section__title">產品 / 服務介紹</h2>
-        <p>在這裡詳細介紹你的產品或服務內容、規格、使用情境，讓潛在客戶更了解細節。可以分段說明不同面向。</p>
+  <!-- 地點交通 -->
+  <section class="location">
+    <div class="container location__inner">
+      <div class="location__text">
+        <h2 class="section__title" style="text-align:left;">地段交通</h2>
+        <ul class="location__list">
+          <li>捷運／公車：距離 OO 站步行約 X 分鐘</li>
+          <li>主要幹道：鄰近 OO 快速道路／交流道</li>
+          <li>學區：學區為 OO 國小／國中</li>
+          <li>生活圈：鄰近 OO 商圈、OO 公園、OO 市場</li>
+        </ul>
       </div>
-      <div class="about__image">
-        <img src="assets/product-placeholder.svg" alt="產品示意圖" />
+      <div class="location__map">
+        <!-- 之後替換成 Google 地圖嵌入 iframe，例如：
+        <iframe src="https://www.google.com/maps/embed?..." loading="lazy"></iframe>
+        -->
+        <div class="map-placeholder">地圖嵌入位置（請替換為 Google 地圖）</div>
       </div>
     </div>
   </section>
 
-  <!-- 客戶見證 / 信任背書 -->
-  <section class="testimonials">
+  <!-- 格局規劃 -->
+  <section class="floorplans">
     <div class="container">
-      <h2 class="section__title">客戶怎麼說</h2>
-      <div class="testimonials__grid">
-        <blockquote class="testimonial">
-          <p>「在這裡放一段真實客戶的推薦或使用心得，能有效提升信任感。」</p>
-          <cite>— 客戶名稱，職稱/公司</cite>
-        </blockquote>
-        <blockquote class="testimonial">
-          <p>「第二段客戶見證，內容盡量具體、有數字更好。」</p>
-          <cite>— 客戶名稱，職稱/公司</cite>
-        </blockquote>
+      <h2 class="section__title">格局規劃</h2>
+      <div class="floorplans__grid">
+        <div class="floorplan-card">
+          <img src="assets/product-placeholder.svg" alt="格局示意圖 A 戶型" />
+          <h3>A 戶型｜2 房 2 廳</h3>
+          <p>坪數 XX 坪，適合首購／小家庭。</p>
+        </div>
+        <div class="floorplan-card">
+          <img src="assets/product-placeholder.svg" alt="格局示意圖 B 戶型" />
+          <h3>B 戶型｜3 房 2 廳</h3>
+          <p>坪數 XX 坪，適合換屋／三代同堂。</p>
+        </div>
+        <div class="floorplan-card">
+          <img src="assets/product-placeholder.svg" alt="格局示意圖 C 戶型" />
+          <h3>C 戶型｜4 房 2 廳</h3>
+          <p>坪數 XX 坪，適合大坪數需求家庭。</p>
+        </div>
+      </div>
+      <p class="floorplans__note">＊實際戶型、坪數與房型配比請以接待中心公告及成屋為準。</p>
+    </div>
+  </section>
+
+  <!-- 接待中心資訊 -->
+  <section class="sales-center">
+    <div class="container sales-center__inner">
+      <h2 class="section__title">接待中心資訊</h2>
+      <div class="sales-center__grid">
+        <div class="sales-center__item">
+          <h3>接待中心地址</h3>
+          <p>請填入接待中心完整地址</p>
+        </div>
+        <div class="sales-center__item">
+          <h3>開放時間</h3>
+          <p>每日 10:00–18:00（例假日不休）</p>
+        </div>
+        <div class="sales-center__item">
+          <h3>洽詢專線</h3>
+          <p><a href="tel:0800000000">0800-000-000</a></p>
+        </div>
       </div>
     </div>
   </section>
@@ -108,16 +159,16 @@
     <div class="container">
       <h2 class="section__title">常見問題</h2>
       <div class="faq__item">
-        <h3>常見問題一？</h3>
-        <p>這裡填入回答內容。</p>
+        <h3>付款方式與貸款成數如何規劃？</h3>
+        <p>這裡填入回答內容，例如工程期分期比例、可配合的合作銀行等。</p>
       </div>
       <div class="faq__item">
-        <h3>常見問題二？</h3>
-        <p>這裡填入回答內容。</p>
+        <h3>車位規劃與價格如何計算？</h3>
+        <p>這裡填入回答內容，例如車位類型、坪數與價格範圍。</p>
       </div>
       <div class="faq__item">
-        <h3>常見問題三？</h3>
-        <p>這裡填入回答內容。</p>
+        <h3>預計何時開工／交屋？</h3>
+        <p>這裡填入回答內容，例如目前工程進度與預計交屋時間。</p>
       </div>
     </div>
   </section>
@@ -125,13 +176,19 @@
   <!-- 最終行動呼籲 CTA -->
   <section id="cta" class="cta">
     <div class="container cta__inner">
-      <h2>準備好開始了嗎？</h2>
-      <p>留下聯絡方式，我們將盡快與您聯繫。</p>
+      <h2>預約專屬賞屋時段</h2>
+      <p>留下聯絡方式，接待中心將盡快與您聯繫安排賞屋。</p>
       <form class="cta__form" id="leadForm">
         <input type="text" name="name" placeholder="您的姓名" required />
         <input type="tel" name="phone" placeholder="聯絡電話" required />
         <input type="email" name="email" placeholder="電子信箱" />
-        <button type="submit" class="btn btn--primary">送出諮詢</button>
+        <select name="interest" aria-label="有興趣的房型">
+          <option value="">有興趣的房型（選填）</option>
+          <option value="2房">2 房</option>
+          <option value="3房">3 房</option>
+          <option value="4房以上">4 房以上</option>
+        </select>
+        <button type="submit" class="btn btn--primary">送出預約</button>
       </form>
       <p class="cta__note" id="formNote"></p>
     </div>
@@ -140,8 +197,13 @@
   <!-- 頁尾 -->
   <footer class="footer">
     <div class="container footer__inner">
-      <p>&copy; <span id="year"></span> 品牌名稱. All rights reserved.</p>
-      <p><a href="https://example.com.au" target="_blank" rel="noopener">前往澳洲官方網站</a></p>
+      <p>&copy; <span id="year"></span> 建設公司名稱. All rights reserved.</p>
+      <p class="footer__disclaimer">
+        本網頁及廣告內容僅供參考，實際建材設備、公共設施、坪數、格局及相關資訊，
+        以政府核准之建造執照、使用執照及正式簽訂之買賣契約書為準；
+        圖片為示意圖，可能經過電腦合成處理，與實際完工樣式可能有所差異。
+      </p>
+      <p><a href="https://example.com.au" target="_blank" rel="noopener">前往集團官方網站</a></p>
     </div>
   </footer>
 
