@@ -72,6 +72,17 @@ h1, h2, h3 {
   border-color: var(--color-text);
 }
 
+.btn--outline-light {
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .7);
+}
+
+.btn--outline-light:hover {
+  background: rgba(255, 255, 255, .2);
+  border-color: #fff;
+}
+
 .btn--nav {
   padding: 8px 20px;
   font-size: .9rem;
@@ -130,27 +141,51 @@ h1, h2, h3 {
 
 /* Hero */
 .hero {
-  padding: 96px 0;
+  position: relative;
+  padding: 160px 0 120px;
   text-align: center;
-  background: linear-gradient(180deg, var(--color-bg-alt), #fff);
+  overflow: hidden;
+  color: #fff;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 15, 10, .35) 0%, rgba(20, 15, 10, .55) 60%, rgba(20, 15, 10, .72) 100%);
+  z-index: 1;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
 }
 
 .hero__eyebrow {
-  color: var(--color-primary);
+  color: #f0d9b3;
   font-weight: 700;
   letter-spacing: .05em;
   margin-bottom: 8px;
 }
 
 .hero__title {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .3);
 }
 
 .hero__subtitle {
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, .88);
   max-width: 620px;
   margin: 0 auto 40px;
   font-size: 1.1rem;
