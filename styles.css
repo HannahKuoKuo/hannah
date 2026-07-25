@@ -273,6 +273,38 @@ h1, h2, h3 {
   height: 18px;
 }
 
+.hero-split__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.hero-split__trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.hero-split__trust-item svg {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.hero-split__trust-item strong {
+  display: block;
+  font-size: .92rem;
+}
+
+.hero-split__trust-item span {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: .8rem;
+}
+
 .hero-split__media img {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -828,6 +860,37 @@ h1, h2, h3 {
   border: none;
   font-size: 1rem;
   font-family: inherit;
+}
+
+.cta__form textarea {
+  width: 100%;
+  padding: 12px 4px 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.cta__form textarea::placeholder {
+  color: #9aa0ab;
+}
+
+.cta__form textarea:focus {
+  outline: none;
+}
+
+.btn--icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn--icon svg {
+  width: 18px;
+  height: 18px;
 }
 
 .cta__checkboxes {

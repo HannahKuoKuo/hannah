@@ -249,16 +249,23 @@
       <h2>免費索取建案資料與置產諮詢</h2>
       <p>留下聯絡方式，將有專人與您聯繫，提供三大建案的完整資料與匯率／貸款諮詢。</p>
       <form class="cta__form" id="leadForm">
-        <input type="text" name="name" placeholder="您的姓名" required />
-        <input type="tel" name="phone" placeholder="聯絡電話" required />
-        <input type="email" name="email" placeholder="電子信箱" />
+        <input type="text" name="name" placeholder="您的姓名 *" required />
+        <input type="tel" name="phone" placeholder="聯絡電話 *" required />
+        <input type="email" name="email" placeholder="電子信箱 *" required />
         <fieldset class="cta__checkboxes">
           <legend>感興趣的建案（可複選）</legend>
           <label><input type="checkbox" name="interest" value="Panorama Box Hill" /> Panorama Box Hill</label>
           <label><input type="checkbox" name="interest" value="Lumina Townhomes" checked /> Lumina Townhomes</label>
           <label><input type="checkbox" name="interest" value="FOUND" /> FOUND</label>
         </fieldset>
-        <button type="submit" class="btn btn--primary">送出諮詢</button>
+        <fieldset class="cta__checkboxes">
+          <legend>其他需求（選填）</legend>
+          <textarea name="notes" rows="4" placeholder="請告訴我們您的需求，例如預算、想了解的建案、預計購屋時間等。"></textarea>
+        </fieldset>
+        <button type="submit" class="btn btn--primary btn--icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13" /><path d="M22 2 15 22l-4-9-9-4Z" /></svg>
+          送出諮詢
+        </button>
       </form>
       <p class="cta__note" id="formNote"></p>
     </div>

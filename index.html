@@ -59,7 +59,7 @@
     <div class="container hero-split__inner">
       <div class="hero-split__text">
         <p class="hero-split__eyebrow">墨爾本精選置產夥伴 <strong>HEXA</strong></p>
-        <h1 class="hero-split__title">為您的未來，<br />找到真正想回去的家</h1>
+        <h1 class="hero-split__title">為您的未來，<br />找到最適合的家園</h1>
         <span class="hero-split__divider"></span>
         <p class="hero-split__subtitle">
           深耕墨爾本房地產，嚴選優質地段與建案，提供專業、透明、值得信賴的置產服務。
@@ -73,6 +73,20 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" /><circle cx="12" cy="10" r="3" /></svg>
             查看三大建案
           </a>
+        </div>
+        <div class="hero-split__trust">
+          <div class="hero-split__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z" /><path d="m9 12 2 2 4-4" /></svg>
+            <div><strong>精選優質地段</strong><span>挑選具發展潛力區域</span></div>
+          </div>
+          <div class="hero-split__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+            <div><strong>專業置產團隊</strong><span>提供全程貼心服務</span></div>
+          </div>
+          <div class="hero-split__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8M8 17h8" /></svg>
+            <div><strong>透明安心交易</strong><span>流程清楚、資訊透明</span></div>
+          </div>
         </div>
       </div>
       <div class="hero-split__media">
@@ -280,16 +294,23 @@
       <h2>免費索取建案資料與置產諮詢</h2>
       <p>留下聯絡方式，將有專人與您聯繫，提供三大建案的完整資料與匯率／貸款諮詢。</p>
       <form class="cta__form" id="leadForm">
-        <input type="text" name="name" placeholder="您的姓名" required />
-        <input type="tel" name="phone" placeholder="聯絡電話" required />
-        <input type="email" name="email" placeholder="電子信箱" />
+        <input type="text" name="name" placeholder="您的姓名 *" required />
+        <input type="tel" name="phone" placeholder="聯絡電話 *" required />
+        <input type="email" name="email" placeholder="電子信箱 *" required />
         <fieldset class="cta__checkboxes">
           <legend>感興趣的建案（可複選）</legend>
           <label><input type="checkbox" name="interest" value="Panorama Box Hill" /> Panorama Box Hill</label>
           <label><input type="checkbox" name="interest" value="Lumina Townhomes" /> Lumina Townhomes</label>
           <label><input type="checkbox" name="interest" value="FOUND" /> FOUND</label>
         </fieldset>
-        <button type="submit" class="btn btn--primary">送出諮詢</button>
+        <fieldset class="cta__checkboxes">
+          <legend>其他需求（選填）</legend>
+          <textarea name="notes" rows="4" placeholder="請告訴我們您的需求，例如預算、想了解的建案、預計購屋時間等。"></textarea>
+        </fieldset>
+        <button type="submit" class="btn btn--primary btn--icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13" /><path d="M22 2 15 22l-4-9-9-4Z" /></svg>
+          送出諮詢
+        </button>
       </form>
       <p class="cta__note" id="formNote"></p>
     </div>
