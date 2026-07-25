@@ -516,6 +516,14 @@ h1, h2, h3 {
   margin: 0;
 }
 
+.project-more__divider {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid #ececee;
+  font-size: 1.3rem;
+  color: var(--color-primary);
+}
+
 .project-more li {
   margin-bottom: 10px;
 }
