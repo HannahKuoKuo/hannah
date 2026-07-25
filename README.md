@@ -6,7 +6,7 @@
 三大建案（原始英文官網）：
 - [Panorama Box Hill](https://hexa.com.au/en/portfolio/panorama/) — 住宅公寓，Box Hill
 - [Lumina Townhomes](https://luminatownhomes.com.au/) — 聯排別墅，Wollert
-- [FOUND](https://foundhuntingdale.com.au/) — **商用工業地產**（倉庫／自儲空間／辦公室），Huntingdale + Braeside，由 Sportie Property Group 與 HEXA Group 聯合開發
+- [FOUND](https://foundhuntingdale.com.au/) — **商用工業地產**（倉庫／自儲空間／辦公室），Huntingdale + Braeside，由 Spectre Property 與 HEXA Group 聯合開發
 
 > 這個執行環境的網路政策擋掉了對這三個網域的連線，無法自動抓取官網內容。
 > 頁面內容（含戶型／坪數／價格）是依你提供的官網與銷售 flyer 截圖手動謄寫，畫面字體過小或模糊之處
