@@ -216,6 +216,152 @@ h1, h2, h3 {
   flex-wrap: wrap;
 }
 
+/* 首頁新版頭（左右分欄 + 圖片 + 底部數據卡片） */
+.hero-split {
+  padding: 56px 0 0;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.hero-split__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  padding-top: 24px;
+}
+
+.hero-split__eyebrow {
+  color: var(--color-text-muted);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.hero-split__eyebrow strong {
+  color: var(--color-primary);
+}
+
+.hero-split__title {
+  font-size: 2.6rem;
+  text-wrap: balance;
+  margin-bottom: 20px;
+}
+
+.hero-split__divider {
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.hero-split__subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  max-width: 460px;
+  margin: 0 0 32px;
+}
+
+.hero-split__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-split__actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-split__actions svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hero-split__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+}
+
+.hero-split__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: blur(6px);
+  border: 1px solid #ececee;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .08);
+  padding: 24px 32px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-split__stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-split__stat svg {
+  width: 22px;
+  height: 22px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.hero-split__stat-num {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.hero-split__stat-label {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: .82rem;
+}
+
+.btn--pill {
+  border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+  .hero-split__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-split {
+    padding-top: 32px;
+  }
+
+  .hero-split__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-split__media {
+    order: -1;
+    margin-bottom: 24px;
+  }
+
+  .hero-split__title {
+    font-size: 1.8rem;
+  }
+
+  .hero-split__stats {
+    margin-top: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+  }
+}
+
 /* 關於 HEXA */
 .about-company {
   padding: 80px 0;
@@ -226,35 +372,6 @@ h1, h2, h3 {
   margin: 0 auto 40px;
   text-align: center;
   color: var(--color-text-muted);
-}
-
-.about-company__stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  max-width: 780px;
-  margin: 0 auto;
-}
-
-.hero__stat {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 16px 8px;
-  background: var(--color-bg-alt);
-  border: 1px solid #ececee;
-  border-radius: var(--radius);
-  text-align: center;
-}
-
-.hero__stat-num {
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.hero__stat-label {
-  color: var(--color-text-muted);
-  font-size: .85rem;
 }
 
 /* 為什麼選擇墨爾本 */
@@ -821,8 +938,7 @@ h1, h2, h3 {
 
 /* 響應式：手機版 */
 @media (max-width: 900px) {
-  .features__grid,
-  .about-company__stats {
+  .features__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
