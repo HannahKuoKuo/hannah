@@ -1,5 +1,16 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  const id = link.getAttribute("href").slice(1);
+  if (!id) return;
+  link.addEventListener("click", (event) => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});
+
 const leadForm = document.getElementById("leadForm");
 const formNote = document.getElementById("formNote");
 
