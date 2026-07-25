@@ -515,6 +515,8 @@ h1, h2, h3 {
 }
 
 .feature-card {
+  display: flex;
+  flex-direction: column;
   background: var(--color-bg-alt);
   border-radius: var(--radius);
   padding: 32px 24px;
@@ -524,6 +526,7 @@ h1, h2, h3 {
 
 .feature-card__photo {
   margin: 24px -24px -32px;
+  margin-top: auto;
   aspect-ratio: 4 / 3;
 }
 
