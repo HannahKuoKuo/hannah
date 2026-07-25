@@ -27,6 +27,8 @@ found.html        FOUND 獨立頁面（Huntingdale + Braeside 兩基地皆在此
 styles.css        樣式（手機優先，含響應式，四個頁面共用）
 script.js         表單送出邏輯、動態年份、輪播圖邏輯、回到頂部（四個頁面共用）
 assets/carousel/  三案輪播圖（已壓縮至網頁適用大小）
+assets/logo-butterfly.png  導覽列蝴蝶圖示（取自 Panorama 官方 logo 檔案，僅裁切金色蝴蝶圖形本身，
+                    未包含檔案內「PANORAMA」英文字標與簡體中文「白马・御景」字樣，避免簡體字混入頁面）
 ```
 
 因為是純 HTML/CSS/JS、沒有共用模板系統，四個頁面的導覽列／業務直聯／常見問題／諮詢表單／頁尾
@@ -42,8 +44,8 @@ assets/carousel/  三案輪播圖（已壓縮至網頁適用大小）
 - 以下（業務直聯／常見問題／諮詢表單／頁尾）與三個建案頁面共用同樣內容
 
 **panorama.html／lumina.html／found.html（各建案獨立頁面）**
-- **專屬 Hero**：各自的背景圖與標題（例如 Panorama 是「白馬・御景——墨爾本第二 CBD 天際線上的家」），
-  不是共用首頁那個 HEXA 品牌 Hero
+- **專屬 Hero**：各自的背景圖與標題（例如 Panorama 是「在白馬・御景／解鎖墨爾本 CBD 核心的高空生活提案」，
+  兩行置中呈現），不是共用首頁那個 HEXA 品牌 Hero
 - 地點、建築類型、賣點條列、**圖片輪播**、深入內容區塊（在地生活機能／交通／室內佈置等）、
   **戶型與價格表**（依業主提供的銷售 flyer 填入）、連回官方英文原始頁面的按鈕
 - found.html 內有兩個基地（Huntingdale + Braeside），用一條「Braeside 基地」分隔線隔開，
@@ -105,6 +107,9 @@ npm run dev
   Panorama Doncaster、Lumina Townhomes），與 Huntingdale 標示的「HEXA Group + Spectre Property」
   不同。網站上已如實呈現兩者並註明差異，但正式對外前務必向業主確認這兩個名稱之間的實際關係
   （是否為同一集團的不同稱呼、母子公司，或個別合作案的專案公司）
+- 業務直聯信箱網域為 `kelvin@panoramagroup.net.au`（panoramagroup.net.au），與上述「Panorama Investment
+  Group」的關聯性看起來一致，但和網站主要以「HEXA」品牌對外呈現的方式仍是兩個不同名稱，建議一併向業主確認
+  對外正式聯絡窗口該用哪個品牌名稱／網域比較恰當
 
 **圖片輪播**
 - 三案都是 6 張輪播（左右箭頭 + 下方圓點切換，純 CSS/JS 實作，無外部套件；只有 1 張圖時會自動隱藏箭頭與圓點）
@@ -115,7 +120,14 @@ npm run dev
   跟我說檔名或描述即可
 
 **業務聯絡資訊**
-- [x] Kelvin Wang（開發商直銷總監）WhatsApp：+61 416 156 826，已加入導覽列與獨立「業務直聯」區塊
+- [x] 因應台灣受眾不使用 WhatsApp／微信的習慣，導覽列與「業務直聯」區塊的 WhatsApp 按鈕已全數改為
+      「立即聯繫」按鈕，點擊後蓋板顯示 Kelvin Wang 的聯絡小卡片（姓名／職稱／電話／信箱），四個頁面共用同一組
+      `#contactModal` 標記與 `script.js` 內的開關邏輯
+- [x] Kelvin Wang（開發商直銷總監），電話 +61 416 156 826（tel: 連結），
+      信箱 kelvin@panoramagroup.net.au（mailto: 連結）
+- ⚠️ 你提供的電話格式為「+61 0416 156 826」，多了一個 0；澳洲手機國際格式慣例是拿掉開頭的 0
+  （本地寫法 0416 156 826 → 國際寫法 +61 416 156 826），網站上已依國際格式呈現為 +61 416 156 826，
+  請確認這支號碼在澳洲當地撥打／WhatsApp 綁定是否正確
 
 **其他**
 - [ ] FAQ 內容依實際常見問題調整

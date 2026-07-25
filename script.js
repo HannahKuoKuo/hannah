@@ -52,6 +52,32 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   goTo(0);
 });
 
+const contactModal = document.getElementById("contactModal");
+
+if (contactModal) {
+  const openContactModal = () => {
+    contactModal.classList.add("is-open");
+    contactModal.setAttribute("aria-hidden", "false");
+  };
+
+  const closeContactModal = () => {
+    contactModal.classList.remove("is-open");
+    contactModal.setAttribute("aria-hidden", "true");
+  };
+
+  document.querySelectorAll(".js-contact-open").forEach((btn) => {
+    btn.addEventListener("click", openContactModal);
+  });
+
+  contactModal.querySelectorAll("[data-modal-close]").forEach((el) => {
+    el.addEventListener("click", closeContactModal);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeContactModal();
+  });
+}
+
 const backToTop = document.getElementById("backToTop");
 
 window.addEventListener("scroll", () => {

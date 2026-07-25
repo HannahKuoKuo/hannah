@@ -38,14 +38,14 @@
   <!-- 導覽列 -->
   <header class="nav">
     <div class="container nav__inner">
-      <a href="#top" class="nav__logo">HEXA</a>
+      <a href="#top" class="nav__logo"><img src="assets/logo-butterfly.png" alt="HEXA" class="nav__logo-img" /> HEXA</a>
       <nav class="nav__links">
         <a href="panorama.html">Panorama Box Hill</a>
         <a href="lumina.html">Lumina Townhomes</a>
         <a href="found.html">FOUND</a>
       </nav>
       <div class="nav__actions">
-        <a href="https://wa.me/61416156826" target="_blank" rel="noopener" class="btn btn--nav btn--outline">WhatsApp</a>
+        <button type="button" class="btn btn--nav btn--outline js-contact-open">立即聯繫</button>
         <a href="#cta" class="btn btn--nav">免費諮詢</a>
       </div>
     </div>
@@ -148,7 +148,7 @@
         <h3 class="sales-agent__name">Kelvin Wang</h3>
         <p class="sales-agent__title">開發商直銷總監 Developer Direct Sales</p>
       </div>
-      <a href="https://wa.me/61416156826" target="_blank" rel="noopener" class="btn btn--primary">WhatsApp 諮詢：+61 416 156 826</a>
+      <button type="button" class="btn btn--primary js-contact-open">立即聯繫</button>
     </div>
   </section>
 
@@ -213,6 +213,25 @@
       <p><a href="https://hexa.com.au" target="_blank" rel="noopener">前往 HEXA 官方網站</a></p>
     </div>
   </footer>
+
+  <!-- 立即聯繫小卡片 -->
+  <div class="contact-modal" id="contactModal" aria-hidden="true">
+    <div class="contact-modal__overlay" data-modal-close></div>
+    <div class="contact-modal__card" role="dialog" aria-modal="true" aria-labelledby="contactModalName">
+      <button type="button" class="contact-modal__close" data-modal-close aria-label="關閉">&times;</button>
+      <p class="contact-modal__label">業務直聯</p>
+      <h3 class="contact-modal__name" id="contactModalName">Kelvin Wang</h3>
+      <p class="contact-modal__title">開發商直銷總監</p>
+      <div class="contact-modal__row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z" /></svg>
+        <a href="tel:+61416156826">+61 416 156 826</a>
+      </div>
+      <div class="contact-modal__row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+        <a href="mailto:kelvin@panoramagroup.net.au">kelvin@panoramagroup.net.au</a>
+      </div>
+    </div>
+  </div>
 
   <div class="fab-stack">
     <button type="button" id="backToTop" class="fab fab--top" aria-label="回到頁面頂部">
