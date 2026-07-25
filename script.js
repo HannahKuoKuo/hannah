@@ -51,3 +51,13 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
 
   goTo(0);
 });
+
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  backToTop.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.6);
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
