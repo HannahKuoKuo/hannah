@@ -29,20 +29,22 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
 
   let index = 0;
 
-  slides.forEach((_, i) => {
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.className = "carousel__dot";
-    dot.setAttribute("aria-label", `第 ${i + 1} 張圖片`);
-    dot.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      goTo(i);
+  if (dotsWrap) {
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "carousel__dot";
+      dot.setAttribute("aria-label", `第 ${i + 1} 張圖片`);
+      dot.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        goTo(i);
+      });
+      dotsWrap.appendChild(dot);
     });
-    dotsWrap.appendChild(dot);
-  });
+  }
 
-  const dots = Array.from(dotsWrap.children);
+  const dots = dotsWrap ? Array.from(dotsWrap.children) : [];
 
   function goTo(i) {
     index = (i + slides.length) % slides.length;
@@ -50,18 +52,27 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     dots.forEach((dot, di) => dot.classList.toggle("is-active", di === index));
   }
 
-  prevBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    goTo(index - 1);
-  });
-  nextBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    goTo(index + 1);
-  });
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      goTo(index - 1);
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      goTo(index + 1);
+    });
+  }
 
   goTo(0);
+
+  const autoMs = Number(carousel.dataset.auto) || 0;
+  if (autoMs > 0) {
+    setInterval(() => goTo(index + 1), autoMs);
+  }
 });
 
 const contactModal = document.getElementById("contactModal");
