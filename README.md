@@ -63,17 +63,27 @@ npm run dev
 - [ ] 車位規劃細節、預計完工／交屋時間（flyer 未列出）
 
 **Lumina Townhomes**（聯排別墅）
-- [x] 地址、案名系列、總體規劃背景、合作建商 Glenvill
-- [x] 生活機能：Woolworths／Costco／Coles／Epping 商圈
+- [x] 地址、案名系列、總體規劃背景
+- [x] 官方文件內容：開發團隊（HEXA + IFD）、建築師 Rothelowman、建商 Glenvill Projects、
+      建築與規劃設計、室內佈置、生活機能與 Lumina Central 未來城中心、交通機能（各地車程）
 - [x] 戶型與價格表（TYPE C-M／A1-E，坪數與起價）
 - [x] 圖片輪播：6 張（外觀、開放式廚房、客廳、衛浴等）
-- [ ] 確切通勤時間表（官網截圖字體過小，需對照原文核對）、預計完工／交屋時間
+- [ ] 預計完工／交屋時間（目前資料未提供）
 
 **FOUND**（商用工業地產，非住宅）
-- [x] 兩處基地地址、產品定位、開發團隊
+- [x] Huntingdale 基地正確地址（17-31 Franklyn Street）；Braeside 基地詳細資料待補
+- [x] 官方文件內容（Huntingdale 官方英文 brochure 翻譯）：開發團隊（HEXA + Spectre Property，
+      已修正原本誤植的「Sportie」）、地段與生活機能（零售/教育/醫療/交通距離）、建築設計理念、
+      自儲空間規格與 The Hub 公設、規格與配置
 - [x] 產品規格與價格表（Studio Warehouse／Office Warehouse／Showroom，未稅價）
 - [x] 圖片輪播：6 張（建築外觀日／夜景、玻璃立面、展示空間、挑高倉儲內部）
 - [ ] 預計完工時間（Studio Warehouse 標示「施工中」，確切日期待補）
+- [ ] Braeside 基地的地段、生活機能、建築內容（尚未收到對應資料）
+
+**待確認事項**
+- HEXA 集團「開發總金額」數字，Lumina 官方文件寫約 AUD $500M，FOUND Huntingdale 官方文件則寫
+  「超過 AUD $10 億（delivered and under development）」，兩份業主提供的官方文件數字不一致，
+  目前網站採用較大／較新的 FOUND 文件數字，正式對外前請跟業主確認正確金額
 
 **圖片輪播**
 - 三案都是 6 張輪播（左右箭頭 + 下方圓點切換，純 CSS/JS 實作，無外部套件；只有 1 張圖時會自動隱藏箭頭與圓點）
