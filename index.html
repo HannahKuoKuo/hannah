@@ -40,9 +40,9 @@
     <div class="container nav__inner">
       <a href="#top" class="nav__logo">HEXA</a>
       <nav class="nav__links">
-        <a href="#panorama">Panorama Box Hill</a>
-        <a href="#lumina">Lumina Townhomes</a>
-        <a href="#found">FOUND</a>
+        <a href="#panorama" class="js-project-link" data-project="panorama">Panorama Box Hill</a>
+        <a href="#lumina" class="js-project-link" data-project="lumina">Lumina Townhomes</a>
+        <a href="#found" class="js-project-link" data-project="found">FOUND</a>
       </nav>
       <div class="nav__actions">
         <a href="https://wa.me/61416156826" target="_blank" rel="noopener" class="btn btn--nav btn--outline">WhatsApp</a>
@@ -118,19 +118,19 @@
     <div class="container">
       <h2 class="section__title">三大指標建案</h2>
       <div class="projects-overview__grid">
-        <a href="#panorama" class="project-card">
+        <a href="#panorama" class="project-card js-project-link" data-project="panorama">
           <img src="assets/carousel/panorama-1.jpg" alt="Panorama Box Hill 頂樓公設與城市景觀實景" />
           <span class="project-card__tag">住宅公寓</span>
           <h3>Panorama Box Hill</h3>
           <p>Box Hill｜得獎建築師操刀，墨爾本第二 CBD 地標公寓</p>
         </a>
-        <a href="#lumina" class="project-card">
+        <a href="#lumina" class="project-card js-project-link" data-project="lumina">
           <img src="assets/carousel/lumina-1.jpg" alt="Lumina Townhomes 聯排別墅實景外觀" />
           <span class="project-card__tag">聯排別墅</span>
           <h3>Lumina Townhomes</h3>
           <p>Wollert｜北墨爾本大型社區規劃聯排別墅</p>
         </a>
-        <a href="#found" class="project-card">
+        <a href="#found" class="project-card js-project-link" data-project="found">
           <img src="assets/carousel/found-1.jpg" alt="FOUND 倉儲展示空間實景" />
           <span class="project-card__tag">工業倉儲／自儲空間</span>
           <h3>FOUND</h3>
@@ -140,12 +140,20 @@
     </div>
   </section>
 
+  <!-- 三大建案內容切換（同頁切換，不跳轉） -->
+  <div class="project-panels" id="projectPanels">
+    <div class="container project-tabs" role="tablist">
+      <button type="button" class="project-tab" data-project="panorama" role="tab" aria-selected="false">Panorama Box Hill</button>
+      <button type="button" class="project-tab" data-project="lumina" role="tab" aria-selected="false">Lumina Townhomes</button>
+      <button type="button" class="project-tab" data-project="found" role="tab" aria-selected="false">FOUND</button>
+    </div>
+
   <!-- 建案一：Panorama Box Hill -->
-  <section id="panorama" class="project-detail">
+  <section id="panorama" class="project-detail" data-project-panel="panorama">
     <div class="container project-detail__inner">
       <div class="project-detail__text">
         <span class="project-card__tag">住宅公寓</span>
-        <h2>Panorama Box Hill（白馬・湧泉）</h2>
+        <h2>Panorama Box Hill 白馬 · 御景</h2>
         <p class="project-detail__location">接待中心：Level 4/830 Whitehorse Road, Box Hill, Victoria 3128 Australia</p>
         <ul class="project-detail__list">
           <li>建築設計：國際得獎建築團隊 Peddle Thorp Architects 操刀，曲線雕塑感外觀</li>
@@ -192,7 +200,7 @@
   </section>
 
   <!-- 建案二：Lumina Townhomes -->
-  <section id="lumina" class="project-detail project-detail--alt">
+  <section id="lumina" class="project-detail" data-project-panel="lumina">
     <div class="container project-detail__inner">
       <div class="project-detail__image">
         <div class="carousel" data-carousel>
@@ -242,7 +250,7 @@
   </section>
 
   <!-- 建案三：FOUND -->
-  <section id="found" class="project-detail">
+  <section id="found" class="project-detail" data-project-panel="found">
     <div class="container project-detail__inner">
       <div class="project-detail__text">
         <span class="project-card__tag">工業倉儲／自儲空間</span>
@@ -290,6 +298,7 @@
       </div>
     </div>
   </section>
+  </div>
 
   <!-- 業務直聯 -->
   <section class="sales-agent">

@@ -52,6 +52,39 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   goTo(0);
 });
 
+const PROJECTS = ["panorama", "lumina", "found"];
+const projectPanels = document.getElementById("projectPanels");
+
+function activateProject(name, { scroll = true } = {}) {
+  if (!PROJECTS.includes(name)) name = PROJECTS[0];
+
+  document.querySelectorAll(".project-tab").forEach((tab) => {
+    const isActive = tab.dataset.project === name;
+    tab.classList.toggle("is-active", isActive);
+    tab.setAttribute("aria-selected", isActive ? "true" : "false");
+  });
+
+  document.querySelectorAll("[data-project-panel]").forEach((panel) => {
+    panel.classList.toggle("is-active", panel.dataset.projectPanel === name);
+  });
+
+  history.replaceState(null, "", `#${name}`);
+
+  if (scroll) {
+    projectPanels.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+document.querySelectorAll(".js-project-link, .project-tab").forEach((el) => {
+  el.addEventListener("click", (event) => {
+    event.preventDefault();
+    activateProject(el.dataset.project);
+  });
+});
+
+const initialProject = PROJECTS.includes(location.hash.slice(1)) ? location.hash.slice(1) : PROJECTS[0];
+activateProject(initialProject, { scroll: false });
+
 const backToTop = document.getElementById("backToTop");
 
 window.addEventListener("scroll", () => {

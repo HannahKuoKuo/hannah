@@ -324,14 +324,69 @@ h1, h2, h3 {
   font-weight: 700;
 }
 
-/* 建案詳細區塊 */
-.project-detail {
-  padding: 80px 0;
+/* 三大建案：頁籤切換容器 */
+.project-panels {
   scroll-margin-top: 72px;
 }
 
-.project-detail--alt {
-  background: var(--color-bg-alt);
+.project-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 56px;
+}
+
+.project-tab {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid #ececee;
+  background: #fff;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  font-size: .92rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.project-tab:hover {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.project-tab.is-active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* 建案詳細區塊 */
+.project-detail {
+  display: none;
+  padding: 56px 0 80px;
+}
+
+.project-detail.is-active {
+  display: block;
+  animation: project-panel-in .35s ease;
+}
+
+@keyframes project-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-detail.is-active {
+    animation: none;
+  }
 }
 
 .project-detail__inner {
@@ -679,10 +734,6 @@ h1, h2, h3 {
   .features__grid,
   .project-detail__inner {
     grid-template-columns: 1fr;
-  }
-
-  .project-detail--alt .project-detail__image {
-    order: -1;
   }
 
   .nav__actions {
