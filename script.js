@@ -34,7 +34,11 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     dot.type = "button";
     dot.className = "carousel__dot";
     dot.setAttribute("aria-label", `第 ${i + 1} 張圖片`);
-    dot.addEventListener("click", () => goTo(i));
+    dot.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      goTo(i);
+    });
     dotsWrap.appendChild(dot);
   });
 
@@ -46,8 +50,16 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     dots.forEach((dot, di) => dot.classList.toggle("is-active", di === index));
   }
 
-  prevBtn.addEventListener("click", () => goTo(index - 1));
-  nextBtn.addEventListener("click", () => goTo(index + 1));
+  prevBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    goTo(index - 1);
+  });
+  nextBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    goTo(index + 1);
+  });
 
   goTo(0);
 });

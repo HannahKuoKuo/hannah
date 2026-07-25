@@ -119,12 +119,6 @@ h1, h2, h3 {
   text-decoration: none;
 }
 
-.nav__logo-img {
-  height: 30px;
-  width: auto;
-  display: block;
-}
-
 .nav__links {
   display: flex;
   gap: 20px;

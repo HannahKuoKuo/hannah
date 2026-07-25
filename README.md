@@ -27,8 +27,6 @@ found.html        FOUND 獨立頁面（Huntingdale + Braeside 兩基地皆在此
 styles.css        樣式（手機優先，含響應式，四個頁面共用）
 script.js         表單送出邏輯、動態年份、輪播圖邏輯、回到頂部（四個頁面共用）
 assets/carousel/  三案輪播圖（已壓縮至網頁適用大小）
-assets/logo-butterfly.png  導覽列蝴蝶圖示（取自 Panorama 官方 logo 檔案，僅裁切金色蝴蝶圖形本身，
-                    未包含檔案內「PANORAMA」英文字標與簡體中文「白马・御景」字樣，避免簡體字混入頁面）
 ```
 
 因為是純 HTML/CSS/JS、沒有共用模板系統，四個頁面的導覽列／業務直聯／常見問題／諮詢表單／頁尾
@@ -40,7 +38,9 @@ assets/logo-butterfly.png  導覽列蝴蝶圖示（取自 Panorama 官方 logo �
 - **Hero**：HEXA 品牌一句話定位 + CTA（索取資料 / 查看三大建案）
 - **關於 HEXA**：品牌介紹 + 成立年份／累計建案／開發總金額統計
 - **為什麼選擇墨爾本置產**：市場穩定度、教育資源、宜居城市、開發商實績，四張卡片
-- **三大建案總覽**（`#projects`）：三張卡片，點擊會跳轉到對應的獨立頁面（panorama.html／lumina.html／found.html）
+- **三大建案總覽**（`#projects`）：三張卡片，每張卡片圖片改為輪播（各借用該建案自己頁面的 6 張圖，
+  左右箭頭／圓點切換時已做 `stopPropagation`，不會誤觸整張卡片的跳轉連結），點擊卡片其餘區域會跳轉到
+  對應的獨立頁面（panorama.html／lumina.html／found.html）
 - 以下（業務直聯／常見問題／諮詢表單／頁尾）與三個建案頁面共用同樣內容
 
 **panorama.html／lumina.html／found.html（各建案獨立頁面）**
