@@ -1,7 +1,11 @@
-# HEXA 墨爾本置產｜台灣導流頁（一頁式網站）
+# HEXA 墨爾本置產｜台灣導流頁
 
-純 HTML / CSS / JS 打造的一頁式 Landing Page，目的是承接台灣市場廣告流量（Google Ads / Meta 廣告等），
+純 HTML / CSS / JS 打造的導流頁面，目的是承接台灣市場廣告流量（Google Ads / Meta 廣告等），
 介紹 HEXA 旗下三大墨爾本建案，導向諮詢表單供業務跟進。
+
+網站架構為「首頁 + 三個獨立建案頁面」（非單一頁面）：首頁介紹品牌與三大建案總覽，
+點擊建案卡片會直接跳轉到該建案自己的完整頁面（各自有專屬版頭標題與圖片），
+而不是在同一頁往下捲動或切換分頁——這樣每個建案都有自己的網址，也不會有頁面上重複資訊的問題。
 
 三大建案（原始英文官網）：
 - [Panorama Box Hill](https://hexa.com.au/en/portfolio/panorama/) — 住宅公寓，Box Hill
@@ -16,28 +20,35 @@
 ## 檔案結構
 
 ```
-index.html        單頁內容（見下方「頁面內容架構」）
-styles.css        樣式（手機優先，含響應式）
-script.js         表單送出邏輯、動態年份、輪播圖邏輯
+index.html        首頁（見下方「頁面內容架構」）
+panorama.html     Panorama Box Hill 獨立頁面
+lumina.html       Lumina Townhomes 獨立頁面
+found.html        FOUND 獨立頁面（Huntingdale + Braeside 兩基地皆在此頁）
+styles.css        樣式（手機優先，含響應式，四個頁面共用）
+script.js         表單送出邏輯、動態年份、輪播圖邏輯、回到頂部（四個頁面共用）
 assets/carousel/  三案輪播圖（已壓縮至網頁適用大小）
 ```
 
+因為是純 HTML/CSS/JS、沒有共用模板系統，四個頁面的導覽列／業務直聯／常見問題／諮詢表單／頁尾
+是各自複製一份（沒有用 include 或框架），修改這些共用區塊時記得四個檔案都要改到。
+
 ## 頁面內容架構
 
+**index.html（首頁）**
 - **Hero**：HEXA 品牌一句話定位 + CTA（索取資料 / 查看三大建案）
+- **關於 HEXA**：品牌介紹 + 成立年份／累計建案／開發總金額統計
 - **為什麼選擇墨爾本置產**：市場穩定度、教育資源、宜居城市、開發商實績，四張卡片
-- **三大建案總覽**（`#projects`）：三張卡片，各自連到下方詳細區塊錨點
-- **建案詳細區塊**（各自獨立、可分開編輯）：
-  - `#panorama` Panorama Box Hill
-  - `#lumina` Lumina Townhomes
-  - `#found` FOUND
-  - 每個區塊都有：地點、建築類型、賣點條列、**圖片輪播**、**戶型與價格表**（依業主提供的銷售 flyer 填入）、連回官方英文原始頁面的按鈕
-- **業務直聯**：Kelvin Wang（開發商直銷總監）的 WhatsApp 連結，導覽列與此區塊都有放置
-- **常見問題**：海外購屋資格、付款匯款流程、代管出租，可依實際情況調整
-- **諮詢表單**（`#cta`）：姓名、電話、Email、感興趣建案（複選）
-- **頁尾**：品牌資訊 + 海外不動產廣告免責聲明（見下方合規提醒）
+- **三大建案總覽**（`#projects`）：三張卡片，點擊會跳轉到對應的獨立頁面（panorama.html／lumina.html／found.html）
+- 以下（業務直聯／常見問題／諮詢表單／頁尾）與三個建案頁面共用同樣內容
 
-因為每個建案都是獨立的 `<section>` 且有自己的 id，你可以照順序一段一段修改內容，不用擔心互相干擇到其他區塊。
+**panorama.html／lumina.html／found.html（各建案獨立頁面）**
+- **專屬 Hero**：各自的背景圖與標題（例如 Panorama 是「白馬・御景——墨爾本第二 CBD 天際線上的家」），
+  不是共用首頁那個 HEXA 品牌 Hero
+- 地點、建築類型、賣點條列、**圖片輪播**、深入內容區塊（在地生活機能／交通／室內佈置等）、
+  **戶型與價格表**（依業主提供的銷售 flyer 填入）、連回官方英文原始頁面的按鈕
+- found.html 內有兩個基地（Huntingdale + Braeside），用一條「Braeside 基地」分隔線隔開，
+  在同一頁面依序介紹，不是分開成兩個檔案
+- 業務直聯／常見問題／諮詢表單／頁尾（與首頁共用同樣內容）
 
 ## 本機開發
 
@@ -45,7 +56,10 @@ assets/carousel/  三案輪播圖（已壓縮至網頁適用大小）
 npm run dev
 ```
 
-會啟動本機伺服器（http://localhost:3000），修改 index.html / styles.css / script.js 後重新整理瀏覽器即可看到變化。
+會啟動本機伺服器（http://localhost:3000），可以直接在瀏覽器網址列輸入
+`localhost:3000/panorama.html`（或 lumina.html／found.html）分別測試每個頁面，
+修改 index.html / panorama.html / lumina.html / found.html / styles.css / script.js
+後重新整理瀏覽器即可看到變化。
 
 ## 待填內容（依區塊列出，可逐一完成）
 
