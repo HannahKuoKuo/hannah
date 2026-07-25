@@ -248,16 +248,13 @@ h1, h2, h3 {
 
 .hero-split__text {
   max-width: 520px;
+  text-align: left;
 }
 
 .hero-split__eyebrow {
   color: var(--color-text-muted);
   font-weight: 700;
   margin-bottom: 16px;
-}
-
-.hero-split__eyebrow strong {
-  color: var(--color-primary);
 }
 
 .hero-split__title {
@@ -402,6 +399,7 @@ h1, h2, h3 {
   position: relative;
   z-index: 1;
   max-width: 440px;
+  text-align: left;
 }
 
 .about-company__title {
