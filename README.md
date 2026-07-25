@@ -103,11 +103,23 @@ npm run dev
 
 ## 部署建議
 
-靜態網站，可直接部署到免費的靜態託管服務：
+### GitHub Pages（已設定自動部署）
+
+`.github/workflows/deploy-pages.yml` 會在每次 push 到 `main` 或
+`claude/chinese-single-page-setup-httixz` 時自動把整個 repo 部署到 GitHub Pages，
+不需要手動操作，之後每次改完內容 push 上去，網站會自動更新。
+
+**第一次使用前，需要手動做一次**：到 repo 的 Settings → Pages → Build and deployment →
+Source，選擇「GitHub Actions」（預設可能是「Deploy from a branch」，要手動切換一次）。
+切換後下一次 push 就會自動部署，網址會顯示在 Settings → Pages 頁面上
+（通常是 `https://<github-帳號>.github.io/<repo名稱>/`）。
+
+### 其他靜態託管選項
+
+如果想要更快的 CDN 節點、自訂網域更方便，也可以改連接：
 
 - **Cloudflare Pages**：連接 GitHub repo，自動部署，速度快、有台灣附近的 CDN 節點
 - **Vercel** / **Netlify**：同樣支援連接 repo 自動部署
-- **GitHub Pages**：免費但自訂網域設定稍微多一步
 
 部署後記得：
 1. 綁定正式網域（例如 `tw.hexa.com.au` 或獨立網域）
