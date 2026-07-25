@@ -491,6 +491,35 @@ h1, h2, h3 {
   display: none;
 }
 
+/* 建案補充內容（在地生活機能、交通、室內佈置等長文段落） */
+.project-more {
+  margin-top: 48px;
+}
+
+.project-more h3 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.project-more p,
+.project-more ul {
+  color: var(--color-text-muted);
+  max-width: 760px;
+}
+
+.project-more p {
+  margin: 0 0 16px;
+}
+
+.project-more ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.project-more li {
+  margin-bottom: 10px;
+}
+
 /* 戶型與價格表 */
 .price-table-wrap {
   margin-top: 48px;
