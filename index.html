@@ -328,6 +328,10 @@
   .work-stats .ws .lbl{font-size:.68rem;color:var(--ink-faint);margin-top:4px;line-height:1.3;}
   .work-foot{padding:18px 28px 26px;color:var(--ink-faint);font-size:.82rem;border-top:1px solid var(--line);margin-top:auto;}
 
+  .work-more{text-align:center;margin-top:48px;padding-top:36px;border-top:1px solid var(--line);}
+  .work-more-label{display:block;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;}
+  .work-more-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+
   /* ---------- Education ---------- */
   .education{padding:100px 0;background:var(--cream-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
@@ -980,8 +984,13 @@
 
       </div>
 
-      <div style="text-align:center;margin-top:40px;" class="reveal">
-        <a href="assets/docs/Hannah_Kuo_Portfolio.pdf" class="btn btn-ghost" target="_blank" rel="noopener">View Full Case Study Deck (PDF)</a>
+      <div class="work-more reveal">
+        <span class="work-more-label">More of my work</span>
+        <div class="work-more-links">
+          <a href="assets/docs/Hannah_Kuo_Portfolio.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Case Study Deck (PDF)</a>
+          <a href="https://canva.link/785ppa59ptm6dj7" class="btn btn-ghost" target="_blank" rel="noopener">Canva Portfolio ↗</a>
+          <a href="https://www.linkedin.com/in/hannah-kuo-4b7468188/" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn Profile ↗</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1156,8 +1165,13 @@
     const stats = card.querySelector('.work-stats').cloneNode(true);
     const foot = card.querySelector('.work-foot');
     const footHtml = foot ? foot.outerHTML : '';
-    const visitHtml = id === 'hexa'
-      ? '<div class="hexa-visit"><a href="https://claude.ai/code/artifact/b898e218-21ca-44f0-8283-e1e93b472d3b" target="_blank" rel="noopener" class="btn btn-primary">前往網頁 Visit Site ↗</a></div>'
+    const visitLinks = {
+      hexa: { url: 'https://claude.ai/code/artifact/b898e218-21ca-44f0-8283-e1e93b472d3b', label: '前往網頁 Visit Site ↗' },
+      taipei: { url: 'https://taipeientrepreneurshub.notion.site/30-Must-Know-Ready-for-Taipei-87dbad730d4442ddaeeaa03584fbda47', label: '前往 Notion Visit Page ↗' }
+    };
+    const visit = visitLinks[id];
+    const visitHtml = visit
+      ? `<div class="hexa-visit"><a href="${visit.url}" target="_blank" rel="noopener" class="btn btn-primary">${visit.label}</a></div>`
       : '';
 
     modalBody.innerHTML = galleryHtml + visitHtml + top.outerHTML + desc.outerHTML + stats.outerHTML + footHtml;
