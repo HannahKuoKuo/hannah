@@ -259,7 +259,18 @@
     display:flex;flex-direction:column;
   }
   .work-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+  .work-card{cursor:pointer;}
+  .work-card:focus-visible{outline:2px solid var(--terracotta);outline-offset:3px;}
   .work-card.featured{grid-column:span 2;}
+  .work-media{position:relative;}
+  .work-media::after{
+    content:"View work \2197";
+    position:absolute;inset:auto 14px 14px auto;
+    background:rgba(30,22,15,.72);color:#fff;font-size:.72rem;font-weight:600;
+    padding:7px 14px;border-radius:100px;opacity:0;transform:translateY(6px);
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  .work-card:hover .work-media::after,.work-card:focus-visible .work-media::after{opacity:1;transform:translateY(0);}
   .work-media{width:100%;height:220px;background:var(--cream-alt);position:relative;}
   .work-card.featured .work-media{height:260px;}
   .work-media img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -314,6 +325,44 @@
   .c-card .c-val{font-size:.86rem;font-weight:600;margin-top:1px;word-break:break-word;}
 
   footer{padding:30px 0;border-top:1px solid var(--line);text-align:center;color:var(--ink-faint);font-size:.82rem;}
+
+  /* ---------- Work modal ---------- */
+  .work-modal{position:fixed;inset:0;z-index:200;display:none;}
+  .work-modal.open{display:block;}
+  .work-modal-backdrop{position:absolute;inset:0;background:rgba(20,15,10,.6);backdrop-filter:blur(3px);animation:fadeIn .2s ease;}
+  .work-modal-panel{
+    position:relative;z-index:1;max-width:820px;margin:5vh auto;max-height:90vh;overflow-y:auto;
+    background:var(--card);border-radius:24px;box-shadow:var(--shadow-lg);
+    animation:panelIn .25s cubic-bezier(.2,.8,.3,1);
+  }
+  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+  @keyframes panelIn{from{opacity:0;transform:translateY(14px) scale(.98);}to{opacity:1;transform:translateY(0) scale(1);}}
+  .work-modal-close{
+    position:sticky;top:16px;float:right;margin:16px 16px 0 0;z-index:2;
+    width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);
+    color:var(--ink);font-size:1.1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    box-shadow:var(--shadow);
+  }
+  .work-modal-close:hover{color:var(--terracotta);border-color:var(--terracotta);}
+  .work-modal-body{padding:0 32px 36px;}
+  .work-modal-gallery{display:flex;flex-direction:column;gap:12px;margin:0 -32px 26px;}
+  .work-modal-gallery img{width:100%;display:block;}
+  .work-modal-gallery .wm-placeholder{
+    margin:0 32px;aspect-ratio:16/9;border-radius:16px;
+    background:linear-gradient(140deg,var(--terracotta-tint),var(--gold-tint));
+    display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:var(--ink-faint);
+  }
+  .work-modal-gallery .wm-placeholder svg{width:36px;height:36px;opacity:.7;}
+  .work-modal-body .work-top{padding:0;}
+  .work-modal-body .work-desc{padding:0;margin-top:14px;}
+  .work-modal-body .work-stats{margin-top:24px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--line);}
+  .work-modal-body .work-foot{padding:16px 0 0;border-top:none;margin-top:18px;}
+  body.modal-open{overflow:hidden;}
+  @media (max-width:640px){
+    .work-modal-panel{margin:0;max-height:100vh;border-radius:0;min-height:100vh;}
+    .work-modal-gallery{margin:0 -20px 22px;}
+    .work-modal-body{padding:0 20px 30px;}
+  }
 
   /* scroll reveal */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
@@ -661,7 +710,7 @@
 
       <div class="work-grid">
 
-        <div class="work-card featured reveal">
+        <div class="work-card featured reveal" data-work-id="puyuan" role="button" tabindex="0" aria-haspopup="dialog">
           <div class="work-media"><img src="assets/images/puyuan-fb-ads.jpg" alt="Facebook lead-gen ad creative for the 璞園一隅 residential property campaign, showing two mobile ad units" loading="lazy" /></div>
           <div class="work-top">
             <span class="work-badge">Paid Social + Search</span>
@@ -678,7 +727,7 @@
           <div class="work-foot">Total ad spend $45,322 across Meta &amp; Google · GA4 landing page tracked 178 new users at a 99.5% engagement rate</div>
         </div>
 
-        <div class="work-card reveal">
+        <div class="work-card reveal" data-work-id="boxhill" role="button" tabindex="0" aria-haspopup="dialog">
           <div class="work-media"><img src="assets/images/box-hill-instagram.jpg" alt="Panorama Box Hill Instagram grid showing property lifestyle content" loading="lazy" /></div>
           <div class="work-top">
             <span class="work-badge">Organic Content</span>
@@ -695,7 +744,7 @@
           <div class="work-foot">Reel engagement rate landed well above platform average</div>
         </div>
 
-        <div class="work-card reveal">
+        <div class="work-card reveal" data-work-id="startup" role="button" tabindex="0" aria-haspopup="dialog">
           <div class="work-media"><img src="assets/images/startup-island-events.jpg" alt="Startup Island TAIWAN event and delegation photos from Demo Days and international summits" loading="lazy" /></div>
           <div class="work-top">
             <span class="work-badge">Ecosystem Marketing</span>
@@ -712,7 +761,7 @@
           <div class="work-foot">Case studies produced to promote Taiwan's startup ecosystem internationally</div>
         </div>
 
-        <div class="work-card reveal">
+        <div class="work-card reveal" data-work-id="hexa" role="button" tabindex="0" aria-haspopup="dialog">
           <div class="work-media placeholder">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/><circle cx="5" cy="6" r=".5" fill="currentColor"/><circle cx="7.5" cy="6" r=".5" fill="currentColor"/></svg>
             <span>Screenshot coming soon</span>
@@ -732,7 +781,7 @@
           <div class="work-foot">Concept, copywriting, design and build handled solo with Claude Code</div>
         </div>
 
-        <div class="work-card reveal">
+        <div class="work-card reveal" data-work-id="taipei" role="button" tabindex="0" aria-haspopup="dialog">
           <div class="work-media"><img src="assets/images/taipei-notion-hub.jpg" alt="Notion resource hub grid for the 30 Must-Know — Ready for Taipei FAQ project" loading="lazy" /></div>
           <div class="work-top">
             <span class="work-badge">Content Strategy</span>
@@ -809,6 +858,14 @@
 
 </main>
 
+<div class="work-modal" id="workModal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="work-modal-backdrop" id="workModalBackdrop"></div>
+  <div class="work-modal-panel">
+    <button class="work-modal-close" id="workModalClose" aria-label="Close">&times;</button>
+    <div class="work-modal-body" id="workModalBody"></div>
+  </div>
+</div>
+
 <footer>
   <div class="wrap">© <span id="year"></span> Hannah (Pei-Ju) Kuo. Built with care in Melbourne.</div>
 </footer>
@@ -858,6 +915,84 @@
     revealAll();
   }
   window.addEventListener('beforeprint', revealAll);
+
+  // work card modal — click a card to see the full-size work images
+  const workGalleries = {
+    puyuan: [
+      { src: 'assets/images/puyuan-ads-1.jpg', alt: 'Facebook ad creative overview for 璞園一隅, two mobile ad units side by side' },
+      { src: 'assets/images/puyuan-ads-2.jpg', alt: 'Google Search ad creative overview for 璞園一隅, brand and keyword campaigns' }
+    ],
+    boxhill: [
+      { src: 'assets/images/box-hill-1.jpg', alt: 'Panorama Box Hill Instagram account insights and content grid' },
+      { src: 'assets/images/box-hill-2.jpg', alt: 'Panorama Box Hill video stills shot and edited for the campaign' }
+    ],
+    startup: [
+      { src: 'assets/images/startup-island-1.jpg', alt: 'Startup Island TAIWAN brand assets and social post example' },
+      { src: 'assets/images/startup-island-2.jpg', alt: 'Startup Island TAIWAN event photos from Demo Days and summits' }
+    ],
+    taipei: [
+      { src: 'assets/images/taipei-notion-1.jpg', alt: 'Taipei Entrepreneurs Hub social media posts and carousel creative' },
+      { src: 'assets/images/taipei-notion-2.jpg', alt: '30 Must-Know — Ready for Taipei Notion database grid' }
+    ],
+    hexa: []
+  };
+
+  const modal = document.getElementById('workModal');
+  const modalBody = document.getElementById('workModalBody');
+  const modalClose = document.getElementById('workModalClose');
+  const modalBackdrop = document.getElementById('workModalBackdrop');
+  let lastFocused = null;
+
+  function openWorkModal(card) {
+    const id = card.getAttribute('data-work-id');
+    const images = workGalleries[id] || [];
+
+    let galleryHtml = '';
+    if (images.length) {
+      galleryHtml = '<div class="work-modal-gallery">' +
+        images.map(img => `<img src="${img.src}" alt="${img.alt}" loading="lazy" />`).join('') +
+        '</div>';
+    } else {
+      galleryHtml = '<div class="work-modal-gallery"><div class="wm-placeholder">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/><circle cx="5" cy="6" r=".5" fill="currentColor"/><circle cx="7.5" cy="6" r=".5" fill="currentColor"/></svg>' +
+        '<span>Screenshot coming soon</span></div></div>';
+    }
+
+    const top = card.querySelector('.work-top').cloneNode(true);
+    const desc = card.querySelector('.work-desc').cloneNode(true);
+    const stats = card.querySelector('.work-stats').cloneNode(true);
+    const foot = card.querySelector('.work-foot');
+    const footHtml = foot ? foot.outerHTML : '';
+
+    modalBody.innerHTML = galleryHtml + top.outerHTML + desc.outerHTML + stats.outerHTML + footHtml;
+
+    lastFocused = document.activeElement;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    modalClose.focus();
+  }
+
+  function closeWorkModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    modalBody.innerHTML = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  document.querySelectorAll('.work-card[data-work-id]').forEach(card => {
+    card.addEventListener('click', () => openWorkModal(card));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openWorkModal(card); }
+    });
+  });
+
+  modalClose.addEventListener('click', closeWorkModal);
+  modalBackdrop.addEventListener('click', closeWorkModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeWorkModal();
+  });
 </script>
 
 </body>
