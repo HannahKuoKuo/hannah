@@ -278,6 +278,38 @@
   .work-media.placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:linear-gradient(140deg,var(--terracotta-tint),var(--gold-tint));color:var(--ink-faint);}
   .work-media.placeholder svg{width:34px;height:34px;opacity:.7;}
   .work-media.placeholder span{font-size:.74rem;letter-spacing:.02em;}
+
+  /* Hexa hero mini-mockup — recreates the real site's own gold/navy brand, not this page's palette */
+  .hexa-mock-wrap{background:#F7F1E4;padding:0;}
+  .hexa-mock{width:100%;height:100%;display:flex;flex-direction:column;font-family:-apple-system,'PingFang TC','Segoe UI',sans-serif;color:#2E3648;}
+  .hexa-mock-nav{display:flex;align-items:center;gap:14px;padding:10px 16px;border-bottom:1px solid #EAE0C8;flex-shrink:0;}
+  .hexa-mock-brand{font-weight:700;font-size:.8rem;letter-spacing:.06em;}
+  .hexa-mock-navlinks{flex:1;font-size:.62rem;color:#6B7280;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .hexa-mock-cta{font-size:.62rem;font-weight:700;background:#C9973B;color:#fff;padding:5px 10px;border-radius:100px;white-space:nowrap;}
+  .hexa-mock-hero{flex:1;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;}
+  .hexa-mock-copy{display:flex;flex-direction:column;gap:6px;}
+  .hexa-mock-eyebrow{font-size:.62rem;font-weight:700;color:#C9973B;}
+  .hexa-mock h4{margin:2px 0 2px;font-size:1.05rem;line-height:1.28;font-weight:800;font-family:'Fraunces',Georgia,'Noto Serif TC',serif;}
+  .hexa-mock-btn{align-self:flex-start;font-size:.62rem;font-weight:700;background:#C9973B;color:#fff;padding:6px 12px;border-radius:100px;margin-top:4px;}
+  .hexa-mock-art{width:78px;height:78px;flex-shrink:0;}
+  .hexa-mock-art svg{width:100%;height:100%;}
+  @media (max-width:420px){
+    .hexa-mock-navlinks{display:none;}
+    .hexa-mock h4{font-size:.92rem;}
+    .hexa-mock-art{width:60px;height:60px;}
+  }
+
+  .hexa-mock-large{padding:32px 32px 0;}
+  .hexa-mock-large .hexa-mock-wrap{border-radius:16px;overflow:hidden;height:340px;box-shadow:var(--shadow-lg);}
+  .hexa-mock-large .hexa-mock-nav{padding:16px 24px;}
+  .hexa-mock-large .hexa-mock-brand{font-size:1.1rem;}
+  .hexa-mock-large .hexa-mock-navlinks{font-size:.85rem;}
+  .hexa-mock-large .hexa-mock-cta{font-size:.85rem;padding:9px 18px;}
+  .hexa-mock-large .hexa-mock-hero{padding:28px 40px;}
+  .hexa-mock-large .hexa-mock-eyebrow{font-size:.85rem;}
+  .hexa-mock-large .hexa-mock h4{font-size:2rem;}
+  .hexa-mock-large .hexa-mock-btn{font-size:.85rem;padding:11px 22px;}
+  .hexa-mock-large .hexa-mock-art{width:160px;height:160px;}
   .work-top{padding:28px 28px 0;}
   .work-badge{
     display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
@@ -827,9 +859,31 @@
         </div>
 
         <div class="work-card reveal" data-work-id="hexa" role="button" tabindex="0" aria-haspopup="dialog">
-          <div class="work-media placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/><circle cx="5" cy="6" r=".5" fill="currentColor"/><circle cx="7.5" cy="6" r=".5" fill="currentColor"/></svg>
-            <span>Screenshot coming soon</span>
+          <div class="work-media hexa-mock-wrap">
+            <div class="hexa-mock">
+              <div class="hexa-mock-nav">
+                <span class="hexa-mock-brand">HEXA</span>
+                <span class="hexa-mock-navlinks">Panorama Box Hill&nbsp;&nbsp;·&nbsp;&nbsp;Lumina Townhomes&nbsp;&nbsp;·&nbsp;&nbsp;FOUND</span>
+                <span class="hexa-mock-cta">免費諮詢</span>
+              </div>
+              <div class="hexa-mock-hero">
+                <div class="hexa-mock-copy">
+                  <span class="hexa-mock-eyebrow">墨爾本精選置產夥伴</span>
+                  <h4>為您的未來，<br/>找到最適合的家園</h4>
+                  <span class="hexa-mock-btn">免費索取建案資料</span>
+                </div>
+                <div class="hexa-mock-art" aria-hidden="true">
+                  <svg viewBox="0 0 120 120" fill="none">
+                    <circle cx="60" cy="60" r="52" fill="#E7D2A0" opacity=".55"/>
+                    <path d="M34 66 60 44l26 22v26a4 4 0 0 1-4 4H38a4 4 0 0 1-4-4V66Z" fill="#2E3648" opacity=".85"/>
+                    <rect x="52" y="72" width="16" height="22" fill="#E7D2A0"/>
+                    <circle cx="60" cy="44" r="6" fill="#2E3648"/>
+                    <circle cx="46" cy="52" r="4.5" fill="#2E3648" opacity=".85"/>
+                    <circle cx="74" cy="52" r="4.5" fill="#2E3648" opacity=".85"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="work-top">
             <span class="work-badge">AI-Assisted Web Design</span>
@@ -1033,7 +1087,10 @@
     const images = workGalleries[id] || [];
 
     let galleryHtml = '';
-    if (images.length) {
+    if (id === 'hexa') {
+      const mock = card.querySelector('.hexa-mock-wrap').outerHTML;
+      galleryHtml = `<div class="work-modal-gallery hexa-mock-large">${mock}</div>`;
+    } else if (images.length) {
       galleryHtml = '<div class="work-modal-gallery">' +
         images.map(img => img.motion
           ? `<div class="kb-wrap"><img src="${img.src}" alt="${img.alt}" loading="lazy" /></div>`
