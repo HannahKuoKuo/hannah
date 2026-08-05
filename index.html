@@ -386,6 +386,9 @@
   @media (prefers-reduced-motion: reduce){
     .work-modal-gallery .kb-wrap img{animation:none;}
   }
+  .work-modal-gallery .wm-video{position:relative;aspect-ratio:16/9;background:#141210;}
+  .work-modal-gallery .wm-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .work-modal-body .hexa-visit{margin:22px 0 0;}
   .work-modal-gallery .wm-placeholder{
     margin:0 32px;aspect-ratio:16/9;border-radius:16px;
     background:linear-gradient(140deg,var(--terracotta-tint),var(--gold-tint));
@@ -749,63 +752,59 @@
 
       <div class="work-grid">
 
-        <div class="work-card featured reveal" data-work-id="puyuan" role="button" tabindex="0" aria-haspopup="dialog">
+        <div class="work-card reveal" data-work-id="puyuan" role="button" tabindex="0" aria-haspopup="dialog">
           <div class="work-media work-media-svg">
-            <svg viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="璞園一隅 integrated lead-generation campaign across Meta and Google">
+            <svg viewBox="0 0 640 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Successful ad campaign case study across Meta and Google">
               <defs>
                 <linearGradient id="puyuanBg" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stop-color="var(--terracotta-tint)"/>
                   <stop offset="100%" stop-color="var(--gold-tint)"/>
                 </linearGradient>
-                <radialGradient id="puyuanGlow" cx="82%" cy="18%" r="55%">
+                <radialGradient id="puyuanGlow" cx="88%" cy="14%" r="60%">
                   <stop offset="0%" stop-color="var(--terracotta)" stop-opacity="0.32"/>
                   <stop offset="100%" stop-color="var(--terracotta)" stop-opacity="0"/>
                 </radialGradient>
               </defs>
-              <rect width="1200" height="300" fill="url(#puyuanBg)"/>
-              <rect width="1200" height="300" fill="url(#puyuanGlow)"/>
+              <rect width="640" height="300" fill="url(#puyuanBg)"/>
+              <rect width="640" height="300" fill="url(#puyuanGlow)"/>
 
               <g stroke="var(--terracotta)" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="1 7" stroke-linecap="round">
-                <line x1="70" y1="78" x2="960" y2="78"/>
+                <line x1="36" y1="52" x2="480" y2="52"/>
               </g>
               <g fill="var(--terracotta)" fill-opacity=".7">
-                <circle cx="70" cy="78" r="4"/>
-                <circle cx="256" cy="78" r="4"/>
-                <circle cx="442" cy="78" r="4"/>
-                <circle cx="628" cy="78" r="4"/>
-                <circle cx="814" cy="78" r="4"/>
-                <circle cx="960" cy="78" r="4"/>
+                <circle cx="36" cy="52" r="4"/>
+                <circle cx="184" cy="52" r="4"/>
+                <circle cx="332" cy="52" r="4"/>
+                <circle cx="480" cy="52" r="4"/>
               </g>
 
-              <g fill="var(--ink)" fill-opacity=".13">
-                <rect x="40" y="150" width="70" height="150" rx="4"/>
-                <rect x="120" y="120" width="60" height="180" rx="4"/>
-                <rect x="960" y="130" width="65" height="170" rx="4"/>
-                <rect x="1040" y="165" width="80" height="135" rx="4"/>
-                <rect x="1130" y="110" width="55" height="190" rx="4"/>
+              <g fill="var(--ink)" fill-opacity=".12">
+                <rect x="500" y="150" width="46" height="150" rx="4"/>
+                <rect x="556" y="120" width="42" height="180" rx="4"/>
+                <rect x="600" y="165" width="34" height="135" rx="4"/>
               </g>
-              <g fill="var(--terracotta)" fill-opacity=".55">
-                <rect x="205" y="95" width="86" height="205" rx="5"/>
-                <polygon points="230,95 266,95 248,58"/>
+              <g fill="var(--terracotta)" fill-opacity=".5">
+                <rect x="440" y="105" width="60" height="195" rx="5"/>
+                <polygon points="458,105 482,105 470,72"/>
               </g>
-              <g stroke="var(--cream)" stroke-opacity=".55" stroke-width="3">
-                <line x1="222" y1="120" x2="222" y2="285"/>
-                <line x1="248" y1="120" x2="248" y2="285"/>
-                <line x1="274" y1="120" x2="274" y2="285"/>
-                <line x1="205" y1="145" x2="291" y2="145"/>
-                <line x1="205" y1="185" x2="291" y2="185"/>
-                <line x1="205" y1="225" x2="291" y2="225"/>
-                <line x1="205" y1="265" x2="291" y2="265"/>
+              <g stroke="var(--cream)" stroke-opacity=".55" stroke-width="2.5">
+                <line x1="452" y1="128" x2="452" y2="285"/>
+                <line x1="470" y1="128" x2="470" y2="285"/>
+                <line x1="488" y1="128" x2="488" y2="285"/>
+                <line x1="440" y1="150" x2="500" y2="150"/>
+                <line x1="440" y1="182" x2="500" y2="182"/>
+                <line x1="440" y1="214" x2="500" y2="214"/>
+                <line x1="440" y1="246" x2="500" y2="246"/>
               </g>
 
-              <text x="70" y="200" font-family="'Fraunces', Georgia, serif" font-size="54" fill="var(--ink)" font-weight="600">璞園・一隅</text>
-              <text x="70" y="234" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="18" fill="var(--ink-soft)" letter-spacing="0.3">Integrated Lead-Generation Campaign</text>
+              <text x="36" y="148" font-family="'Fraunces', Georgia, serif" font-size="38" fill="var(--ink)" font-weight="600">Ad Campaign</text>
+              <text x="36" y="178" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="15.5" fill="var(--ink-soft)" letter-spacing="0.2">A Successful Lead-Generation Case Study</text>
 
-              <g font-family="-apple-system, 'Segoe UI', sans-serif" font-size="13.5" font-weight="600">
-                <rect x="70" y="252" width="76" height="28" rx="14" fill="var(--card)" fill-opacity=".85"/>
-                <text x="108" y="270" fill="var(--ink)" text-anchor="middle">Meta Ads</text>
-                <rect x="156" y="252" width="90" height="28" rx="14" fill="var(--card)" fill-opacity=".85"/>
-                <text x="201" y="270" fill="var(--ink)" text-anchor="middle">Google Ads</text>
+              <g font-family="-apple-system, 'Segoe UI', sans-serif" font-size="13" font-weight="600">
+                <rect x="36" y="198" width="76" height="27" rx="13.5" fill="var(--card)" fill-opacity=".85"/>
+                <text x="74" y="215.5" fill="var(--ink)" text-anchor="middle">Meta Ads</text>
+                <rect x="122" y="198" width="90" height="27" rx="13.5" fill="var(--card)" fill-opacity=".85"/>
+                <text x="167" y="215.5" fill="var(--ink)" text-anchor="middle">Google Ads</text>
               </g>
             </svg>
           </div>
@@ -918,7 +917,52 @@
         </div>
 
         <div class="work-card reveal" data-work-id="vusu" role="button" tabindex="0" aria-haspopup="dialog">
-          <div class="work-media"><img src="assets/images/vusu-instagram.jpg" alt="VUSU Instagram profile and content grid, showing event and campaign design work" loading="lazy" /></div>
+          <div class="work-media work-media-svg">
+            <svg viewBox="0 0 640 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="VUSU social media creator and media ads work">
+              <defs>
+                <linearGradient id="vusuBg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="var(--sage-tint)"/>
+                  <stop offset="100%" stop-color="var(--gold-tint)"/>
+                </linearGradient>
+                <radialGradient id="vusuGlow" cx="90%" cy="12%" r="60%">
+                  <stop offset="0%" stop-color="var(--sage)" stop-opacity="0.3"/>
+                  <stop offset="100%" stop-color="var(--sage)" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <rect width="640" height="300" fill="url(#vusuBg)"/>
+              <rect width="640" height="300" fill="url(#vusuGlow)"/>
+
+              <g fill="var(--card)" fill-opacity=".8">
+                <rect x="472" y="34" width="42" height="42" rx="8"/>
+                <rect x="522" y="34" width="42" height="42" rx="8"/>
+                <rect x="572" y="34" width="42" height="42" rx="8"/>
+                <rect x="472" y="84" width="42" height="42" rx="8"/>
+                <rect x="522" y="84" width="42" height="42" rx="8"/>
+                <rect x="572" y="84" width="42" height="42" rx="8"/>
+                <rect x="472" y="134" width="42" height="42" rx="8"/>
+                <rect x="522" y="134" width="42" height="42" rx="8"/>
+                <rect x="572" y="134" width="42" height="42" rx="8"/>
+              </g>
+              <g fill="var(--sage)" fill-opacity=".55">
+                <rect x="522" y="84" width="42" height="42" rx="8"/>
+              </g>
+
+              <g transform="translate(486,196)" fill="var(--terracotta)" fill-opacity=".6">
+                <path d="M0 40 L0 8 a4 4 0 0 1 4-4 h50 l20-16 v72 l-20-16 H4 a4 4 0 0 1-4-4Z"/>
+              </g>
+
+              <text x="36" y="130" font-family="'Fraunces', Georgia, serif" font-size="33" fill="var(--ink)" font-weight="600">Social Media Creator</text>
+              <text x="36" y="168" font-family="'Fraunces', Georgia, serif" font-size="33" fill="var(--ink)" font-weight="600">&amp; Media Ads</text>
+              <text x="36" y="196" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="15" fill="var(--ink-soft)" letter-spacing="0.2">VUSU · Victoria University</text>
+
+              <g font-family="-apple-system, 'Segoe UI', sans-serif" font-size="13" font-weight="600">
+                <rect x="36" y="216" width="88" height="27" rx="13.5" fill="var(--card)" fill-opacity=".85"/>
+                <text x="80" y="233.5" fill="var(--ink)" text-anchor="middle">Instagram</text>
+                <rect x="132" y="216" width="70" height="27" rx="13.5" fill="var(--card)" fill-opacity=".85"/>
+                <text x="167" y="233.5" fill="var(--ink)" text-anchor="middle">Canva</text>
+              </g>
+            </svg>
+          </div>
           <div class="work-top">
             <span class="work-badge">Social Media &amp; Design</span>
             <h3>VUSU — Victoria University Student Union</h3>
@@ -1060,7 +1104,7 @@
     ],
     boxhill: [
       { src: 'assets/images/box-hill-1.jpg', alt: 'Panorama Box Hill Instagram account insights and content grid' },
-      { src: 'assets/images/box-hill-2.jpg', alt: 'Panorama Box Hill video stills shot and edited for the campaign', motion: true }
+      { type: 'video', driveId: '1W-EJYsjZHK1KGmwKTfCRR0tiCajaaamc', alt: 'Property video shot and edited by Hannah for the Hexa portfolio' }
     ],
     startup: [
       { src: 'assets/images/startup-island-1.jpg', alt: 'Startup Island TAIWAN brand assets and social post example' },
@@ -1092,10 +1136,14 @@
       galleryHtml = `<div class="work-modal-gallery hexa-mock-large">${mock}</div>`;
     } else if (images.length) {
       galleryHtml = '<div class="work-modal-gallery">' +
-        images.map(img => img.motion
-          ? `<div class="kb-wrap"><img src="${img.src}" alt="${img.alt}" loading="lazy" /></div>`
-          : `<img src="${img.src}" alt="${img.alt}" loading="lazy" />`
-        ).join('') +
+        images.map(img => {
+          if (img.type === 'video') {
+            return `<div class="wm-video"><iframe src="https://drive.google.com/file/d/${img.driveId}/preview" allow="autoplay" loading="lazy" title="${img.alt}"></iframe></div>`;
+          }
+          return img.motion
+            ? `<div class="kb-wrap"><img src="${img.src}" alt="${img.alt}" loading="lazy" /></div>`
+            : `<img src="${img.src}" alt="${img.alt}" loading="lazy" />`;
+        }).join('') +
         '</div>';
     } else {
       galleryHtml = '<div class="work-modal-gallery"><div class="wm-placeholder">' +
@@ -1108,8 +1156,11 @@
     const stats = card.querySelector('.work-stats').cloneNode(true);
     const foot = card.querySelector('.work-foot');
     const footHtml = foot ? foot.outerHTML : '';
+    const visitHtml = id === 'hexa'
+      ? '<div class="hexa-visit"><a href="https://claude.ai/code/artifact/b898e218-21ca-44f0-8283-e1e93b472d3b" target="_blank" rel="noopener" class="btn btn-primary">前往網頁 Visit Site ↗</a></div>'
+      : '';
 
-    modalBody.innerHTML = galleryHtml + top.outerHTML + desc.outerHTML + stats.outerHTML + footHtml;
+    modalBody.innerHTML = galleryHtml + visitHtml + top.outerHTML + desc.outerHTML + stats.outerHTML + footHtml;
 
     lastFocused = document.activeElement;
     modal.classList.add('open');
