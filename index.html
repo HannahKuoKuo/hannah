@@ -347,6 +347,12 @@
   .work-modal-body{padding:0 32px 36px;}
   .work-modal-gallery{display:flex;flex-direction:column;gap:12px;margin:0 -32px 26px;}
   .work-modal-gallery img{width:100%;display:block;}
+  .work-modal-gallery .kb-wrap{overflow:hidden;}
+  .work-modal-gallery .kb-wrap img{animation:kenburns 9s ease-in-out infinite alternate;will-change:transform;}
+  @keyframes kenburns{from{transform:scale(1) translate3d(0,0,0);}to{transform:scale(1.14) translate3d(-2.5%,-1.5%,0);}}
+  @media (prefers-reduced-motion: reduce){
+    .work-modal-gallery .kb-wrap img{animation:none;}
+  }
   .work-modal-gallery .wm-placeholder{
     margin:0 32px;aspect-ratio:16/9;border-radius:16px;
     background:linear-gradient(140deg,var(--terracotta-tint),var(--gold-tint));
@@ -798,6 +804,23 @@
           <div class="work-foot">Built as part of ecosystem PR and community-building for Taipei's startup scene</div>
         </div>
 
+        <div class="work-card reveal" data-work-id="vusu" role="button" tabindex="0" aria-haspopup="dialog">
+          <div class="work-media"><img src="assets/images/vusu-instagram.jpg" alt="VUSU Instagram profile and content grid, showing event and campaign design work" loading="lazy" /></div>
+          <div class="work-top">
+            <span class="work-badge">Social Media &amp; Design</span>
+            <h3>VUSU — Victoria University Student Union</h3>
+            <div class="work-sub">Instagram content, event &amp; campaign design</div>
+          </div>
+          <p class="work-desc">Run VUSU's Instagram day to day — content calendar, event promo design (O-Fest, Block Party, Sport Festival, First Aid Training) and DM/brochure design in Canva, alongside project and event execution.</p>
+          <div class="work-stats">
+            <div class="ws"><div class="num">167.7K</div><div class="lbl">30-Day Views</div></div>
+            <div class="ws"><div class="num">2,900</div><div class="lbl">Followers</div></div>
+            <div class="ws"><div class="num">538</div><div class="lbl">Posts</div></div>
+            <div class="ws"><div class="num">Multi</div><div class="lbl">Events Promoted</div></div>
+          </div>
+          <div class="work-foot">Instagram professional dashboard, trailing 30 days</div>
+        </div>
+
       </div>
 
       <div style="text-align:center;margin-top:40px;" class="reveal">
@@ -924,7 +947,7 @@
     ],
     boxhill: [
       { src: 'assets/images/box-hill-1.jpg', alt: 'Panorama Box Hill Instagram account insights and content grid' },
-      { src: 'assets/images/box-hill-2.jpg', alt: 'Panorama Box Hill video stills shot and edited for the campaign' }
+      { src: 'assets/images/box-hill-2.jpg', alt: 'Panorama Box Hill video stills shot and edited for the campaign', motion: true }
     ],
     startup: [
       { src: 'assets/images/startup-island-1.jpg', alt: 'Startup Island TAIWAN brand assets and social post example' },
@@ -934,7 +957,10 @@
       { src: 'assets/images/taipei-notion-1.jpg', alt: 'Taipei Entrepreneurs Hub social media posts and carousel creative' },
       { src: 'assets/images/taipei-notion-2.jpg', alt: '30 Must-Know — Ready for Taipei Notion database grid' }
     ],
-    hexa: []
+    hexa: [],
+    vusu: [
+      { src: 'assets/images/vusu-1.jpg', alt: 'VUSU Instagram profile with 167.7K 30-day views and content grid of event and campaign designs' }
+    ]
   };
 
   const modal = document.getElementById('workModal');
@@ -950,7 +976,10 @@
     let galleryHtml = '';
     if (images.length) {
       galleryHtml = '<div class="work-modal-gallery">' +
-        images.map(img => `<img src="${img.src}" alt="${img.alt}" loading="lazy" />`).join('') +
+        images.map(img => img.motion
+          ? `<div class="kb-wrap"><img src="${img.src}" alt="${img.alt}" loading="lazy" /></div>`
+          : `<img src="${img.src}" alt="${img.alt}" loading="lazy" />`
+        ).join('') +
         '</div>';
     } else {
       galleryHtml = '<div class="work-modal-gallery"><div class="wm-placeholder">' +
