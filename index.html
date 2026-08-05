@@ -260,6 +260,12 @@
   }
   .work-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
   .work-card.featured{grid-column:span 2;}
+  .work-media{width:100%;height:220px;background:var(--cream-alt);position:relative;}
+  .work-card.featured .work-media{height:260px;}
+  .work-media img{width:100%;height:100%;object-fit:cover;display:block;}
+  .work-media.placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:linear-gradient(140deg,var(--terracotta-tint),var(--gold-tint));color:var(--ink-faint);}
+  .work-media.placeholder svg{width:34px;height:34px;opacity:.7;}
+  .work-media.placeholder span{font-size:.74rem;letter-spacing:.02em;}
   .work-top{padding:28px 28px 0;}
   .work-badge{
     display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
@@ -656,6 +662,7 @@
       <div class="work-grid">
 
         <div class="work-card featured reveal">
+          <div class="work-media"><img src="assets/images/puyuan-fb-ads.jpg" alt="Facebook lead-gen ad creative for the 璞園一隅 residential property campaign, showing two mobile ad units" loading="lazy" /></div>
           <div class="work-top">
             <span class="work-badge">Paid Social + Search</span>
             <h3>Integrated Lead-Gen Campaign — Residential Property</h3>
@@ -672,6 +679,7 @@
         </div>
 
         <div class="work-card reveal">
+          <div class="work-media"><img src="assets/images/box-hill-instagram.jpg" alt="Panorama Box Hill Instagram grid showing property lifestyle content" loading="lazy" /></div>
           <div class="work-top">
             <span class="work-badge">Organic Content</span>
             <h3>Panorama Box Hill — Instagram</h3>
@@ -688,6 +696,7 @@
         </div>
 
         <div class="work-card reveal">
+          <div class="work-media"><img src="assets/images/startup-island-events.jpg" alt="Startup Island TAIWAN event and delegation photos from Demo Days and international summits" loading="lazy" /></div>
           <div class="work-top">
             <span class="work-badge">Ecosystem Marketing</span>
             <h3>Startup Island TAIWAN</h3>
@@ -704,6 +713,10 @@
         </div>
 
         <div class="work-card reveal">
+          <div class="work-media placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/><circle cx="5" cy="6" r=".5" fill="currentColor"/><circle cx="7.5" cy="6" r=".5" fill="currentColor"/></svg>
+            <span>Screenshot coming soon</span>
+          </div>
           <div class="work-top">
             <span class="work-badge">AI-Assisted Web Design</span>
             <h3>Hexa Melbourne Property — Marketing Site</h3>
@@ -720,6 +733,7 @@
         </div>
 
         <div class="work-card reveal">
+          <div class="work-media"><img src="assets/images/taipei-notion-hub.jpg" alt="Notion resource hub grid for the 30 Must-Know — Ready for Taipei FAQ project" loading="lazy" /></div>
           <div class="work-top">
             <span class="work-badge">Content Strategy</span>
             <h3>30 Must-Know — Ready for Taipei</h3>
