@@ -169,18 +169,16 @@
   .hero h1 span{color:var(--terracotta);}
   .hero .desc{margin-top:20px;max-width:52ch;color:var(--ink-soft);font-size:1rem;}
   .hero .cta-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;position:relative;}
-  .contact-cta-wrap{position:relative;}
-  .contact-popover{
-    position:absolute;top:calc(100% + 12px);left:0;min-width:250px;background:var(--card);
-    border:1px solid var(--line);border-radius:var(--radius-sm);box-shadow:var(--shadow-lg);
-    padding:16px 18px;opacity:0;visibility:hidden;transform:translateY(-6px);
-    transition:opacity .18s ease, transform .18s ease, visibility .18s;z-index:20;
-  }
-  .contact-popover.open{opacity:1;visibility:visible;transform:translateY(0);}
-  .contact-popover .cp-name{font-family:var(--serif);font-weight:600;font-size:1rem;margin-bottom:10px;}
-  .contact-popover .cp-row{display:flex;align-items:center;gap:9px;padding:7px 0;font-size:.86rem;color:var(--ink-soft);text-decoration:none;}
-  .contact-popover .cp-row:hover{color:var(--terracotta);}
-  .contact-popover .cp-row svg{width:15px;height:15px;flex-shrink:0;color:var(--terracotta);}
+
+  .contact-modal-panel{max-width:380px;text-align:center;}
+  .contact-modal-body{padding:40px 36px 42px;}
+  .cm-name{font-family:var(--serif);font-weight:600;font-size:1.4rem;}
+  .cm-title{color:var(--terracotta);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-top:6px;}
+  .cm-divider{height:1px;background:var(--line);margin:22px 0;}
+  .cm-row{display:flex;align-items:center;justify-content:center;gap:10px;padding:6px 0;font-size:.98rem;color:var(--ink);text-decoration:none;font-weight:500;}
+  .cm-row:hover{color:var(--terracotta);}
+  .cm-row .cm-icon{width:34px;height:34px;border-radius:50%;background:var(--terracotta-tint);color:var(--terracotta);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .cm-row .cm-icon svg{width:16px;height:16px;}
   .hero .loc{display:flex;align-items:center;gap:8px;margin-top:30px;color:var(--ink-faint);font-size:.88rem;}
   .hero .loc svg{width:15px;height:15px;flex-shrink:0;}
 
@@ -223,11 +221,11 @@
 
   .photo-badge.pb1{top:-5%;left:-32px;transform:rotate(-5deg);}
   .photo-badge.pb2{top:6%;right:-38px;transform:rotate(4deg);}
-  .photo-badge.pb5{top:30%;left:-48px;transform:rotate(-4deg);}
-  .photo-badge.pb6{top:42%;right:-52px;transform:rotate(3deg);}
-  .photo-badge.pb3{top:60%;left:-40px;transform:rotate(4deg);}
-  .photo-badge.pb4{top:73%;right:-44px;transform:rotate(-3deg);}
-  .photo-badge.pb7{top:97%;left:50%;transform:translateX(-50%) rotate(-2deg);}
+  .photo-badge.pb5{top:52%;left:-50px;transform:rotate(-4deg);}
+  .photo-badge.pb6{top:64%;right:-54px;transform:rotate(3deg);}
+  .photo-badge.pb3{top:76%;left:-42px;transform:rotate(4deg);}
+  .photo-badge.pb4{top:87%;right:-46px;transform:rotate(-3deg);}
+  .photo-badge.pb7{top:100%;left:50%;transform:translateX(-50%) rotate(-2deg);}
 
   @media (max-width:640px){
     .photo-badge{padding:7px 10px;}
@@ -554,20 +552,7 @@
         <p class="desc">8+ years turning brand stories into content, campaigns and communities — from Taipei's startup and semiconductor ecosystem to Melbourne's property and education sectors. I plan, shoot, edit, run the ads, and read the numbers.</p>
         <div class="cta-row">
           <a href="#work" class="btn btn-primary">Portfolio Archive</a>
-          <div class="contact-cta-wrap">
-            <button type="button" class="btn btn-ghost" id="ctaContactBtn" aria-haspopup="dialog" aria-expanded="false">Get in Touch</button>
-            <div class="contact-popover" id="contactPopover" role="dialog" aria-hidden="true">
-              <div class="cp-name">Hannah Kuo</div>
-              <a href="tel:+61435627810" class="cp-row">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.9.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2.3Z"/></svg>
-                +61 435 627 810
-              </a>
-              <a href="mailto:peiju.kuo.business@gmail.com" class="cp-row">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
-                peiju.kuo.business@gmail.com
-              </a>
-            </div>
-          </div>
+          <button type="button" class="btn btn-ghost" id="ctaContactBtn" aria-haspopup="dialog" aria-expanded="false">Get in Touch</button>
         </div>
         <div class="loc">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1152,6 +1137,27 @@
   </div>
 </div>
 
+<div class="work-modal" id="contactModal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="work-modal-backdrop" id="contactModalBackdrop"></div>
+  <div class="work-modal-panel contact-modal-panel">
+    <button class="work-modal-close" id="contactModalClose" aria-label="Close">&times;</button>
+    <div class="work-modal-body contact-modal-body">
+      <div class="cm-name">Hannah Kuo</div>
+      <div class="cm-title">Content · Social · Marketing</div>
+      <div class="cm-divider"></div>
+      <a href="tel:+61435627810" class="cm-row">
+        <span class="cm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.9.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2.3Z"/></svg></span>
+        +61 435 627 810
+      </a>
+      <div class="cm-divider"></div>
+      <a href="mailto:peiju.kuo.business@gmail.com" class="cm-row">
+        <span class="cm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>
+        peiju.kuo.business@gmail.com
+      </a>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="wrap">© <span id="year"></span> Hannah (Pei-Ju) Kuo. Built with care in Melbourne.</div>
 </footer>
@@ -1174,24 +1180,31 @@
   });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.style.display = 'none'));
 
-  // hero "Get in Touch" contact popover
+  // hero "Get in Touch" contact modal
   const ctaContactBtn = document.getElementById('ctaContactBtn');
-  const contactPopover = document.getElementById('contactPopover');
-  function closeContactPopover() {
-    contactPopover.classList.remove('open');
-    contactPopover.setAttribute('aria-hidden', 'true');
-    ctaContactBtn.setAttribute('aria-expanded', 'false');
+  const contactModal = document.getElementById('contactModal');
+  const contactModalClose = document.getElementById('contactModalClose');
+  const contactModalBackdrop = document.getElementById('contactModalBackdrop');
+  function openContactModal() {
+    contactModal.classList.add('open');
+    contactModal.setAttribute('aria-hidden', 'false');
+    ctaContactBtn.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('modal-open');
+    contactModalClose.focus();
   }
-  ctaContactBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = contactPopover.classList.toggle('open');
-    contactPopover.setAttribute('aria-hidden', String(!isOpen));
-    ctaContactBtn.setAttribute('aria-expanded', String(isOpen));
+  function closeContactModal() {
+    contactModal.classList.remove('open');
+    contactModal.setAttribute('aria-hidden', 'true');
+    ctaContactBtn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('modal-open');
+    ctaContactBtn.focus();
+  }
+  ctaContactBtn.addEventListener('click', openContactModal);
+  contactModalClose.addEventListener('click', closeContactModal);
+  contactModalBackdrop.addEventListener('click', closeContactModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && contactModal.classList.contains('open')) closeContactModal();
   });
-  document.addEventListener('click', (e) => {
-    if (!contactPopover.contains(e.target) && e.target !== ctaContactBtn) closeContactPopover();
-  });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeContactPopover(); });
 
   // theme toggle
   const themeToggle = document.getElementById('themeToggle');
