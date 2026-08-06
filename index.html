@@ -157,42 +157,71 @@
   .menu-toggle span::after{top:5px;}
 
   /* ---------- Hero ---------- */
-  .hero{padding:168px 0 100px;overflow:hidden;}
+  .hero{padding:158px 0 0;overflow:hidden;}
   .hero .blob{
     position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;z-index:0;
   }
   .hero .blob-1{width:420px;height:420px;background:radial-gradient(circle,var(--terracotta-tint),transparent 70%);top:-120px;right:-100px;}
   .hero .blob-2{width:340px;height:340px;background:radial-gradient(circle,var(--gold-tint),transparent 70%);bottom:-140px;left:-80px;}
-  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
+  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;}
   .hero-copy .eyebrow{margin-bottom:18px;}
   .hero h1{font-size:clamp(2.4rem,5.6vw,4rem);line-height:1.06;}
   .hero h1 span{color:var(--terracotta);}
-  .hero .role{font-size:clamp(1.05rem,2vw,1.28rem);color:var(--ink-soft);margin-top:18px;font-weight:500;}
   .hero .desc{margin-top:20px;max-width:52ch;color:var(--ink-soft);font-size:1rem;}
   .hero .cta-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
   .hero .loc{display:flex;align-items:center;gap:8px;margin-top:30px;color:var(--ink-faint);font-size:.88rem;}
   .hero .loc svg{width:15px;height:15px;flex-shrink:0;}
 
-  .hero-card{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:34px;box-shadow:var(--shadow-lg);position:relative;
+  .role-line{margin-top:20px;height:32px;overflow:hidden;position:relative;font-size:clamp(1.05rem,2vw,1.28rem);font-weight:600;color:var(--ink-soft);}
+  .role-line ul{list-style:none;margin:0;padding:0;position:absolute;animation:cycle 10s infinite;}
+  .role-line li{height:32px;display:flex;align-items:center;}
+  .role-line li span{color:var(--terracotta);}
+  @keyframes cycle{
+    0%,20%{transform:translateY(0);}
+    25%,45%{transform:translateY(-32px);}
+    50%,70%{transform:translateY(-64px);}
+    75%,95%{transform:translateY(-96px);}
+    100%{transform:translateY(0);}
   }
-  .avatar{
-    width:88px;height:88px;border-radius:50%;
-    background:linear-gradient(150deg,var(--terracotta),var(--gold));
-    display:flex;align-items:center;justify-content:center;color:#fff;
-    font-family:var(--serif);font-size:2.1rem;font-weight:600;margin:0 auto 18px;
-    box-shadow:var(--shadow);
+  @media (prefers-reduced-motion: reduce){
+    .role-line ul{animation:none;}
   }
-  .hero-card .name{text-align:center;font-family:var(--serif);font-size:1.25rem;font-weight:600;}
-  .hero-card .title{text-align:center;color:var(--ink-soft);font-size:.86rem;margin-top:4px;}
-  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;}
-  .stat-tile{
-    background:var(--cream-alt);border-radius:var(--radius-sm);padding:16px 14px;text-align:center;
-    border:1px solid var(--line);
+
+  .hero-photo{position:relative;}
+  .hero-photo-frame{
+    aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow-lg);position:relative;background:linear-gradient(150deg,var(--terracotta-tint),var(--gold-tint));
   }
-  .stat-tile .num{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--terracotta);line-height:1;}
-  .stat-tile .lbl{font-size:.72rem;color:var(--ink-soft);margin-top:6px;letter-spacing:.02em;}
+  .hero-photo-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero-photo-frame .photo-placeholder{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--ink-faint);
+  }
+  .hero-photo-frame .photo-placeholder svg{width:56px;height:56px;opacity:.6;}
+  .hero-photo-frame .photo-placeholder span{font-size:.8rem;}
+  .photo-badge{
+    position:absolute;background:var(--card);border-radius:var(--radius-sm);padding:14px 18px;
+    box-shadow:var(--shadow-lg);text-align:center;z-index:2;
+  }
+  .photo-badge .num{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--terracotta);line-height:1;}
+  .photo-badge .lbl{font-size:.7rem;color:var(--ink-soft);margin-top:4px;letter-spacing:.02em;}
+  .photo-badge.pb1{top:-18px;left:-24px;transform:rotate(-4deg);}
+  .photo-badge.pb2{bottom:22px;right:-22px;transform:rotate(3deg);}
+  @media (max-width:640px){
+    .photo-badge.pb1{left:-10px;padding:10px 14px;}
+    .photo-badge.pb2{right:-10px;padding:10px 14px;}
+  }
+
+  .stat-ticker{margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;overflow:hidden;white-space:nowrap;position:relative;z-index:1;}
+  .stat-ticker::before,.stat-ticker::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2;}
+  .stat-ticker::before{left:0;background:linear-gradient(90deg,var(--cream),transparent);}
+  .stat-ticker::after{right:0;background:linear-gradient(-90deg,var(--cream),transparent);}
+  .stat-ticker-track{display:inline-flex;gap:14px;animation:ticker-scroll 24s linear infinite;}
+  .stat-ticker-track span{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);padding:9px 18px;border-radius:100px;font-size:.88rem;font-weight:600;color:var(--ink);white-space:nowrap;}
+  .stat-ticker-track span b{color:var(--terracotta);font-family:var(--serif);font-size:1.05rem;}
+  @keyframes ticker-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion: reduce){
+    .stat-ticker-track{animation:none;}
+  }
 
   /* ---------- About ---------- */
   .about{padding:100px 0;background:var(--cream-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
@@ -425,8 +454,9 @@
   @media (max-width: 880px){
     .nav-links{display:none;}
     .menu-toggle{display:flex;}
-    .hero{padding:140px 0 70px;}
+    .hero{padding:140px 0 40px;}
     .hero-inner{grid-template-columns:1fr;gap:44px;}
+    .hero-photo{width:100%;max-width:360px;margin:0 auto;}
     .about-grid{grid-template-columns:1fr;gap:32px;}
     .skill-grid{grid-template-columns:1fr 1fr;}
     .work-grid{grid-template-columns:1fr;}
@@ -438,7 +468,6 @@
   }
   @media (max-width: 560px){
     .skill-grid{grid-template-columns:1fr;}
-    .hero-card{padding:26px;}
   }
 </style>
 </head>
@@ -484,7 +513,14 @@
       <div class="hero-copy">
         <span class="eyebrow">Content · Social · Marketing</span>
         <h1>Hannah <span>(Pei-Ju) Kuo</span></h1>
-        <p class="role">Content Creator &amp; Social Media Manager · Marketing Strategist · Project Manager</p>
+        <div class="role-line">
+          <ul>
+            <li>Graphic Content Creator</li>
+            <li>Social Media Coordinator</li>
+            <li>Marketing Specialist</li>
+            <li>Project Executor</li>
+          </ul>
+        </div>
         <p class="desc">8+ years turning brand stories into content, campaigns and communities — from Taipei's startup and semiconductor ecosystem to Melbourne's property and education sectors. I plan, shoot, edit, run the ads, and read the numbers.</p>
         <div class="cta-row">
           <a href="#work" class="btn btn-primary">View Selected Work</a>
@@ -495,15 +531,30 @@
           Melbourne, VIC, Australia — open to hybrid &amp; remote
         </div>
       </div>
-      <div class="hero-card reveal">
-        <div class="avatar">HK</div>
-        <div class="name">Hannah (Pei-Ju) Kuo</div>
-        <div class="title">Content · Social · Marketing Strategy</div>
-        <div class="stat-grid">
-          <div class="stat-tile"><div class="num">8+</div><div class="lbl">Years Experience</div></div>
-          <div class="stat-tile"><div class="num">80K+</div><div class="lbl">Community Grown</div></div>
-          <div class="stat-tile"><div class="num">20+</div><div class="lbl">Brands &amp; Clients</div></div>
-          <div class="stat-tile"><div class="num">$450K+</div><div class="lbl">Budget Managed</div></div>
+      <div class="hero-photo reveal">
+        <div class="hero-photo-frame">
+          <div class="photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+            <span>Photo coming soon</span>
+          </div>
+          <!-- swap in the real photo: <img src="assets/images/hannah-portrait.jpg" alt="Hannah (Pei-Ju) Kuo"> -->
+        </div>
+        <div class="photo-badge pb1"><div class="num">8+</div><div class="lbl">Years Experience</div></div>
+        <div class="photo-badge pb2"><div class="num">📍</div><div class="lbl">Melbourne, AU</div></div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="stat-ticker">
+        <div class="stat-ticker-track">
+          <span><b>8+</b> Years Experience</span>
+          <span><b>80K+</b> Community Grown</span>
+          <span><b>20+</b> Brands &amp; Clients</span>
+          <span><b>$450K+</b> Budget Managed</span>
+          <span><b>8+</b> Years Experience</span>
+          <span><b>80K+</b> Community Grown</span>
+          <span><b>20+</b> Brands &amp; Clients</span>
+          <span><b>$450K+</b> Budget Managed</span>
         </div>
       </div>
     </div>
