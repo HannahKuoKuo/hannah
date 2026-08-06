@@ -163,7 +163,7 @@
   }
   .hero .blob-1{width:420px;height:420px;background:radial-gradient(circle,var(--terracotta-tint),transparent 70%);top:-120px;right:-100px;}
   .hero .blob-2{width:340px;height:340px;background:radial-gradient(circle,var(--gold-tint),transparent 70%);bottom:-140px;left:-80px;}
-  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;}
+  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.4fr .6fr;gap:56px;align-items:center;}
   .hero-copy .eyebrow{margin-bottom:18px;}
   .hero h1{font-size:clamp(2.4rem,5.6vw,4rem);line-height:1.06;}
   .hero h1 span{color:var(--terracotta);}
@@ -187,7 +187,7 @@
     .role-line ul{animation:none;}
   }
 
-  .hero-photo{position:relative;}
+  .hero-photo{position:relative;width:100%;max-width:280px;justify-self:end;}
   .hero-photo-frame{
     aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;
     box-shadow:var(--shadow-lg);position:relative;background:linear-gradient(150deg,var(--terracotta-tint),var(--gold-tint));
@@ -199,16 +199,21 @@
   .hero-photo-frame .photo-placeholder svg{width:56px;height:56px;opacity:.6;}
   .hero-photo-frame .photo-placeholder span{font-size:.8rem;}
   .photo-badge{
-    position:absolute;background:var(--card);border-radius:var(--radius-sm);padding:14px 18px;
-    box-shadow:var(--shadow-lg);text-align:center;z-index:2;
+    position:absolute;background:var(--card);border-radius:var(--radius-sm);padding:10px 13px;
+    box-shadow:var(--shadow-lg);text-align:center;z-index:2;line-height:1.15;
   }
-  .photo-badge .num{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--terracotta);line-height:1;}
-  .photo-badge .lbl{font-size:.7rem;color:var(--ink-soft);margin-top:4px;letter-spacing:.02em;}
-  .photo-badge.pb1{top:-18px;left:-24px;transform:rotate(-4deg);}
-  .photo-badge.pb2{bottom:22px;right:-22px;transform:rotate(3deg);}
+  .photo-badge .num{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--terracotta);line-height:1;white-space:nowrap;}
+  .photo-badge .lbl{font-size:.62rem;color:var(--ink-soft);margin-top:3px;letter-spacing:.01em;white-space:nowrap;}
+  .photo-badge.pb1{top:-14px;left:-30px;transform:rotate(-5deg);}
+  .photo-badge.pb2{top:34px;right:-34px;transform:rotate(4deg);}
+  .photo-badge.pb3{bottom:56px;left:-32px;transform:rotate(4deg);}
+  .photo-badge.pb4{bottom:-14px;right:-24px;transform:rotate(-3deg);}
   @media (max-width:640px){
-    .photo-badge.pb1{left:-10px;padding:10px 14px;}
-    .photo-badge.pb2{right:-10px;padding:10px 14px;}
+    .photo-badge{padding:8px 11px;}
+    .photo-badge.pb1{left:-16px;}
+    .photo-badge.pb2{right:-16px;}
+    .photo-badge.pb3{left:-16px;}
+    .photo-badge.pb4{right:-14px;}
   }
 
   .stat-ticker{margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;overflow:hidden;white-space:nowrap;position:relative;z-index:1;}
@@ -456,7 +461,7 @@
     .menu-toggle{display:flex;}
     .hero{padding:140px 0 40px;}
     .hero-inner{grid-template-columns:1fr;gap:44px;}
-    .hero-photo{width:100%;max-width:360px;margin:0 auto;}
+    .hero-photo{width:100%;max-width:260px;margin:0 auto;justify-self:center;}
     .about-grid{grid-template-columns:1fr;gap:32px;}
     .skill-grid{grid-template-columns:1fr 1fr;}
     .work-grid{grid-template-columns:1fr;}
@@ -533,14 +538,12 @@
       </div>
       <div class="hero-photo reveal">
         <div class="hero-photo-frame">
-          <div class="photo-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
-            <span>Photo coming soon</span>
-          </div>
-          <!-- swap in the real photo: <img src="assets/images/hannah-portrait.jpg" alt="Hannah (Pei-Ju) Kuo"> -->
+          <img src="assets/images/hannah-portrait.jpg" alt="Hannah (Pei-Ju) Kuo" />
         </div>
         <div class="photo-badge pb1"><div class="num">8+</div><div class="lbl">Years Experience</div></div>
-        <div class="photo-badge pb2"><div class="num">📍</div><div class="lbl">Melbourne, AU</div></div>
+        <div class="photo-badge pb2"><div class="num">🌏 EN / 中</div><div class="lbl">Bilingual</div></div>
+        <div class="photo-badge pb3"><div class="num">🤖 AI-Powered</div><div class="lbl">Claude Workflow</div></div>
+        <div class="photo-badge pb4"><div class="num">📍 Melbourne</div><div class="lbl">Open to Remote</div></div>
       </div>
     </div>
 
