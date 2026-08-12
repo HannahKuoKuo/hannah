@@ -1056,7 +1056,36 @@
         </div>
 
         <div class="work-card reveal" data-work-id="startup" role="button" tabindex="0" aria-haspopup="dialog">
-          <div class="work-media"><img src="assets/images/startup-island-events.jpg" alt="Startup Island TAIWAN event and delegation photos from Demo Days and international summits" loading="lazy" /></div>
+          <div class="work-media work-media-svg">
+            <svg viewBox="0 0 640 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Startup Island TAIWAN ecosystem brand">
+              <defs>
+                <linearGradient id="startupBg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#E8F4E8"/>
+                  <stop offset="100%" stop-color="#F3E0D4"/>
+                </linearGradient>
+                <radialGradient id="startupGlow" cx="75%" cy="25%" r="50%">
+                  <stop offset="0%" stop-color="#7C8B67" stop-opacity="0.25"/>
+                  <stop offset="100%" stop-color="#7C8B67" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <rect width="640" height="300" fill="url(#startupBg)"/>
+              <rect width="640" height="300" fill="url(#startupGlow)"/>
+
+              <!-- Decorative circles -->
+              <circle cx="520" cy="60" r="45" fill="var(--terracotta)" opacity="0.15"/>
+              <circle cx="100" cy="240" r="60" fill="var(--sage)" opacity="0.12"/>
+
+              <!-- Main title -->
+              <text x="36" y="140" font-family="'Microsoft JhengHei','PingFang TC','Noto Sans TC',-apple-system,sans-serif" font-size="48" fill="var(--ink)" font-weight="700">Startup Island</text>
+              <text x="36" y="185" font-family="'Microsoft JhengHei','PingFang TC','Noto Sans TC',-apple-system,sans-serif" font-size="36" fill="var(--ink)" font-weight="700">TAIWAN</text>
+
+              <!-- Subtitle -->
+              <text x="36" y="220" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="14" fill="var(--terracotta)" font-weight="600" letter-spacing="1.2">TOP 10 AI STARTUPS</text>
+
+              <!-- Accent line -->
+              <line x1="36" y1="235" x2="120" y2="235" stroke="var(--terracotta)" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
           <div class="work-top">
             <span class="work-badge">Ecosystem Marketing</span>
             <h3>Startup Island TAIWAN</h3>
@@ -1116,55 +1145,72 @@
 
         <div class="work-card reveal" data-work-id="taipei" role="button" tabindex="0" aria-haspopup="dialog">
           <div class="work-media work-media-svg">
-            <svg viewBox="0 0 640 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Notion resource hub grid for 30 Must-Know Taipei FAQ project">
+            <svg viewBox="0 0 640 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="30 Must-Know Taipei resource hub with 6 topic databases">
               <defs>
                 <linearGradient id="taipeiBg" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="var(--sage-tint)"/>
-                  <stop offset="100%" stop-color="var(--terracotta-tint)"/>
+                  <stop offset="0%" stop-color="#E8F4E8"/>
+                  <stop offset="100%" stop-color="#E8E0F3"/>
                 </linearGradient>
-                <linearGradient id="taipeiGlow" x1="0.5" y1="0" x2="0.5" y2="1">
-                  <stop offset="0%" stop-color="var(--sage)" stop-opacity="0.25"/>
-                  <stop offset="100%" stop-color="var(--terracotta)" stop-opacity="0.15"/>
-                </linearGradient>
+                <radialGradient id="taipeiGlow" cx="85%" cy="15%" r="55%">
+                  <stop offset="0%" stop-color="#7C8B67" stop-opacity="0.2"/>
+                  <stop offset="100%" stop-color="#7C8B67" stop-opacity="0"/>
+                </radialGradient>
               </defs>
               <rect width="640" height="300" fill="url(#taipeiBg)"/>
               <rect width="640" height="300" fill="url(#taipeiGlow)"/>
 
-              <!-- Grid of topic cards (6 topics) -->
-              <g fill="var(--card)" fill-opacity=".9" stroke="var(--line)" stroke-width="1.5">
-                <!-- Row 1 -->
-                <rect x="32" y="40" width="85" height="85" rx="6"/>
-                <rect x="129" y="40" width="85" height="85" rx="6"/>
-                <rect x="226" y="40" width="85" height="85" rx="6"/>
-                <!-- Row 2 -->
-                <rect x="32" y="137" width="85" height="85" rx="6"/>
-                <rect x="129" y="137" width="85" height="85" rx="6"/>
-                <rect x="226" y="137" width="85" height="85" rx="6"/>
+              <!-- Decorative element -->
+              <circle cx="560" cy="80" r="50" fill="var(--sage)" opacity="0.12"/>
+
+              <!-- Title section -->
+              <text x="36" y="65" font-family="'Microsoft JhengHei','PingFang TC','Noto Sans TC',-apple-system,sans-serif" font-size="44" fill="var(--ink)" font-weight="700">30 Must-Know</text>
+              <text x="36" y="105" font-family="'Microsoft JhengHei','PingFang TC','Noto Sans TC',-apple-system,sans-serif" font-size="44" fill="var(--ink)" font-weight="700">Ready for Taipei</text>
+
+              <!-- Subtitle -->
+              <text x="36" y="145" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="13" fill="var(--terracotta)" font-weight="600" letter-spacing="0.8">CONTENT STRATEGY</text>
+
+              <!-- Topic cards on right -->
+              <g font-family="var(--sans)" font-size="9" font-weight="600" fill="var(--ink)">
+                <!-- Card 1 -->
+                <rect x="430" y="35" width="50" height="50" rx="5" fill="var(--card)" opacity="0.88"/>
+                <text x="455" y="48" text-anchor="middle" font-size="18">🚀</text>
+                <text x="455" y="75" text-anchor="middle" font-size="8">Startup</text>
+
+                <!-- Card 2 -->
+                <rect x="492" y="35" width="50" height="50" rx="5" fill="var(--card)" opacity="0.88"/>
+                <text x="517" y="48" text-anchor="middle" font-size="18">🤖</text>
+                <text x="517" y="75" text-anchor="middle" font-size="8">AI / IoT</text>
+
+                <!-- Card 3 -->
+                <rect x="554" y="35" width="50" height="50" rx="5" fill="var(--card)" opacity="0.88"/>
+                <text x="579" y="48" text-anchor="middle" font-size="18">🏥</text>
+                <text x="579" y="75" text-anchor="middle" font-size="8">Health Tech</text>
+
+                <!-- Card 4 -->
+                <rect x="430" y="97" width="50" height="50" rx="5" fill="var(--card)" opacity="0.88"/>
+                <text x="455" y="110" text-anchor="middle" font-size="18">📋</text>
+                <text x="455" y="137" text-anchor="middle" font-size="8">Visa & Legal</text>
+
+                <!-- Card 5 -->
+                <rect x="492" y="97" width="50" height="50" rx="5" fill="var(--card)" opacity="0.88"/>
+                <text x="517" y="110" text-anchor="middle" font-size="18">🏙️</text>
+                <text x="517" y="137" text-anchor="middle" font-size="8">Living Guide</text>
+
+                <!-- Card 6 -->
+                <rect x="554" y="97" width="50" height="50" rx="5" fill="var(--card)" opacity="0.88"/>
+                <text x="579" y="110" text-anchor="middle" font-size="18">📚</text>
+                <text x="579" y="137" text-anchor="middle" font-size="8">Resources</text>
               </g>
 
-              <!-- Icons and labels for each topic -->
-              <g font-family="var(--sans)" font-size="11" font-weight="600" fill="var(--ink)">
-                <!-- Startup Ecosystem -->
-                <text x="74.5" y="55" text-anchor="middle" font-size="22">🚀</text>
-                <text x="74.5" y="115" text-anchor="middle">Startup</text>
-
-                <!-- AI/IoT -->
-                <text x="171.5" y="55" text-anchor="middle" font-size="22">🤖</text>
-                <text x="171.5" y="115" text-anchor="middle">AI / IoT</text>
-
-                <!-- Health Tech -->
-                <text x="268.5" y="55" text-anchor="middle" font-size="22">🏥</text>
-                <text x="268.5" y="115" text-anchor="middle">Health Tech</text>
-
-                <!-- Visa & Legal -->
-                <text x="74.5" y="152" text-anchor="middle" font-size="22">📋</text>
-                <text x="74.5" y="212" text-anchor="middle">Visa & Legal</text>
-
-                <!-- Living Guide -->
-                <text x="171.5" y="152" text-anchor="middle" font-size="22">🏙️</text>
-                <text x="171.5" y="212" text-anchor="middle">Living Guide</text>
-
-                <!-- Resources -->
+              <!-- Stats on right side -->
+              <g font-family="-apple-system, 'Segoe UI', sans-serif" text-anchor="middle">
+                <text x="517" y="220" font-size="24" fill="var(--terracotta)" font-weight="700">30+</text>
+                <text x="517" y="240" font-size="11" fill="var(--ink-soft)" font-weight="500">FAQs Answered</text>
+                <text x="517" y="260" font-size="24" fill="var(--sage)" font-weight="700">6</text>
+                <text x="517" y="280" font-size="11" fill="var(--ink-soft)" font-weight="500">Topic Databases</text>
+              </g>
+            </svg>
+          </div>
                 <text x="268.5" y="152" text-anchor="middle" font-size="22">📚</text>
                 <text x="268.5" y="212" text-anchor="middle">Resources</text>
               </g>
