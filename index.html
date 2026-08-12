@@ -1539,7 +1539,7 @@
       ? `<div class="hexa-visit"><a href="${visit.url}" target="_blank" rel="noopener" class="btn btn-primary">${visit.label}</a></div>`
       : '';
 
-    modalBody.innerHTML = galleryHtml + visitHtml + top.outerHTML + desc.outerHTML + stats.outerHTML + footHtml;
+    modalBody.innerHTML = top.outerHTML + stats.outerHTML + desc.outerHTML + galleryHtml + visitHtml + footHtml;
 
     lastFocused = document.activeElement;
     modal.classList.add('open');
