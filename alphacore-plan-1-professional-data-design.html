@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlphaCore — 方案 1：專業數據風</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #fafafa; overflow-x: hidden; }
+
+        /* ===== HERO 背景（同量子光網風） ===== */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #f8f7ff 0%, #ede9fe 100%);
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .glow-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(124,58,237,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124,58,237,0.06) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+        }
+        .glow-grid::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 50% 50%, transparent 50%, rgba(255,255,255,0.6) 100%);
+        }
+        .grid-node {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(124,58,237,0.2), transparent);
+            z-index: 0;
+            animation: nodePulse 4s ease-in-out infinite alternate;
+        }
+        @keyframes nodePulse {
+            0% { opacity: 0.1; transform: scale(0.8); box-shadow: 0 0 0px rgba(124,58,237,0); }
+            100% { opacity: 0.6; transform: scale(1.8); box-shadow: 0 0 40px rgba(124,58,237,0.1); }
+        }
+        .quantum-line {
+            position: absolute;
+            height: 1.5px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, transparent, rgba(124,58,237,0.06), rgba(167,139,250,0.15), rgba(124,58,237,0.06), transparent);
+            z-index: 0;
+            animation: quantumFlow 7s ease-in-out infinite;
+        }
+        .quantum-line::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(167,139,250,0.4), rgba(124,58,237,0.1));
+            box-shadow: 0 0 30px rgba(124,58,237,0.15);
+            animation: quantumDot 7s linear infinite;
+        }
+        @keyframes quantumFlow {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.8; }
+        }
+        @keyframes quantumDot {
+            0% { transform: translateX(-100%) scale(0.5); opacity: 0; }
+            30% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { transform: translateX(100%) scale(1.3); opacity: 0; }
+        }
+        .fiber-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(124,58,237,0.04);
+            z-index: 0;
+            animation: ringRotate 30s linear infinite;
+        }
+        .fiber-ring::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(167,139,250,0.3);
+            box-shadow: 0 0 20px rgba(124,58,237,0.2);
+        }
+        @keyframes ringRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .sphere {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, rgba(124,58,237,0.06), rgba(124,58,237,0.01));
+            border: 1px solid rgba(124,58,237,0.03);
+            animation: floatSphere 25s ease-in-out infinite alternate;
+            backdrop-filter: blur(1px);
+            z-index: 0;
+        }
+        @keyframes floatSphere {
+            0% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -40px) scale(1.05); }
+            50% { transform: translate(-25px, 30px) scale(0.95); }
+            75% { transform: translate(40px, 25px) scale(1.03); }
+            100% { transform: translate(-30px, -20px) scale(1); }
+        }
+        .sphere-1 { width: 480px; height: 480px; top: -180px; right: -130px; }
+        .sphere-2 { width: 320px; height: 320px; bottom: -100px; left: -90px; animation-delay: -6s; }
+        .sphere-3 { width: 220px; height: 220px; top: 10%; left: 50%; animation-delay: -12s; }
+        .hero-content { position: relative; z-index: 1; }
+
+        /* ===== 品牌風格 ===== */
+        .text-gradient {
+            background: linear-gradient(135deg, #4c1d95, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #4c1d95, #6d28d9);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 16px -4px rgba(76,29,149,0.25);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px -6px rgba(76,29,149,0.35);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #4c1d95;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 2px solid #4c1d95;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .btn-outline:hover {
+            background: #4c1d95;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .badge-fintech {
+            background: rgba(76,29,149,0.08);
+            color: #4c1d95;
+            padding: 4px 18px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(76,29,149,0.06);
+        }
+        nav {
+            background: rgba(255,255,255,0.90);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(124,58,237,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .alpha-symbol {
+            font-size: 72px;
+            font-weight: 300;
+            background: linear-gradient(135deg, #4c1d95, #7c3aed, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Georgia', serif;
+            display: inline-block;
+            opacity: 0.6;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(124,58,237,0.06);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            border-color: rgba(124,58,237,0.15);
+            background: rgba(255,255,255,0.7);
+            transform: translateY(-2px);
+        }
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            font-variant-numeric: tabular-nums;
+            background: linear-gradient(135deg, #4c1d95, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-number.green {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-number.gray {
+            background: linear-gradient(135deg, #64748b, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== 共用元件 ===== */
+        .section-badge {
+            background: rgba(76,29,149,0.08);
+            color: #4c1d95;
+            padding: 4px 18px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(76,29,149,0.06);
+        }
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px 28px;
+            border: 1px solid #f1f5f9;
+            transition: all 0.4s ease;
+        }
+        .feature-card:hover {
+            border-color: rgba(124,58,237,0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px -12px rgba(76,29,149,0.08);
+        }
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background: rgba(124,58,237,0.08);
+        }
+        .feature-tag {
+            display: inline-block;
+            padding: 2px 14px;
+            border-radius: 9999px;
+            font-size: 11px;
+            font-weight: 600;
+            background: rgba(124,58,237,0.08);
+            color: #4c1d95;
+        }
+        .phase-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 24px;
+            border-left: 4px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        .phase-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px -8px rgba(0,0,0,0.04);
+        }
+        .phase-card.active {
+            border-left-color: #7c3aed;
+            background: rgba(124,58,237,0.02);
+        }
+        .phase-card.done {
+            border-left-color: #22c55e;
+        }
+
+        /* ===== 新增：流程步驟 ===== */
+        .step-item {
+            position: relative;
+            padding: 24px;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+        }
+        .step-item:hover {
+            border-color: rgba(124,58,237,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px -8px rgba(76,29,149,0.06);
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4c1d95, #7c3aed);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .step-connector {
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(124,58,237,0.2), transparent);
+        }
+
+        /* ===== 新增：技術棧標籤 ===== */
+        .tech-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 500;
+            background: rgba(255,255,255,0.6);
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+        .tech-tag:hover {
+            border-color: rgba(124,58,237,0.2);
+            background: rgba(124,58,237,0.04);
+        }
+
+        /* ===== 新增：客戶案例 ===== */
+        .case-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid #f1f5f9;
+            transition: all 0.4s ease;
+        }
+        .case-card:hover {
+            border-color: rgba(124,58,237,0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px -12px rgba(76,29,149,0.06);
+        }
+        .case-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #4c1d95, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #f8f7ff, #ede9fe);
+        }
+
+        @media (max-width: 768px) {
+            .sphere-1 { width: 300px; height: 300px; top: -100px; right: -80px; }
+            .sphere-2 { width: 200px; height: 200px; bottom: -60px; left: -50px; }
+            .sphere-3 { width: 160px; height: 160px; top: 12%; left: 45%; }
+            .stat-number { font-size: 24px; }
+            .alpha-symbol { font-size: 48px; }
+            .glow-grid { background-size: 30px 30px; }
+            .hero-section { min-height: 80vh; }
+            .step-connector { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav>
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <span class="text-3xl font-serif font-light text-purple-700">α</span>
+                <div>
+                    <span class="text-xl font-bold text-gray-900">Alpha<span class="text-purple-700">Core</span></span>
+                    <span class="block text-[10px] tracking-[0.15em] text-gray-400 font-medium">AI 驅動的量化決策核心</span>
+                </div>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#" class="text-sm text-gray-500 hover:text-purple-700 transition font-medium">技術架構</a>
+                <a href="#" class="text-sm text-gray-500 hover:text-purple-700 transition font-medium">量化儀表板</a>
+                <a href="#" class="text-sm text-gray-500 hover:text-purple-700 transition font-medium">研究報告</a>
+                <a href="#" class="btn-primary text-sm py-2 px-5">開始探索</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero-section">
+        <div class="hero-bg-layer">
+            <div class="glow-grid"></div>
+            <div class="grid-node" style="width:12px; height:12px; top:8%; left:10%; animation-delay:0s;"></div>
+            <div class="grid-node" style="width:8px; height:8px; top:15%; right:12%; animation-delay:1s;"></div>
+            <div class="grid-node" style="width:14px; height:14px; top:30%; left:18%; animation-delay:2s;"></div>
+            <div class="grid-node" style="width:10px; height:10px; top:45%; right:15%; animation-delay:0.5s;"></div>
+            <div class="grid-node" style="width:16px; height:16px; top:60%; left:12%; animation-delay:3s;"></div>
+            <div class="grid-node" style="width:8px; height:8px; top:75%; right:8%; animation-delay:1.5s;"></div>
+            <div class="grid-node" style="width:12px; height:12px; top:20%; left:45%; animation-delay:2.5s;"></div>
+            <div class="grid-node" style="width:10px; height:10px; top:55%; left:55%; animation-delay:0.8s;"></div>
+            <div class="grid-node" style="width:14px; height:14px; top:10%; left:70%; animation-delay:3.5s;"></div>
+            <div class="grid-node" style="width:8px; height:8px; top:40%; left:85%; animation-delay:1.2s;"></div>
+            <div class="grid-node" style="width:12px; height:12px; top:70%; left:75%; animation-delay:2.8s;"></div>
+            <div class="grid-node" style="width:10px; height:10px; top:85%; left:25%; animation-delay:0.3s;"></div>
+            <div class="grid-node" style="width:14px; height:14px; top:25%; left:30%; animation-delay:4s;"></div>
+            <div class="grid-node" style="width:8px; height:8px; top:50%; left:40%; animation-delay:1.8s;"></div>
+            <div class="grid-node" style="width:12px; height:12px; top:80%; left:65%; animation-delay:3.2s;"></div>
+            <div class="quantum-line" style="width:300px; top:8%; left:5%; transform:rotate(-20deg);"></div>
+            <div class="quantum-line" style="width:220px; top:38%; right:3%; transform:rotate(25deg); animation-delay:1.5s;"></div>
+            <div class="quantum-line" style="width:340px; bottom:28%; left:2%; transform:rotate(12deg); animation-delay:3s;"></div>
+            <div class="quantum-line" style="width:190px; top:55%; right:8%; transform:rotate(-10deg); animation-delay:0.8s;"></div>
+            <div class="quantum-line" style="width:380px; top:18%; left:35%; transform:rotate(-3deg); animation-delay:2.2s;"></div>
+            <div class="quantum-line" style="width:250px; bottom:15%; right:25%; transform:rotate(20deg); animation-delay:4s;"></div>
+            <div class="fiber-ring" style="width:150px; height:150px; top:5%; right:20%;"></div>
+            <div class="fiber-ring" style="width:100px; height:100px; bottom:20%; left:15%; animation-duration:20s; animation-delay:-5s;"></div>
+            <div class="fiber-ring" style="width:80px; height:80px; top:40%; left:5%; animation-duration:25s; animation-delay:-10s;"></div>
+            <div class="sphere sphere-1"></div>
+            <div class="sphere sphere-2"></div>
+            <div class="sphere sphere-3"></div>
+        </div>
+
+        <div class="hero-content max-w-6xl mx-auto px-4 py-16 md:py-24 w-full">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="badge-fintech inline-block mb-6">🚀 AlphaCore 量化引擎 v2.0</span>
+                <span class="alpha-symbol">α</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                    AI 驅動的<br /><span class="text-gradient">量化決策核心</span>
+                </h1>
+                <p class="text-lg text-gray-600 mt-6 max-w-2xl mx-auto leading-relaxed">
+                    LightGBM × FinBERT 雙 AI 引擎驅動<br class="hidden sm:block" />
+                    為機構投資人打造數據科學賦能的決策核心
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 mt-10">
+                    <a href="#" class="btn-primary">查看 Demo →</a>
+                    <a href="#" class="btn-outline">了解更多</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-3xl mx-auto">
+                <div class="stat-card">
+                    <div class="stat-number" id="stat1" data-target="1.61" data-decimal="2">0.00</div>
+                    <div class="text-sm text-gray-500 font-medium mt-1">夏普比率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number green" id="stat2" data-target="22.5" data-decimal="1">0.0%</div>
+                    <div class="text-sm text-gray-500 font-medium mt-1">年化報酬率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="stat3" data-target="89.7" data-decimal="1">0.0%</div>
+                    <div class="text-sm text-gray-500 font-medium mt-1">FinBERT 準確率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number gray" id="stat4" data-target="158" data-decimal="0">0</div>
+                    <div class="text-sm text-gray-500 font-medium mt-1">Alpha 因子</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 新增：數據處理流程 ===== -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="section-badge inline-block mb-3">數據流程</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">從數據到決策的智慧路徑</h2>
+                <p class="text-gray-500 mt-2">四階段數據處理流程，確保每一筆決策都有數據支持</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6 relative">
+                <div class="step-item">
+                    <div class="flex items-center gap-4">
+                        <div class="step-number">1</div>
+                        <div>
+                            <div class="font-bold text-gray-900">數據採集</div>
+                            <div class="text-sm text-gray-500">Yahoo Finance · NewsAPI · FRED</div>
+                        </div>
+                    </div>
+                    <div class="step-connector"></div>
+                    <p class="text-sm text-gray-600 mt-3">即時抓取市場數據、新聞情緒、總經指標</p>
+                </div>
+                <div class="step-item">
+                    <div class="flex items-center gap-4">
+                        <div class="step-number">2</div>
+                        <div>
+                            <div class="font-bold text-gray-900">AI 分析</div>
+                            <div class="text-sm text-gray-500">LightGBM · FinBERT</div>
+                        </div>
+                    </div>
+                    <div class="step-connector"></div>
+                    <p class="text-sm text-gray-600 mt-3">158 個因子分析 + 情緒評分，生成預測訊號</p>
+                </div>
+                <div class="step-item">
+                    <div class="flex items-center gap-4">
+                        <div class="step-number">3</div>
+                        <div>
+                            <div class="font-bold text-gray-900">組合優化</div>
+                            <div class="text-sm text-gray-500">逆變異數加權</div>
+                        </div>
+                    </div>
+                    <div class="step-connector"></div>
+                    <p class="text-sm text-gray-600 mt-3">多訊號整合，產出最優投資組合權重</p>
+                </div>
+                <div class="step-item">
+                    <div class="flex items-center gap-4">
+                        <div class="step-number">4</div>
+                        <div>
+                            <div class="font-bold text-gray-900">交易執行</div>
+                            <div class="text-sm text-gray-500">Alpaca · NautilusTrader</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-3">自動化下單，即時監控，風險管理</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="py-20 bg-gray-50/60">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="section-badge inline-block mb-3">核心技術</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">AI 驅動的量化決策核心</h2>
+                <p class="text-gray-500 mt-2">從數據到交易，全鏈條 AI 賦能</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="font-bold text-lg mt-4">LightGBM 預測</h3>
+                    <p class="text-sm text-gray-600 mt-2 leading-relaxed">158 個技術因子分析，橫斷面股票排序，精準預測超額報酬</p>
+                    <span class="feature-tag mt-3">Alpha158</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="font-bold text-lg mt-4">FinBERT 情緒分析</h3>
+                    <p class="text-sm text-gray-600 mt-2 leading-relaxed">即時解析新聞與財經文本，89.7% 準確率轉化為量化訊號</p>
+                    <span class="feature-tag mt-3">NLP</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="font-bold text-lg mt-4">風險管理框架</h3>
+                    <p class="text-sm text-gray-600 mt-2 leading-relaxed">15% 最大回撤停損 · 3% 單日虧損上限 · 10% 單一持股限制</p>
+                    <span class="feature-tag mt-3">硬性約束</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="font-bold text-lg mt-4">多訊號整合</h3>
+                    <p class="text-sm text-gray-600 mt-2 leading-relaxed">逆變異數加權整合 LightGBM 與經典策略訊號，提升穩健性</p>
+                    <span class="feature-tag mt-3">Ensemble</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="font-bold text-lg mt-4">紙上交易驗證</h3>
+                    <p class="text-sm text-gray-600 mt-2 leading-relaxed">3 個月模擬交易，驗證策略於真實市場條件下的表現</p>
+                    <span class="feature-tag mt-3">Phase 2</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="font-bold text-lg mt-4">機構級合規</h3>
+                    <p class="text-sm text-gray-600 mt-2 leading-relaxed">澳洲 AFSL 框架，專為批發投資人與機構客戶設計</p>
+                    <span class="feature-tag mt-3">監管準備</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 新增：技術棧 ===== -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="section-badge inline-block mb-3">技術棧</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">現代化量化技術堆疊</h2>
+                <p class="text-gray-500 mt-2">開放式生態系統，確保系統可擴展性與維護性</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="tech-tag">🐍 Python 3.11</span>
+                <span class="tech-tag">⚡ LightGBM</span>
+                <span class="tech-tag">🤗 Transformers</span>
+                <span class="tech-tag">📊 PostgreSQL</span>
+                <span class="tech-tag">🔄 Redis</span>
+                <span class="tech-tag">📈 Qlib</span>
+                <span class="tech-tag">🌐 Next.js 14</span>
+                <span class="tech-tag">🎨 Tailwind CSS</span>
+                <span class="tech-tag">☁️ AWS / Vercel</span>
+                <span class="tech-tag">📊 Grafana</span>
+                <span class="tech-tag">🔗 Alpaca API</span>
+                <span class="tech-tag">📡 WebSocket</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PHASES ===== -->
+    <section class="py-20 bg-gray-50/60">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="section-badge inline-block mb-3">專案進度</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Phase 2/3 — 準備進入紙上交易</h2>
+                <p class="text-gray-500 mt-2">系統性驗證流程，確保策略穩健性</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="phase-card done">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-sm font-semibold text-emerald-600">✅ 已完成</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">Phase 1</h3>
+                    <ul class="mt-3 space-y-1.5 text-sm text-gray-600">
+                        <li>• LightGBM 模型開發 (Sharpe 1.61)</li>
+                        <li>• FinBERT 情緒分析 (89.7%)</li>
+                        <li>• 50 支 S&P 500 回測 (2018-2025)</li>
+                        <li>• 風險框架建立</li>
+                    </ul>
+                    <div class="mt-3 text-xs text-gray-400">2026 Q1</div>
+                </div>
+                <div class="phase-card active">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-sm font-semibold text-purple-700">🔄 進行中</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-purple-700">Phase 2</h3>
+                    <ul class="mt-3 space-y-1.5 text-sm text-gray-600">
+                        <li>• 多訊號整合驗證 (目標 Sharpe ≥ 0.8)</li>
+                        <li>• 壓力測試 (歷史危機情境)</li>
+                        <li>• 風險參數校準</li>
+                        <li>• 紙上交易準備</li>
+                    </ul>
+                    <div class="mt-3 text-xs text-purple-600 font-medium">2026 Q2</div>
+                </div>
+                <div class="phase-card">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-sm font-semibold text-gray-400">📋 規劃中</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">Phase 3</h3>
+                    <ul class="mt-3 space-y-1.5 text-sm text-gray-600">
+                        <li>• 即時交易部署</li>
+                        <li>• 資本逐步擴張</li>
+                        <li>• AFSL 監管核准</li>
+                        <li>• 機構客戶上線</li>
+                    </ul>
+                    <div class="mt-3 text-xs text-gray-400">2026 Q3-Q4</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 新增：績效亮點 ===== -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="section-badge inline-block mb-3">績效亮點</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">數據說話的量化成果</h2>
+                <p class="text-gray-500 mt-2">基於 2018-2025 年 S&P 500 回測數據</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="case-card text-center">
+                    <div class="case-number">1.61</div>
+                    <div class="font-bold text-gray-900 mt-1">夏普比率</div>
+                    <p class="text-sm text-gray-500">風險調整後報酬</p>
+                </div>
+                <div class="case-card text-center">
+                    <div class="case-number" style="background: linear-gradient(135deg, #16a34a, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">22.5%</div>
+                    <div class="font-bold text-gray-900 mt-1">年化報酬率</div>
+                    <p class="text-sm text-gray-500">CAGR</p>
+                </div>
+                <div class="case-card text-center">
+                    <div class="case-number">89.7%</div>
+                    <div class="font-bold text-gray-900 mt-1">FinBERT 準確率</div>
+                    <p class="text-sm text-gray-500">金融情緒分析</p>
+                </div>
+                <div class="case-card text-center">
+                    <div class="case-number" style="background: linear-gradient(135deg, #64748b, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">-15%</div>
+                    <div class="font-bold text-gray-900 mt-1">最大回撤</div>
+                    <p class="text-sm text-gray-500">風險管理停損線</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section py-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="section-badge inline-block mb-4">🚀 立即體驗</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">準備好探索<br class="sm:hidden" />量化決策核心的 AI 力量？</h2>
+            <p class="text-gray-500 mt-4 max-w-xl mx-auto">查看互動式 Demo，了解 AlphaCore 如何運作</p>
+            <a href="#" class="inline-flex items-center gap-2 mt-8 btn-primary px-10 py-4 text-base">
+                進入 Demo 儀表板 →
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="border-t border-gray-100 py-8 bg-white">
+        <div class="max-w-6xl mx-auto px-4 text-center text-sm text-gray-400">
+            <span class="text-purple-700 font-bold">α AlphaCore</span> — AI 驅動的量化決策核心 © 2026 · 澳洲 AFSL 準備中
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const stats = [
+                { element: document.getElementById('stat1'), target: 1.61, decimal: 2, suffix: '' },
+                { element: document.getElementById('stat2'), target: 22.5, decimal: 1, suffix: '%' },
+                { element: document.getElementById('stat3'), target: 89.7, decimal: 1, suffix: '%' },
+                { element: document.getElementById('stat4'), target: 158, decimal: 0, suffix: '' }
+            ];
+            const validStats = stats.filter(s => s.element !== null);
+            if (validStats.length === 0) return;
+            const duration = 2000;
+            const interval = 16;
+            const totalSteps = duration / interval;
+            let progress = 0;
+
+            function getStartValue(el) {
+                const text = el.textContent || '0';
+                const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+                return isNaN(num) ? 0 : num;
+            }
+
+            function updateDisplay(element, value, decimal, suffix) {
+                if (suffix === '%') {
+                    element.textContent = value.toFixed(decimal) + '%';
+                } else {
+                    element.textContent = value.toFixed(decimal);
+                }
+            }
+
+            validStats.forEach(stat => { stat.start = getStartValue(stat.element); });
+
+            function animate() {
+                progress += 1;
+                const percent = Math.min(progress / totalSteps, 1);
+                const ease = 1 - Math.pow(1 - percent, 3);
+                let allDone = true;
+                validStats.forEach(stat => {
+                    const currentValue = stat.start + (stat.target - stat.start) * ease;
+                    updateDisplay(stat.element, currentValue, stat.decimal, stat.suffix);
+                    if (percent < 1) allDone = false;
+                });
+                if (!allDone) {
+                    requestAnimationFrame(animate);
+                } else {
+                    validStats.forEach(stat => {
+                        updateDisplay(stat.element, stat.target, stat.decimal, stat.suffix);
+                    });
+                }
+            }
+            setTimeout(() => { animate(); }, 400);
+        });
+    </script>
+
+</body>
+</html>
