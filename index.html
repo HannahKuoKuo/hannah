@@ -400,13 +400,14 @@
     transition:opacity .3s ease, transform .3s ease;
   }
   .work-dock.visible{transform:translate(-50%,0);opacity:1;pointer-events:auto;}
-  .work-dock a{
-    font-size:.82rem;font-weight:600;color:var(--ink);text-decoration:none;
+  .work-dock a, .work-dock button{
+    font:inherit;font-size:.82rem;font-weight:600;color:var(--ink);text-decoration:none;
     padding:9px 16px;border-radius:100px;white-space:nowrap;transition:background .2s ease,color .2s ease;
+    border:none;background:none;cursor:pointer;
   }
   .work-dock a:first-child{background:var(--terracotta);color:#fff;}
   .work-dock a:first-child:hover{background:var(--terracotta-dark);}
-  .work-dock a:not(:first-child):hover{background:var(--cream-alt);color:var(--terracotta);}
+  .work-dock a:not(:first-child):hover, .work-dock button:hover{background:var(--cream-alt);color:var(--terracotta);}
   @media (prefers-reduced-motion: reduce){
     .work-dock{transition:none;}
   }
@@ -417,7 +418,7 @@
     }
     .work-dock::-webkit-scrollbar{display:none;}
     .work-dock.visible{transform:translateY(0);}
-    .work-dock a{flex:none;white-space:nowrap;padding:10px 14px;font-size:.78rem;}
+    .work-dock a, .work-dock button{flex:none;white-space:nowrap;padding:10px 14px;font-size:.78rem;}
   }
   @media print{
     .work-dock{display:none;}
@@ -1288,6 +1289,7 @@
   <a href="https://claude.ai/code/artifact/f86cd345-8498-4d3b-9f62-4195cbe64344" target="_blank" rel="noopener">Download Resume</a>
   <a href="https://canva.link/785ppa59ptm6dj7" target="_blank" rel="noopener">Canva Portfolio ↗</a>
   <a href="https://www.linkedin.com/in/hannah-kuo-4b7468188/" target="_blank" rel="noopener">LinkedIn Profile ↗</a>
+  <button type="button" id="dockTop">↑ Back to Top</button>
 </div>
 
 <footer>
@@ -1309,6 +1311,10 @@
   const onDockScroll = () => workDock.classList.toggle('visible', window.scrollY > dockThreshold());
   document.addEventListener('scroll', onDockScroll, {passive:true});
   onDockScroll();
+
+  document.getElementById('dockTop').addEventListener('click', () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
 
   // mobile menu
   const menuToggle = document.getElementById('menuToggle');
