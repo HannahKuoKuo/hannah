@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pei-Ju (Hannah) Kuo — Resume</title>
+<meta name="description" content="Pei-Ju (Hannah) Kuo — Content Marketing Specialist, Digital Media & Advertising Strategist, Social Media & Performance Marketing Expert." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%23142055%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-family=%22Arial,sans-serif%22 font-weight=%22700%22>P</text></svg>" />
+<style>
+  :root{
+    --bg:#FFFFFF; --navy:#14204E; --navy-soft:#3C4A72; --ink:#4B5566; --ink-faint:#8890A0;
+    --orange:#E8642E; --orange-tint:#FDECE4; --line:#E7E3E0; --peach:#FCEFE9; --card:#FFFFFF;
+    --shadow: 0 1px 2px rgba(20,32,78,.05), 0 8px 20px -10px rgba(20,32,78,.12);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--navy);
+    font-family:-apple-system,'Segoe UI','PingFang TC','Noto Sans TC',Arial,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .topbar{border-bottom:1px solid var(--line);padding:14px 0;}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .back-link{display:inline-flex;align-items:center;gap:6px;font-size:.86rem;font-weight:600;color:var(--ink);text-decoration:none;}
+  .back-link:hover{color:var(--orange);}
+  .back-link svg{width:16px;height:16px;}
+  .dl-link{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;font-weight:700;color:#fff;background:var(--navy);padding:9px 18px;border-radius:100px;text-decoration:none;}
+  .dl-link:hover{background:#0B1638;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(20px,4vw,40px);}
+
+  .sheet{position:relative;max-width:1080px;margin:0 auto;padding:56px clamp(20px,4vw,54px) 60px;overflow:hidden;}
+  .deco-blob{position:absolute;top:-90px;right:-90px;width:340px;height:340px;border-radius:50%;background:var(--peach);z-index:0;}
+  .deco-corner{position:absolute;top:44px;left:clamp(20px,4vw,54px);width:16px;height:16px;border-top:3px solid var(--orange);border-left:3px solid var(--orange);z-index:1;}
+  .deco-dots{position:absolute;top:40px;left:calc(clamp(20px,4vw,54px) + 34px);display:grid;grid-template-columns:repeat(4,5px);gap:5px;z-index:1;}
+  .deco-dots span{width:4px;height:4px;border-radius:50%;background:var(--orange);opacity:.55;}
+
+  header.res-head{position:relative;z-index:1;padding-top:44px;display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:start;}
+  .res-name h1{font-size:clamp(2.1rem,4.4vw,3rem);margin:0;font-weight:800;letter-spacing:-.01em;line-height:1.05;}
+  .res-name .sub{font-size:clamp(1.3rem,2.6vw,1.7rem);font-weight:800;margin-top:2px;}
+  .res-rule{width:64px;height:3px;background:var(--orange);margin:16px 0 14px;border-radius:2px;}
+  .res-titles{color:var(--navy-soft);font-size:.98rem;font-weight:600;}
+  .res-titles div{padding:2px 0;}
+  .res-contact{display:flex;flex-direction:column;gap:12px;}
+  .res-contact a, .res-contact div.row{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy);font-size:.9rem;font-weight:600;}
+  .res-contact a:hover{color:var(--orange);}
+  .res-contact .ic{width:30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;flex:none;}
+  .res-contact .ic svg{width:15px;height:15px;}
+
+  .stat-strip{position:relative;z-index:1;margin-top:34px;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;border:1px solid var(--line);border-radius:16px;padding:22px 16px;box-shadow:var(--shadow);}
+  .stat-strip .st{text-align:center;}
+  .stat-strip .ic{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--orange);color:var(--orange);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;}
+  .stat-strip .ic svg{width:17px;height:17px;}
+  .stat-strip .num{font-weight:800;font-size:1.15rem;color:var(--navy);}
+  .stat-strip .lbl{font-size:.68rem;color:var(--ink);margin-top:3px;line-height:1.3;}
+
+  .res-body{position:relative;z-index:1;margin-top:44px;display:grid;grid-template-columns:.9fr 1.55fr;gap:44px;align-items:start;}
+  .res-h2{font-size:1.05rem;font-weight:800;letter-spacing:.01em;margin:0 0 14px;}
+  .side-block + .side-block{margin-top:30px;padding-top:26px;border-top:1px solid var(--line);}
+  .about-p{color:var(--ink);font-size:.92rem;}
+  .skill-group + .skill-group{margin-top:20px;}
+  .skill-group .sg-head{display:flex;align-items:center;gap:9px;color:var(--orange);font-weight:800;font-size:.94rem;}
+  .skill-group .sg-head svg{width:17px;height:17px;flex:none;}
+  .skill-group ul{margin:8px 0 0;padding:0 0 0 26px;color:var(--ink);font-size:.86rem;}
+  .skill-group li{padding:2px 0;}
+  .lang-item{display:flex;align-items:center;gap:12px;font-size:.86rem;color:var(--ink);margin-top:8px;}
+  .lang-item .lname{width:110px;flex:none;font-weight:600;color:var(--navy);}
+  .lang-bar{flex:1;height:6px;border-radius:4px;background:var(--line);overflow:hidden;}
+  .lang-bar span{display:block;height:100%;background:var(--navy);border-radius:4px;}
+  .connect-grid{display:flex;gap:18px;margin-top:14px;}
+  .connect-grid figure{margin:0;text-align:center;}
+  .connect-grid img{width:76px;height:76px;border:1px solid var(--line);border-radius:8px;display:block;}
+  .connect-grid figcaption{font-size:.76rem;font-weight:700;margin-top:6px;color:var(--navy);}
+
+  .edu-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .edu-card{display:flex;flex-direction:column;gap:10px;}
+  .edu-logo{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.86rem;flex:none;}
+  .edu-card h3{font-size:.92rem;font-weight:800;margin:0;line-height:1.25;}
+  .edu-card .prog{font-size:.8rem;color:var(--ink);margin-top:2px;}
+  .edu-card .loc{font-size:.78rem;color:var(--ink-faint);margin-top:2px;}
+
+  .xp-head-row{margin-top:38px;}
+  .xp-list{position:relative;margin-top:16px;}
+  .xp-list::before{content:"";position:absolute;left:24px;top:6px;bottom:6px;width:2px;background:var(--line);}
+  .xp-item{position:relative;padding-left:64px;padding-bottom:30px;}
+  .xp-item:last-child{padding-bottom:0;}
+  .xp-logo{position:absolute;left:0;top:0;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;z-index:1;box-shadow:var(--shadow);}
+  .xp-item h3{font-size:1.02rem;font-weight:800;margin:2px 0 0;}
+  .xp-item .org{color:var(--orange);font-weight:700;font-size:.88rem;margin-top:2px;}
+  .xp-item .sub{color:var(--navy-soft);font-weight:700;font-size:.84rem;margin-top:2px;}
+  .xp-item ul{margin:10px 0 0;padding:0 0 0 18px;color:var(--ink);font-size:.86rem;}
+  .xp-item li{padding:2px 0;}
+  .xp-item + .xp-item{border-top:1px solid var(--line);margin-top:4px;padding-top:26px;}
+
+  .achieve-tools{margin-top:38px;display:grid;grid-template-columns:1.15fr 1fr;gap:32px;}
+  .achieve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
+  .achieve-grid .ac{border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;}
+  .achieve-grid .ic{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--orange);color:var(--orange);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;}
+  .achieve-grid .ic svg{width:13px;height:13px;}
+  .achieve-grid .num{font-weight:800;font-size:.92rem;}
+  .achieve-grid .lbl{font-size:.62rem;color:var(--ink);margin-top:3px;line-height:1.25;}
+  .tools-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px 18px;margin-top:14px;}
+  .tools-grid div{display:flex;align-items:center;gap:9px;font-size:.84rem;font-weight:600;color:var(--navy);}
+  .tools-grid .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);flex:none;}
+
+  @media (max-width:820px){
+    .res-head{grid-template-columns:1fr;}
+    .stat-strip{grid-template-columns:repeat(3,1fr);}
+    .res-body{grid-template-columns:1fr;}
+    .edu-row{grid-template-columns:1fr;}
+    .achieve-tools{grid-template-columns:1fr;}
+    .achieve-grid{grid-template-columns:repeat(3,1fr);}
+    .deco-blob{width:220px;height:220px;}
+  }
+  @media print{
+    .topbar{display:none;}
+    .sheet{padding-top:20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="index.html#contact" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to portfolio
+    </a>
+    <a href="assets/docs/Hannah_Resume_HighRes.pdf" class="dl-link" target="_blank" rel="noopener">Download PDF</a>
+  </div>
+</div>
+
+<div class="sheet">
+  <span class="deco-blob" aria-hidden="true"></span>
+  <span class="deco-corner" aria-hidden="true"></span>
+  <span class="deco-dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+
+  <header class="res-head">
+    <div class="res-name">
+      <h1>PEI&#8209;JU KUO</h1>
+      <div class="sub">(HANNAH)</div>
+      <div class="res-rule"></div>
+      <div class="res-titles">
+        <div>Content Marketing Specialist</div>
+        <div>Digital Media &amp; Advertising Strategist</div>
+        <div>Social Media &amp; Performance Marketing Expert</div>
+      </div>
+    </div>
+    <div class="res-contact">
+      <div class="row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>Melbourne, VIC 3011</div>
+      <a href="tel:+61435627810"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.9.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2.3Z"/></svg></span>0435 627 810</a>
+      <a href="mailto:peiju.kuo.business@gmail.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>peiju.kuo.business@gmail.com</a>
+      <a href="https://www.linkedin.com/in/hannah-kuo-4b7468188/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>linkedin.com/in/peiju-kuo-hannah</a>
+      <a href="index.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg></span>peiju-kuo.com</a>
+    </div>
+  </header>
+
+  <div class="stat-strip">
+    <div class="st"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="num">A$60K+</div><div class="lbl">Annual Meta Ads Budget Managed</div></div>
+    <div class="st"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-4"/></svg></div><div class="num">A$67K+</div><div class="lbl">Exhibition Revenue Generated</div></div>
+    <div class="st"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div><div class="num">2.9M+</div><div class="lbl">eDM Delivered (Open Rate up to 22.7%)</div></div>
+    <div class="st"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="num">5.2M+</div><div class="lbl">Ad Impressions Achieved</div></div>
+    <div class="st"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="num">167K+</div><div class="lbl">Weekly Reach on Instagram</div></div>
+    <div class="st"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4V8Z"/></svg></div><div class="num">44.7%</div><div class="lbl">Reel Engagement Rate</div></div>
+  </div>
+
+  <div class="res-body">
+    <div class="res-side">
+
+      <div class="side-block">
+        <h2 class="res-h2">About Me</h2>
+        <p class="about-p">Results-driven marketing professional with 6+ years of experience in content marketing, digital advertising, and social media strategy. Managed over A$60K in annual Meta ad spend, delivered A$67K in exhibition revenue with 119 exhibitors, and executed data-driven campaigns that build brand awareness, engagement, and measurable growth.</p>
+      </div>
+
+      <div class="side-block">
+        <h2 class="res-h2">Core Skills</h2>
+
+        <div class="skill-group">
+          <div class="sg-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v3a1 1 0 0 0 1 1h1l3.5 4.5a1 1 0 0 0 1.8-.6V6.1a1 1 0 0 0-1.8-.6L5 10H4a1 1 0 0 0-1 1Z"/><path d="M17 8a5 5 0 0 1 0 8M20 5a9 9 0 0 1 0 14"/></svg>Digital Marketing</div>
+          <ul><li>Meta Ads (Facebook/Instagram)</li><li>Google Ads (SEM)</li><li>Google Display Network</li><li>GA4 &amp; Looker Studio</li><li>Email Marketing (Mailchimp)</li><li>SEO / Keyword Research</li><li>Campaign Strategy</li></ul>
+        </div>
+
+        <div class="skill-group">
+          <div class="sg-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4-14 14H4v-4Z"/></svg>Content Marketing</div>
+          <ul><li>Content Strategy</li><li>Copywriting</li><li>Social Media Management</li><li>Storytelling</li><li>Video Production</li><li>Photography</li></ul>
+        </div>
+
+        <div class="skill-group">
+          <div class="sg-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2a10 10 0 1 0 8.5 15.3c.5-.8-.1-1.8-1-1.8h-1.4a2 2 0 0 1-2-2 2 2 0 0 1 .5-1.3c.4-.5.2-1.2-.4-1.4A10 10 0 0 0 12 2Z"/></svg>Design &amp; Creative Tools</div>
+          <ul><li>Adobe Photoshop</li><li>Adobe Illustrator</li><li>Adobe Premiere Pro</li><li>Canva</li><li>CapCut</li></ul>
+        </div>
+
+        <div class="skill-group">
+          <div class="sg-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="13" width="3" height="5"/><rect x="12" y="9" width="3" height="9"/><rect x="17" y="5" width="3" height="13"/></svg>Analytics &amp; Reporting</div>
+          <ul><li>Google Analytics 4</li><li>Meta Ads Manager</li><li>Looker Studio</li><li>Microsoft Excel</li><li>A/B Testing</li><li>Campaign Reporting</li></ul>
+        </div>
+      </div>
+
+      <div class="side-block">
+        <h2 class="res-h2">Languages</h2>
+        <div class="lang-item"><span class="lname">中文（母語）</span><span class="lang-bar"><span style="width:100%;"></span></span></div>
+        <div class="lang-item"><span class="lname">English（流利）</span><span class="lang-bar"><span style="width:85%;"></span></span></div>
+      </div>
+
+      <div class="side-block">
+        <h2 class="res-h2">Let's Connect</h2>
+        <div class="connect-grid">
+          <figure><img src="data:image/png;base64,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" alt="QR code to Canva portfolio" /><figcaption>Portfolio</figcaption></figure>
+          <figure><img src="data:image/png;base64,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" alt="QR code to LinkedIn profile" /><figcaption>LinkedIn</figcaption></figure>
+          <figure><img src="data:image/png;base64,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" alt="QR code to personal website" /><figcaption>Personal<br/>Website</figcaption></figure>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="res-main">
+
+      <h2 class="res-h2">Education</h2>
+      <div class="edu-row">
+        <div class="edu-card">
+          <div class="edu-logo" style="background:var(--navy);color:#fff;">VU</div>
+          <h3>Victoria University (Australia)</h3>
+          <div class="prog">Master of Social Work (Expected 2028)</div>
+          <div class="loc">Melbourne, Australia</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-logo" style="background:#fff;color:var(--navy);border:1.5px solid var(--line);">NTUE</div>
+          <h3>National Taipei University of Education (NTUE)</h3>
+          <div class="prog">Master Program, Cultural &amp; Creative Business Management (Completed Coursework)</div>
+          <div class="loc">Taipei, Taiwan</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-logo" style="background:var(--orange-tint);color:var(--orange);">FGU</div>
+          <h3>Fo Guang University</h3>
+          <div class="prog">Bachelor of Arts, Department of Cultural Assets and Reinvention · 2014–2018</div>
+          <div class="loc">Yilan, Taiwan</div>
+        </div>
+      </div>
+
+      <div class="xp-head-row">
+        <h2 class="res-h2">Professional Experience</h2>
+      </div>
+      <div class="xp-list">
+
+        <div class="xp-item">
+          <div class="xp-logo" style="background:var(--navy);color:#fff;">PBH</div>
+          <h3>Content Marketing Specialist</h3>
+          <div class="org">Panorama Box Hill (Property)</div>
+          <ul>
+            <li>Develop and execute social media strategy and produce all property marketing videos.</li>
+            <li>Manage photography and content production.</li>
+            <li>Achieved 44.7% Reel engagement rate and 6,000+ monthly organic impressions.</li>
+            <li>Produced all video editing using Premiere Pro and CapCut.</li>
+          </ul>
+        </div>
+
+        <div class="xp-item">
+          <div class="xp-logo" style="background:#fff;color:var(--navy);border:1.5px solid var(--line);">HC</div>
+          <h3>Digital Marketing Specialist</h3>
+          <div class="org">HwaCom Systems Inc.</div>
+          <ul>
+            <li>Managed Meta advertising budget of approximately A$60K for government agencies and listed companies.</li>
+            <li>Analysed audience segments (18–54) and optimised targeting strategies.</li>
+            <li>Executed multi-channel campaigns across Meta, LINE and Email.</li>
+            <li>Utilised GA4 and Meta Ads Manager for performance analysis and ROI optimisation.</li>
+            <li>Led A/B testing to improve CTR and conversion rate.</li>
+          </ul>
+        </div>
+
+        <div class="xp-item">
+          <div class="xp-logo" style="background:var(--orange);color:#fff;">udn</div>
+          <h3>Marketing Project Specialist</h3>
+          <div class="org">udn.com Co. Ltd.</div>
+          <div class="sub">2024 Taipei Spring Beauty Expo (Major Project)</div>
+          <ul>
+            <li>Led the 2024 Taipei Spring Beauty Expo marketing campaign, generating A$67K revenue with 119 exhibitors and 46,150 visitors (YoY +23%).</li>
+            <li>Executed 4-stage segmented eDM strategy, delivering 2.9M+ emails with open rates up to 22.7%.</li>
+            <li>Planned and executed TVC, social ads, GDN, SMS and EDM campaigns.</li>
+            <li>Delivered weekly performance reports and conducted A/B testing.</li>
+          </ul>
+        </div>
+
+        <div class="xp-item">
+          <div class="xp-logo" style="background:#fff;color:var(--navy);border:1.5px solid var(--line);">SI</div>
+          <h3>Project Specialist</h3>
+          <div class="org">Startup Island TAIWAN</div>
+          <ul>
+            <li>Built the brand Instagram presence from scratch.</li>
+            <li>Managed international startup campaigns and event marketing.</li>
+            <li>Strengthened engagement with global startup communities.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="achieve-tools">
+        <div>
+          <h2 class="res-h2">Key Achievements</h2>
+          <div class="achieve-grid">
+            <div class="ac"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="num">A$60K+</div><div class="lbl">Managed annual Meta Ads budget</div></div>
+            <div class="ac"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-4"/></svg></div><div class="num">A$67K+</div><div class="lbl">Generated exhibition revenue</div></div>
+            <div class="ac"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div><div class="num">2.9M+</div><div class="lbl">eDM Delivered (4 campaigns)</div></div>
+            <div class="ac"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="num">5.2M+</div><div class="lbl">Advertising impressions</div></div>
+            <div class="ac"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="num">167K+</div><div class="lbl">Weekly reach on Instagram</div></div>
+            <div class="ac"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4V8Z"/></svg></div><div class="num">44.7%</div><div class="lbl">Reel engagement rate</div></div>
+          </div>
+        </div>
+        <div>
+          <h2 class="res-h2">Tools I Use</h2>
+          <div class="tools-grid">
+            <div><span class="dot"></span>Meta Ads Manager</div><div><span class="dot"></span>Notion</div>
+            <div><span class="dot"></span>Google Ads</div><div><span class="dot"></span>Slack</div>
+            <div><span class="dot"></span>Mailchimp</div><div><span class="dot"></span>Excel</div>
+            <div><span class="dot"></span>GA4</div><div><span class="dot"></span>Canva</div>
+            <div><span class="dot"></span>Looker Studio</div><div><span class="dot"></span>CapCut</div>
+            <div><span class="dot"></span>Premiere Pro</div><div><span class="dot"></span>Photoshop</div>
+            <div><span class="dot"></span>Illustrator</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
