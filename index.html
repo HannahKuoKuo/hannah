@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>郭珮如 Hannah Kuo — 自薦企劃書</title>
+<meta name="description" content="Hannah Kuo（郭珮如）— 內容行銷與數位策略專家，6 年跨產業、跨語言實戰經驗，用數據把內容變成生意結果。" />
+<style>
+  /* ---------- Tokens ---------- */
+  :root{
+    --paper: #E7E2D3;
+    --paper-raised: #DED8C6;
+    --ink: #23211D;
+    --ink-soft: #55503F;
+    --ink-faint: #7A7460;
+    --chop: #B3341F;
+    --chop-soft: #B3341F1a;
+    --jade: #2E5C4E;
+    --jade-soft: #2E5C4E1a;
+    --line: rgba(35,33,29,0.16);
+    --line-strong: rgba(35,33,29,0.32);
+    --card-bg: #F1EDE1;
+    --shadow: 0 1px 0 rgba(35,33,29,0.06);
+
+    --font-display: "Noto Serif TC", "Songti TC", "Iowan Old Style", "Georgia", serif;
+    --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, "Segoe UI", sans-serif;
+
+    --container: 1100px;
+    --radius: 2px;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #1C1A15;
+      --paper-raised: #242018;
+      --ink: #ECE6D6;
+      --ink-soft: #B9B2A0;
+      --ink-faint: #8B8471;
+      --chop: #E2673F;
+      --chop-soft: #E2673F26;
+      --jade: #59B79A;
+      --jade-soft: #59B79A26;
+      --line: rgba(236,230,214,0.14);
+      --line-strong: rgba(236,230,214,0.28);
+      --card-bg: #241F17;
+      --shadow: 0 1px 0 rgba(0,0,0,0.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #1C1A15;
+    --paper-raised: #242018;
+    --ink: #ECE6D6;
+    --ink-soft: #B9B2A0;
+    --ink-faint: #8B8471;
+    --chop: #E2673F;
+    --chop-soft: #E2673F26;
+    --jade: #59B79A;
+    --jade-soft: #59B79A26;
+    --line: rgba(236,230,214,0.14);
+    --line-strong: rgba(236,230,214,0.28);
+    --card-bg: #241F17;
+    --shadow: 0 1px 0 rgba(0,0,0,0.3);
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img,svg{ display:block; max-width:100%; }
+
+  a{ color: inherit; }
+
+  .wrap{ max-width: var(--container); margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+  h1,h2,h3{ font-family: var(--font-display); font-weight: 700; text-wrap: balance; margin: 0; }
+
+  .eyebrow{
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--chop);
+    font-weight: 600;
+    display:flex; align-items:center; gap: 0.6em;
+  }
+  .eyebrow::before{
+    content:"";
+    width: 1.6em; height: 1px;
+    background: var(--chop);
+    display:inline-block;
+  }
+
+  .hairline{ border: none; border-top: 1px solid var(--line); margin: 0; }
+
+  /* ---------- Nav ---------- */
+  header.site-nav{
+    position: sticky; top:0; z-index: 40;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: saturate(140%) blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    height: 64px;
+  }
+  .nav-mark{
+    display:flex; align-items:center; gap:0.6rem;
+    font-family: var(--font-display); font-weight:700; font-size:1.05rem;
+    text-decoration:none; color:var(--ink);
+  }
+  .nav-mark .dot{ width:8px; height:8px; border-radius:50%; background: var(--chop); }
+  .nav-links{
+    display:flex; gap: clamp(0.8rem, 2vw, 1.6rem);
+    list-style:none; margin:0; padding:0;
+    font-size:0.86rem;
+  }
+  .nav-links a{
+    text-decoration:none; color: var(--ink-soft);
+    padding: 0.35rem 0.1rem; border-bottom: 1px solid transparent;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{ color: var(--ink); border-color: var(--chop); }
+  .nav-links{ overflow-x:auto; white-space:nowrap; scrollbar-width:none; }
+  .nav-links::-webkit-scrollbar{ display:none; }
+
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--chop);
+    outline-offset: 3px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+    position: relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.4fr auto;
+    gap: clamp(2rem, 6vw, 4rem);
+    align-items:start;
+  }
+  .hero h1{
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1.15;
+    margin-top: 0.9rem;
+  }
+  .hero h1 .zh{ display:block; }
+  .hero h1 .en{
+    display:block;
+    font-size: 0.42em;
+    color: var(--ink-soft);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-top: 0.4rem;
+  }
+  .hero-lead{
+    max-width: 42em;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    margin-top: 1.4rem;
+  }
+  .hero-lead strong{ color: var(--ink); font-weight: 700; }
+
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap: 0.6rem 1.6rem;
+    margin-top: 2rem;
+    font-size: 0.86rem;
+    color: var(--ink-faint);
+  }
+  .meta-row span{ display:flex; align-items:center; gap:0.5em; }
+  .meta-row b{ color: var(--ink-soft); font-weight:600; }
+
+  .cta-row{ display:flex; flex-wrap:wrap; gap: 0.9rem; margin-top: 2.2rem; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.5em;
+    padding: 0.75rem 1.4rem;
+    font-size: 0.92rem; font-weight:600;
+    text-decoration:none;
+    border-radius: var(--radius);
+    border: 1px solid var(--line-strong);
+    transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn-primary{ background: var(--chop); color: #FBF6EC; border-color: var(--chop); }
+  .btn-primary:hover{ transform: translateY(-1px); }
+  .btn-ghost{ background: transparent; color: var(--ink); }
+  .btn-ghost:hover{ border-color: var(--ink); }
+
+  /* seal graphic */
+  .seal-wrap{ display:flex; justify-content:center; padding-top: 0.5rem; }
+  .seal{
+    width: clamp(120px, 16vw, 160px);
+    height: clamp(120px, 16vw, 160px);
+    animation: stamp 700ms cubic-bezier(.2,1.4,.4,1) both;
+    animation-delay: .15s;
+  }
+  @keyframes stamp{
+    0%{ transform: scale(1.9) rotate(-14deg); opacity:0; }
+    60%{ opacity:1; }
+    100%{ transform: scale(1) rotate(-8deg); opacity:1; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .seal{ animation: none; transform: rotate(-8deg); }
+  }
+  .seal-ring{ fill:none; stroke: var(--chop); stroke-width:6; }
+  .seal-text{ fill: var(--chop); font-family: var(--font-display); }
+
+  /* ---------- Sections ---------- */
+  section{ padding: clamp(3rem, 7vw, 5.5rem) 0; }
+  section + section{ border-top: 1px solid var(--line); }
+
+  .section-head{
+    display:grid;
+    grid-template-columns: 220px 1fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+  }
+  .section-head h2{ font-size: clamp(1.6rem, 3.4vw, 2.1rem); }
+  .section-head .lede{ color: var(--ink-soft); max-width: 46em; margin-top: 0.6rem; }
+  .section-num{ font-family: var(--font-display); color: var(--ink-faint); font-size: 0.95rem; }
+
+  @media (max-width: 780px){
+    .section-head{ grid-template-columns: 1fr; }
+    .hero-grid{ grid-template-columns: 1fr; }
+    .seal-wrap{ justify-content:flex-start; }
+  }
+
+  .reveal{ opacity:0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.is-visible{ opacity:1; transform:none; }
+
+  /* Recommendation / pull quote */
+  .letter{
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--chop);
+    padding: clamp(1.6rem, 4vw, 2.6rem);
+    max-width: 62em;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+  }
+  .letter p{ margin: 0 0 1.1em; }
+  .letter p:last-child{ margin-bottom:0; }
+  .letter strong{ color: var(--ink); }
+  .signoff{ margin-top:1.6rem; font-family: var(--font-display); font-size:1.1rem; color: var(--ink); }
+
+  /* Who am I: bio + timeline */
+  .bio-cols{ display:grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 3.5rem); }
+  @media (max-width: 780px){ .bio-cols{ grid-template-columns: 1fr; } }
+
+  .fact-list{ list-style:none; margin:0; padding:0; }
+  .fact-list li{
+    display:grid; grid-template-columns: 7em 1fr;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+  .fact-list li:first-child{ padding-top:0; }
+  .fact-list dt, .fact-list .k{ color: var(--ink-faint); font-size:0.82rem; letter-spacing:0.04em; text-transform:uppercase; padding-top:0.15em; }
+  .fact-list .v{ color: var(--ink); }
+  .fact-list .v small{ display:block; color: var(--ink-faint); font-size:0.82rem; margin-top:0.15em; }
+
+  .timeline{ list-style:none; margin:0; padding:0; }
+  .timeline li{
+    position:relative;
+    padding: 0 0 1.8rem 1.6rem;
+    border-left: 1px solid var(--line);
+  }
+  .timeline li:last-child{ padding-bottom:0; }
+  .timeline li::before{
+    content:"";
+    position:absolute; left:-4.5px; top:0.35rem;
+    width:8px; height:8px; border-radius:50%;
+    background: var(--paper); border: 2px solid var(--chop);
+  }
+  .tl-date{ font-size:0.78rem; letter-spacing:0.05em; color: var(--ink-faint); text-transform:uppercase; }
+  .tl-role{ font-family: var(--font-display); font-weight:700; font-size:1.08rem; margin-top:0.2rem; }
+  .tl-org{ color: var(--ink-soft); font-size:0.92rem; margin-top:0.1rem; }
+  .tl-detail{ color: var(--ink-soft); font-size:0.92rem; margin-top:0.5rem; }
+
+  /* Capabilities */
+  .cap-grid{
+    display:grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 780px){ .cap-grid{ grid-template-columns: 1fr; } }
+  .cap-card{ background: var(--card-bg); padding: clamp(1.4rem, 3vw, 2rem); }
+  .cap-card h3{ font-size: 1.15rem; display:flex; align-items:baseline; gap:0.6rem; }
+  .cap-card h3 em{ font-style:normal; color: var(--chop); font-family: var(--font-body); font-weight:800; font-size:0.75em; }
+  .cap-card ul{ margin: 0.9rem 0 0; padding-left: 1.1rem; color: var(--ink-soft); font-size:0.92rem; }
+  .cap-card li{ margin-bottom:0.4rem; }
+
+  .tagblock{ margin-top: clamp(2rem, 4vw, 3rem); }
+  .tagblock h4{
+    font-family: var(--font-body); font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;
+    color: var(--ink-faint); margin: 0 0 0.8rem; font-weight:700;
+  }
+  .tags{ display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom: 1.8rem; }
+  .tag{
+    font-size:0.84rem; padding: 0.4rem 0.75rem;
+    border:1px solid var(--line-strong); border-radius: 999px;
+    color: var(--ink-soft);
+  }
+
+  /* Achievements / stats */
+  .stat-grid{
+    display:grid; grid-template-columns: repeat(5, 1fr);
+    gap: 1px; background: var(--line); border:1px solid var(--line);
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+  @media (max-width: 980px){ .stat-grid{ grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px){ .stat-grid{ grid-template-columns: 1fr; } }
+  .stat{ background: var(--card-bg); padding: 1.6rem 1.4rem; }
+  .stat .num{
+    font-family: var(--font-display); font-weight:700;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-variant-numeric: tabular-nums;
+    color: var(--chop);
+    line-height:1.1;
+  }
+  .stat .label{ margin-top:0.6rem; font-size:0.86rem; color: var(--ink-soft); }
+  .stat .sub{ margin-top:0.3rem; font-size:0.78rem; color: var(--ink-faint); }
+
+  .strength-list{ display:grid; grid-template-columns: repeat(2,1fr); gap: 1.4rem 2.5rem; }
+  @media (max-width:780px){ .strength-list{ grid-template-columns:1fr; } }
+  .strength{ display:flex; gap:1rem; }
+  .strength .idx{ font-family: var(--font-display); color: var(--jade); font-weight:700; font-size:1rem; padding-top:0.1rem; }
+  .strength h4{ margin:0; font-size:1rem; font-weight:700; }
+  .strength p{ margin:0.35rem 0 0; color: var(--ink-soft); font-size:0.92rem; }
+
+  /* What I can do for a company */
+  .process{ display:grid; grid-template-columns: repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  @media (max-width: 900px){ .process{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 560px){ .process{ grid-template-columns: 1fr; } }
+  .process-step{ background: var(--card-bg); padding: 1.6rem 1.4rem; }
+  .process-step .p-eyebrow{ font-size:0.74rem; letter-spacing:0.06em; color: var(--ink-faint); text-transform:uppercase; }
+  .process-step h4{ margin: 0.6rem 0 0; font-family: var(--font-display); font-size:1.08rem; }
+  .process-step p{ margin: 0.6rem 0 0; font-size:0.88rem; color: var(--ink-soft); }
+
+  .platform-row{ display:grid; grid-template-columns: repeat(4,1fr); gap:1rem; margin-top: 2.4rem; }
+  @media (max-width: 780px){ .platform-row{ grid-template-columns: repeat(2,1fr); } }
+  .platform{
+    border:1px solid var(--line); padding:1.1rem 1.2rem;
+    display:flex; flex-direction:column; gap:0.5rem;
+  }
+  .platform .p-mark{
+    width:28px; height:28px; border-radius:50%;
+    background: var(--jade-soft); color:var(--jade);
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--font-display); font-weight:700; font-size:0.85rem;
+    border: 1px solid var(--jade);
+  }
+  .platform h5{ margin:0; font-size:0.95rem; font-family: var(--font-display); }
+  .platform p{ margin:0; font-size:0.82rem; color: var(--ink-soft); }
+
+  /* Why self-recommend */
+  .reason-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border:1px solid var(--line); }
+  @media (max-width: 900px){ .reason-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 600px){ .reason-grid{ grid-template-columns: 1fr; } }
+  .reason{ background: var(--card-bg); padding: 1.6rem 1.4rem; }
+  .reason .r-num{ font-family: var(--font-display); color: var(--chop); font-size:0.85rem; }
+  .reason h4{ margin: 0.7rem 0 0; font-size:1.02rem; }
+  .reason p{ margin: 0.55rem 0 0; font-size:0.88rem; color: var(--ink-soft); }
+
+  .promise-row{ display:flex; flex-wrap:wrap; gap: 0.6rem 1.8rem; margin-top: 2.6rem; }
+  .promise-row span{ font-size:0.86rem; color: var(--ink-soft); display:flex; gap:0.5em; align-items:baseline; }
+  .promise-row span::before{ content:"·"; color: var(--chop); font-weight:900; }
+
+  /* Footer */
+  footer{ background: var(--paper-raised); padding: clamp(3rem,7vw,5rem) 0 clamp(2rem,4vw,3rem); }
+  .footer-grid{ display:grid; grid-template-columns: 1.3fr 1fr; gap: clamp(2rem,5vw,4rem); }
+  @media (max-width: 780px){ .footer-grid{ grid-template-columns: 1fr; } }
+  footer h2{ font-size: clamp(1.5rem,3vw,2rem); }
+  footer .lede{ color: var(--ink-soft); margin-top:1rem; max-width:36em; }
+  .contact-list{ list-style:none; margin:1.8rem 0 0; padding:0; display:flex; flex-direction:column; gap:0.8rem; }
+  .contact-list a{ text-decoration:none; color: var(--ink); font-size:0.98rem; }
+  .contact-list a:hover{ color: var(--chop); }
+  .contact-list .k{ display:inline-block; width:5.2em; color: var(--ink-faint); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; }
+  .foot-bottom{
+    margin-top: clamp(2.5rem,5vw,3.5rem); padding-top:1.4rem;
+    border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.8rem;
+    font-size:0.8rem; color: var(--ink-faint);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="nav-mark" href="#top"><span class="dot"></span> Hannah Kuo 郭珮如</a>
+    <ul class="nav-links">
+      <li><a href="#recommend">推薦</a></li>
+      <li><a href="#who">我是誰</a></li>
+      <li><a href="#skills">我的能力</a></li>
+      <li><a href="#strengths">我擅長什麼</a></li>
+      <li><a href="#offer">我能做什麼</a></li>
+      <li><a href="#why">為何自薦</a></li>
+      <li><a href="#contact">聯絡</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">自薦企劃書 · Self-Recommendation</p>
+        <h1>
+          <span class="zh">我不找工作，<br>我帶解決方案來。</span>
+          <span class="en">Pei-Ju "Hannah" Kuo — Content &amp; Digital Strategy</span>
+        </h1>
+        <p class="hero-lead">
+          我是 <strong>郭珮如 Hannah</strong>，在墨爾本執業 <strong>6 年以上</strong>的內容行銷與數位策略專家。
+          我不寫一份能海投一百間公司的履歷——這份企劃書是為了說明<strong>我看見了什麼問題、我有什麼具體方法、以及我能為一間公司帶來什麼實際成果</strong>。
+        </p>
+        <div class="meta-row">
+          <span><b>現居</b> Melbourne, VIC</span>
+          <span><b>語言</b> 中文 / 英文雙語製作</span>
+          <span><b>產業</b> 房產・美妝・食品・教育・科技</span>
+          <span><b>工具</b> GA4・Meta Ads Manager・Looker Studio</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">開始對話</a>
+          <a class="btn btn-ghost" href="#strengths">看實際成果</a>
+        </div>
+      </div>
+      <div class="seal-wrap" aria-hidden="true">
+        <svg class="seal" viewBox="0 0 200 200">
+          <defs>
+            <filter id="rough" x="-20%" y="-20%" width="140%" height="140%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="3" seed="7" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="7"/>
+            </filter>
+          </defs>
+          <g filter="url(#rough)">
+            <circle class="seal-ring" cx="100" cy="100" r="82"/>
+            <text class="seal-text" x="100" y="82" text-anchor="middle" font-size="34" font-weight="700">珮如</text>
+            <text class="seal-text" x="100" y="118" text-anchor="middle" font-size="14" letter-spacing="3">HANNAH</text>
+            <text class="seal-text" x="100" y="140" text-anchor="middle" font-size="11" letter-spacing="2">KUO</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 一、推薦信 -->
+  <section id="recommend">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><span class="section-num">一</span></div>
+        <div>
+          <h2>推薦信</h2>
+          <p class="lede">為什麼值得花十分鐘讀完這份企劃書。</p>
+        </div>
+      </div>
+      <div class="letter reveal">
+        <p>我不是一份自動發送給上百間公司的通用履歷。這份企劃書是<strong>針對你正在面對的問題</strong>寫的。</p>
+        <p>多數團隊擴張時，業務成長的速度會超過內容產出的速度——客戶或受眾在增加，但能穩定產出高品質、跨語言、跨平台內容的人手卻跟不上。<strong>這正是我過去六年一直在解決的問題。</strong></p>
+        <p>我用數據說話，不是用感覺說話：GA4、Meta Ads Manager、Looker Studio 是我每天打開的工具，而不是履歷上的裝飾詞。我也習慣把一次性的執行，轉化成<strong>可複製、可交接的系統</strong>，讓內容產出不再只依賴一個人。</p>
+        <p>接下來的內容，會依序說明我是誰、我具備哪些能力、我最擅長的事、我能為一間公司帶來什麼、以及我為什麼選擇主動自薦，而不是被動等待職缺。</p>
+        <p class="signoff">— Hannah</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 二、我是誰 -->
+  <section id="who">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><span class="section-num">二</span></div>
+        <div>
+          <h2>我是誰</h2>
+          <p class="lede">台灣出身、澳洲在地六年，橫跨房產、廣告代理、媒體展會與新創的實戰經歷。</p>
+        </div>
+      </div>
+
+      <div class="bio-cols">
+        <div class="reveal">
+          <ul class="fact-list">
+            <li><span class="k">姓名</span><span class="v">Pei-Ju Kuo（郭珮如）· 專業名稱 Hannah</span></li>
+            <li><span class="k">現居地</span><span class="v">Melbourne, VIC 3011</span></li>
+            <li><span class="k">經歷</span><span class="v">6+ 年 Content Marketing &amp; Digital Strategy</span></li>
+            <li><span class="k">教育</span><span class="v">
+              Master of Social Work — Victoria University
+              <small>Master in Cultural &amp; Creative Business Management — National Taipei University of Education</small>
+              <small>Bachelor of Arts in Cultural Assets — Fu Guang University, Taiwan</small>
+            </span></li>
+          </ul>
+        </div>
+
+        <ol class="timeline reveal">
+          <li>
+            <div class="tl-date">2018 — 2024</div>
+            <div class="tl-role">Content Marketing Specialist</div>
+            <div class="tl-org">Panorama Box Hill · 房產品牌社群策略</div>
+            <div class="tl-detail">從零建立社群聲量：每週觸及 167K，月均有機曝光 200 萬以上；Reel 參與率達 44.7%，是產業平均的 9–15 倍。</div>
+          </li>
+          <li>
+            <div class="tl-date">2023 — 2024</div>
+            <div class="tl-role">Digital Marketing Specialist</div>
+            <div class="tl-org">HwaCom Systems Inc. · 大預算廣告投放優化</div>
+            <div class="tl-detail">管理 A$60K+ 年度 Meta Ads 預算，執行受眾細分與 A/B 測試，提升 CTR 與轉換率。</div>
+          </li>
+          <li>
+            <div class="tl-date">2024</div>
+            <div class="tl-role">Marketing Project Specialist</div>
+            <div class="tl-org">udn.com Co. Ltd（Taiwan）· 大型展覽行銷</div>
+            <div class="tl-detail">2024 台北春季美妝展主策劃人：2.9M+ eDM 觸及、22.7% 開啟率，吸引 119 個參展商（YoY +23%），創造 A$67K+ 展覽收入。</div>
+          </li>
+          <li>
+            <div class="tl-date">2024</div>
+            <div class="tl-role">Project Specialist</div>
+            <div class="tl-org">Startup Island（Taiwan）· 新創品牌從零建立</div>
+            <div class="tl-detail">從零打造 Instagram 聲量，策劃執行國際新創行銷活動，強化全球社群互動。</div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 三、我的能力 -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><span class="section-num">三</span></div>
+        <div>
+          <h2>我的能力</h2>
+          <p class="lede">四個核心能力，支撐從策略、製作到數據優化的完整內容產線。</p>
+        </div>
+      </div>
+
+      <div class="cap-grid reveal">
+        <div class="cap-card">
+          <h3><em>01</em> 內容策略與創作</h3>
+          <ul>
+            <li>為不同平台設計對應的內容風格</li>
+            <li>撰寫高轉化文案（中英雙語）</li>
+            <li>從零建立品牌社群聲量</li>
+          </ul>
+        </div>
+        <div class="cap-card">
+          <h3><em>02</em> 數據分析與優化</h3>
+          <ul>
+            <li>GA4、Meta Ads Manager、Looker Studio</li>
+            <li>A/B 測試設計與 CTR 優化</li>
+            <li>受眾細分與再行銷策略</li>
+          </ul>
+        </div>
+        <div class="cap-card">
+          <h3><em>03</em> 視覺設計與多媒體</h3>
+          <ul>
+            <li>Adobe Creative Suite（Photoshop、Premiere Pro）</li>
+            <li>Canva 高效率設計產出</li>
+            <li>短影音剪輯與社群格式優化</li>
+          </ul>
+        </div>
+        <div class="cap-card">
+          <h3><em>04</em> 文化適配與在地化</h3>
+          <ul>
+            <li>理解中英社群溝通風格差異</li>
+            <li>CALD 多元文化社群溝通策略</li>
+            <li>跨文化品牌建置經驗</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tagblock reveal">
+        <h4>內容策略</h4>
+        <div class="tags">
+          <span class="tag">3–6 個月內容日曆規劃</span>
+          <span class="tag">客戶類型內容框架設計</span>
+          <span class="tag">趨勢與內容機會識別</span>
+          <span class="tag">風格指南撰寫</span>
+          <span class="tag">內容模板系統建立</span>
+        </div>
+        <h4>平台管理</h4>
+        <div class="tags">
+          <span class="tag">Instagram / Facebook</span>
+          <span class="tag">WeChat 公眾號</span>
+          <span class="tag">小紅書內容策略</span>
+          <span class="tag">TikTok 短影音</span>
+          <span class="tag">LinkedIn B2B 內容</span>
+        </div>
+        <h4>數據與報告</h4>
+        <div class="tags">
+          <span class="tag">GA4 分析</span>
+          <span class="tag">Meta Ads 預算與績效</span>
+          <span class="tag">Looker Studio 儀表板</span>
+          <span class="tag">月度績效報告</span>
+          <span class="tag">A/B 測試設計</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 四、我擅長做什麼 -->
+  <section id="strengths">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><span class="section-num">四</span></div>
+        <div>
+          <h2>我擅長做什麼</h2>
+          <p class="lede">數字不是裝飾，是我做事方法的證明。</p>
+        </div>
+      </div>
+
+      <div class="stat-grid reveal">
+        <div class="stat">
+          <div class="num">44.7%</div>
+          <div class="label">Instagram Reel 參與率</div>
+          <div class="sub">產業平均 3–5%，9–15 倍表現</div>
+        </div>
+        <div class="stat">
+          <div class="num">A$60K+</div>
+          <div class="label">年度 Meta Ads 預算管理</div>
+          <div class="sub">受眾細分、A/B 測試、ROI 優化</div>
+        </div>
+        <div class="stat">
+          <div class="num">A$67K+</div>
+          <div class="label">展覽營收貢獻</div>
+          <div class="sub">2024 台北春季美妝展主策劃</div>
+        </div>
+        <div class="stat">
+          <div class="num">167K</div>
+          <div class="label">每週 IG 觸及</div>
+          <div class="sub">房產品牌從零建立</div>
+        </div>
+        <div class="stat">
+          <div class="num">2.9M+</div>
+          <div class="label">eDM 投遞量</div>
+          <div class="sub">22.7% 開啟率</div>
+        </div>
+      </div>
+
+      <div class="strength-list reveal">
+        <div class="strength">
+          <span class="idx">01</span>
+          <div>
+            <h4>內容批量製作</h4>
+            <p>單週可產出 20–30 個內容資產（靜態＋動態），同時維持多個品牌各自的調性一致。</p>
+          </div>
+        </div>
+        <div class="strength">
+          <span class="idx">02</span>
+          <div>
+            <h4>系統化建立</h4>
+            <p>把一次性的執行，轉成模板庫、風格指南與內容日曆框架，讓新人也能快速上手。</p>
+          </div>
+        </div>
+        <div class="strength">
+          <span class="idx">03</span>
+          <div>
+            <h4>平台特異化</h4>
+            <p>IG 用故事與 Reels 驅動演算法；微信重深度與品牌教育；小紅書重真實與 KOL 協作；TikTok 抓創意與趨勢。</p>
+          </div>
+        </div>
+        <div class="strength">
+          <span class="idx">04</span>
+          <div>
+            <h4>數據驅動優化</h4>
+            <p>每月產出績效報告，分析表現最佳與最差內容，把洞察轉成下一輪的具體優化動作。</p>
+          </div>
+        </div>
+        <div class="strength">
+          <span class="idx">05</span>
+          <div>
+            <h4>中英雙語製作</h4>
+            <p>不是翻譯，是文化轉譯——知道什麼在微信有效、什麼在 Instagram 有效，為不同受眾寫不同的訊息。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 五、我能做什麼 -->
+  <section id="offer">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><span class="section-num">五</span></div>
+        <div>
+          <h2>我能在公司做什麼</h2>
+          <p class="lede">加入一個團隊時，我通常會依這個順序把價值做出來。</p>
+        </div>
+      </div>
+
+      <div class="process reveal">
+        <div class="process-step">
+          <div class="p-eyebrow">Step 01</div>
+          <h4>診斷現況</h4>
+          <p>審計現有社群帳號的發佈頻率、參與率與內容類型，找出表現落差與內容空白。</p>
+        </div>
+        <div class="process-step">
+          <div class="p-eyebrow">Step 02</div>
+          <h4>建立系統</h4>
+          <p>依客戶／產品類型建立內容模板庫、雙語風格指南與內容日曆框架，讓產出可複製。</p>
+        </div>
+        <div class="process-step">
+          <div class="p-eyebrow">Step 03</div>
+          <h4>穩定產出</h4>
+          <p>每週交付靜態圖、短影音文案與長文內容，品牌調性一致、平台格式最佳化、可直接排程。</p>
+        </div>
+        <div class="process-step">
+          <div class="p-eyebrow">Step 04</div>
+          <h4>數據優化</h4>
+          <p>持續追蹤參與率、觸及與轉換，產出月度儀表板與具體的優化建議。</p>
+        </div>
+      </div>
+
+      <div class="platform-row reveal">
+        <div class="platform">
+          <div class="p-mark">IG</div>
+          <h5>Instagram</h5>
+          <p>視覺為王，用 Reels 與故事性驅動演算法。</p>
+        </div>
+        <div class="platform">
+          <div class="p-mark">微</div>
+          <h5>WeChat 微信</h5>
+          <p>深度內容與品牌教育，經營社群互動。</p>
+        </div>
+        <div class="platform">
+          <div class="p-mark">紅</div>
+          <h5>小紅書</h5>
+          <p>真實分享與 KOL 協作，重視購物指南。</p>
+        </div>
+        <div class="platform">
+          <div class="p-mark">TT</div>
+          <h5>TikTok</h5>
+          <p>創意、趨勢與娛樂價值優先。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 六、我為何要自薦 -->
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><span class="section-num">六</span></div>
+        <div>
+          <h2>我為何要自薦</h2>
+          <p class="lede">與其海投履歷等待篩選，我選擇主動說明我能解決什麼問題。</p>
+        </div>
+      </div>
+
+      <div class="reason-grid reveal">
+        <div class="reason">
+          <div class="r-num">01</div>
+          <h4>市場契合度高</h4>
+          <p>我理解如何在多語言、多平台、多客戶／多產品線的環境中維持高品質內容——這正是我過去六年一直在做的事。</p>
+        </div>
+        <div class="reason">
+          <div class="r-num">02</div>
+          <h4>抓對時機</h4>
+          <p>多數團隊擴張期最缺的不是想法，是穩定執行的人手。內容瓶頸解除的那一刻，團隊才能專注於策略與業務發展。</p>
+        </div>
+        <div class="reason">
+          <div class="r-num">03</div>
+          <h4>合作模式靈活</h4>
+          <p>無論是兼職、專案制或全職，我都能依團隊實際需求調整投入方式，降低嘗試的門檻與風險。</p>
+        </div>
+        <div class="reason">
+          <div class="r-num">04</div>
+          <h4>相信內容能連結人</h4>
+          <p>我在台灣出生、澳洲長居，親身經歷跨文化溝通的挑戰與機會，相信好內容能為品牌與社群建立真正的連結。</p>
+        </div>
+        <div class="reason">
+          <div class="r-num">05</div>
+          <h4>目標明確可衡量</h4>
+          <p>參與率提升、系統建置完成、每月產出量——我用數據定義成功，而不是模糊的「有做事」。</p>
+        </div>
+        <div class="reason">
+          <div class="r-num">06</div>
+          <h4>有執行力可以驗證</h4>
+          <p>六年實戰經驗、具體數據與成果、清楚的行動計畫——我不空喊承諾，我交付結果。</p>
+        </div>
+      </div>
+
+      <div class="promise-row reveal">
+        <span>按時交付、每項內容經檢查優化</span>
+        <span>每週同步進度，阻礙即時反饋</span>
+        <span>用數據而非感覺衡量價值</span>
+        <span>不適合就誠實說，不拖延彼此時間</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap footer-grid">
+    <div class="reveal">
+      <p class="eyebrow">準備好開始對話</p>
+      <h2>如果你正面對內容跟不上成長的問題，我們該聊聊。</h2>
+      <p class="lede">30 分鐘的對話，就能知道這是不是值得往下走的合作。我隨時準備好。</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:peiju.kuo.business@gmail.com">寄信給我</a>
+        <a class="btn btn-ghost" href="tel:+61435627810">直接來電</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <ul class="contact-list">
+        <li><span class="k">Email</span><a href="mailto:peiju.kuo.business@gmail.com">peiju.kuo.business@gmail.com</a></li>
+        <li><span class="k">Phone</span><a href="tel:+61435627810">0435 627 810</a></li>
+        <li><span class="k">LinkedIn</span><a href="https://linkedin.com/in/peiju-kuo-hannah" target="_blank" rel="noopener">linkedin.com/in/peiju-kuo-hannah</a></li>
+        <li><span class="k">Website</span><a href="https://peiju-kuo.com" target="_blank" rel="noopener">peiju-kuo.com</a></li>
+        <li><span class="k">Location</span><span>Melbourne, VIC 3011</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Pei-Ju "Hannah" Kuo</span>
+    <span>自薦企劃書 · Self-Recommendation One-Pager</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      els.forEach(function(el){ el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
