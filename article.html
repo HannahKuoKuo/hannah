@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最新 LED 顯示屏系列正式上市 - ACE SIGN</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .article-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0052D9 100%);
+            color: white;
+            padding: 60px 0 40px;
+        }
+
+        .article-header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            text-wrap: balance;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .article-badge {
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .article-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .article-content {
+            max-width: 800px;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--light-bg), #D4DCE6);
+            border-radius: 8px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+        }
+
+        .article-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .article-text p {
+            margin-bottom: 24px;
+        }
+
+        .article-text strong {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .article-text a {
+            color: var(--primary-color);
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .article-text a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* 側邊欄 */
+        .article-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .share-section {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .share-section h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .related-section h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .related-article {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .related-article:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .related-image {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, var(--light-bg), #D4DCE6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .related-content {
+            padding: 15px;
+        }
+
+        .related-category {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .related-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .related-desc {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #E55A2B;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 968px) {
+            .article-container {
+                grid-template-columns: 1fr;
+            }
+
+            .article-header h1 {
+                font-size: 32px;
+            }
+
+            .article-sidebar {
+                flex-direction: row;
+                gap: 20px;
+            }
+
+            .share-section,
+            .related-section {
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .article-header h1 {
+                font-size: 24px;
+            }
+
+            .article-image {
+                height: 250px;
+                font-size: 60px;
+            }
+
+            .article-text {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            .share-buttons {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 頂部信息欄 -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" title="Email">✉️</a>
+                <a href="#" title="Facebook">f</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="TikTok">♪</a>
+            </div>
+            <span class="phone">1800 996 495</span>
+            <div class="auth-links">
+                <a href="#">LOGIN</a>
+                <span class="cart">🛒 0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 導覽列 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <svg width="50" height="50" viewBox="0 0 100 100" style="display: inline-block;">
+                        <polygon points="50,10 90,90 10,90" fill="none" stroke="#003AA3" stroke-width="4"/>
+                        <text x="50" y="70" font-size="50" text-anchor="middle" fill="#003AA3" font-weight="bold">A</text>
+                    </svg>
+                    <span>ACE SIGN</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#services">SIGNAGE SOLUTIONS</a></li>
+                    <li><a href="projects.html">PROJECTS</a></li>
+                    <li><a href="#contact">PROMOTION & EVENT</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="#about">ABOUT US</a></li>
+                    <li><a href="newsletter.html" class="newsletter-link">NEWSLETTER</a></li>
+                </ul>
+                <input type="text" class="search-box" placeholder="Search...">
+            </div>
+        </nav>
+    </header>
+
+    <!-- 文章標題區 -->
+    <div class="article-header">
+        <div class="container">
+            <h1>最新 LED 顯示屏系列正式上市</h1>
+            <div class="article-meta">
+                <span>2024 年 8 月 12 日</span>
+                <span class="article-badge">新品發布</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 文章內容 -->
+    <div class="container">
+        <div class="article-container">
+            <!-- 主要內容 -->
+            <div class="article-content">
+                <div class="article-image">📺</div>
+
+                <div class="article-text">
+                    <p>我們很高興宣佈推出最新的<strong>第四代 LED 顯示屏系列</strong>。新系列採用最先進的芯片技術，具有更高的亮度、更低的功耗和更長的使用壽命，是招牌廣告領域的重大突破。</p>
+
+                    <p>隨著城市發展和商業競爭的加劇，企業越來越需要<strong>更有效的視覺傳達方式</strong>。我們的新 LED 顯示屏系列正是為了滿足這一需求而開發的。無論是零售店鋪、購物中心還是戶外廣告牌，這些新型顯示屏都能為您的品牌帶來卓越的表現。</p>
+
+                    <p><strong>主要特點包括：</strong></p>
+                    <p>• 超高清晰度：像素密度提升 50%，圖像更加細膩逼真<br>
+                    • 節能環保：功耗降低 40%，更加環保可持續<br>
+                    • 智能控制：支持遠程管理和即時內容更新<br>
+                    • 防水防塵：IP67 級防護，適應各種天氣條件<br>
+                    • 長壽命：使用壽命延長至 100,000+ 小時</p>
+
+                    <p>這次新品發布展示了 ACE SIGN 在技術創新方面的持續投入。我們與全球領先的芯片製造商合作，確保每一台設備都達到業界最高標準。</p>
+
+                    <p>我們的客戶反應非常積極。在測試階段，<strong>商業中心的管理者報告</strong>說新 LED 屏幕的亮度和清晰度帶來了顯著的品牌推廣效果。零售商戶也表示，新屏幕的遠程管理功能為他們節省了大量的維護成本。</p>
+
+                    <p>ACE SIGN 承諾為每位客戶提供<strong>卓越的產品質量和專業的安裝服務</strong>。我們的技術團隊已經準備好幫助您選擇最適合您業務需求的解決方案。</p>
+
+                    <p>如果您有興趣了解更多關於新 LED 顯示屏系列的信息，或者需要為您的業務獲取報價，歡迎<a href="#">聯絡我們的銷售團隊</a>。我們期待與您合作，為您的品牌帶來更加耀眼的光彩。</p>
+                </div>
+
+                <a href="newsletter.html" class="back-button">← 返回文章列表</a>
+            </div>
+
+            <!-- 側邊欄 -->
+            <div class="article-sidebar">
+                <!-- 分享區 -->
+                <div class="share-section">
+                    <h3>Share this post</h3>
+                    <div class="share-buttons">
+                        <button class="share-btn" title="Facebook">f</button>
+                        <button class="share-btn" title="Twitter">𝕏</button>
+                        <button class="share-btn" title="Email">✉️</button>
+                    </div>
+                </div>
+
+                <!-- 相關文章 -->
+                <div class="related-section">
+                    <h3>Related articles</h3>
+
+                    <div class="related-article">
+                        <div class="related-image">🎨</div>
+                        <div class="related-content">
+                            <span class="related-category">設計提示</span>
+                            <h4 class="related-title">如何選擇適合您店面的招牌風格</h4>
+                            <p class="related-desc">招牌的設計對於建立品牌形象至關重要。在本文中，我們將分享如何根據您的業務類型選擇最適合的招牌風格...</p>
+                        </div>
+                    </div>
+
+                    <div class="related-article">
+                        <div class="related-image">🏬</div>
+                        <div class="related-content">
+                            <span class="related-category">成功案例</span>
+                            <h4 class="related-title">案例分享：大型購物中心標識系統更新</h4>
+                            <p class="related-desc">我們為墨爾本最大的購物中心設計並安裝了全新的標識系統。新系統不僅提升了購物中心的視覺形象...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter 區域 -->
+    <section class="newsletter-promo">
+        <div class="container">
+            <h2>訂閱最新消息</h2>
+            <p>了解我們最新的產品資訊、設計靈感和特別優惠</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="請輸入您的電子郵件">
+                <button class="btn btn-primary">訂閱</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ACE SIGN. 版權所有。</p>
+            <div class="footer-links">
+                <a href="#">隱私政策</a>
+                <a href="#">服務條款</a>
+                <a href="#">聯絡我們</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
