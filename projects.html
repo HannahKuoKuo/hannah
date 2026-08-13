@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成功案例 - ACE SIGN</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .projects-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0052D9 100%);
+            color: white;
+            padding: 80px 0 40px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .projects-hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .projects-hero p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .filter-section {
+            background-color: var(--secondary-color);
+            padding: 20px 0;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .filter-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background-color: white;
+            color: var(--text-dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .sort-dropdown {
+            background-color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .project-card-new {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card-new:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image-new {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, var(--light-bg), #D4DCE6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #999;
+            font-weight: 600;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image-new img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content-new {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-category {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            width: fit-content;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-card-new h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .read-more-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .read-more-btn:hover {
+            background-color: #E55A2B;
+            transform: translateY(-2px);
+        }
+
+        .projects-pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .pagination-btn {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .pagination-btn:hover,
+        .pagination-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .pagination-ellipsis {
+            color: #999;
+            padding: 10px 5px;
+        }
+
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-hero h1 {
+                font-size: 36px;
+            }
+
+            .filter-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .filter-btn,
+            .sort-dropdown {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 頂部信息欄 -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" title="Email">✉️</a>
+                <a href="#" title="Facebook">f</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="TikTok">♪</a>
+            </div>
+            <span class="phone">1800 996 495</span>
+            <div class="auth-links">
+                <a href="#">LOGIN</a>
+                <span class="cart">🛒 0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 導覽列 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <svg width="50" height="50" viewBox="0 0 100 100" style="display: inline-block;">
+                        <polygon points="50,10 90,90 10,90" fill="none" stroke="#003AA3" stroke-width="4"/>
+                        <text x="50" y="70" font-size="50" text-anchor="middle" fill="#003AA3" font-weight="bold">A</text>
+                    </svg>
+                    <span>ACE SIGN</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#services">SIGNAGE SOLUTIONS</a></li>
+                    <li><a href="projects.html" class="active">PROJECTS</a></li>
+                    <li><a href="index.html#contact">PROMOTION & EVENT</a></li>
+                    <li><a href="index.html#contact">CONTACT</a></li>
+                    <li><a href="index.html#about">ABOUT US</a></li>
+                    <li><a href="newsletter.html" class="newsletter-link">NEWSLETTER</a></li>
+                </ul>
+                <input type="text" class="search-box" placeholder="Search...">
+            </div>
+        </nav>
+    </header>
+
+    <!-- Projects Hero -->
+    <div class="projects-hero">
+        <div class="container">
+            <p style="font-size: 14px; margin-bottom: 10px; opacity: 0.9;">成功案例</p>
+            <h1>LATEST PROJECTS</h1>
+        </div>
+    </div>
+
+    <!-- 過濾區域 -->
+    <div class="filter-section">
+        <div class="container">
+            <div class="filter-group">
+                <button class="filter-btn active" onclick="filterProjects('all')">ALL</button>
+                <button class="filter-btn" onclick="filterProjects('retail')">RETAIL & SHOPPING</button>
+                <button class="filter-btn" onclick="filterProjects('guides')">GUIDES & PRODUCTS</button>
+                <button class="filter-btn" onclick="filterProjects('government')">GOVERNMENT & COMMUNITY</button>
+                <select class="sort-dropdown">
+                    <option>Latest</option>
+                    <option>Most Viewed</option>
+                    <option>Popular</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="container">
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card-new" data-category="retail">
+                <div class="project-image-new">
+                    <div style="text-align: center; width: 100%;">🏪</div>
+                </div>
+                <div class="project-content-new">
+                    <span class="project-category">RETAIL & SHOPPING</span>
+                    <h3>CRAIGIEBURN STORE - 時尚精品店招牌系統</h3>
+                    <p class="project-description">獨特的招牌設計方案完美展現品牌特色。通過精確的安裝工藝和創意的視覺設計，為該精品店打造了引人注目的店面形象。</p>
+                    <button class="read-more-btn">Read more</button>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card-new" data-category="retail">
+                <div class="project-image-new">
+                    <div style="text-align: center; width: 100%;">🏬</div>
+                </div>
+                <div class="project-content-new">
+                    <span class="project-category">RETAIL & SHOPPING</span>
+                    <h3>CITY CHIC WATERGARDENS - 購物中心標識</h3>
+                    <p class="project-description">大型購物中心項目，我們設計的招牌系統在一天中的任何時間都清晰可見。採用高亮度 LED 技術，確保最大的視覺影響力。</p>
+                    <button class="read-more-btn">Read more</button>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card-new" data-category="guides">
+                <div class="project-image-new">
+                    <div style="text-align: center; width: 100%;">🎨</div>
+                </div>
+                <div class="project-content-new">
+                    <span class="project-category">GUIDES & PRODUCTS</span>
+                    <h3>LED 大屏幕廣告 - 商業樓宇應用</h3>
+                    <p class="project-description">為商業樓宇安裝高清 LED 顯示屏。該項目展示了我們在複雜環境中的安裝能力和技術專長。</p>
+                    <button class="read-more-btn">Read more</button>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card-new" data-category="government">
+                <div class="project-image-new">
+                    <div style="text-align: center; width: 100%;">🏛️</div>
+                </div>
+                <div class="project-content-new">
+                    <span class="project-category">GOVERNMENT & COMMUNITY</span>
+                    <h3>Aboriginal Art Installation - 社區藝術計劃</h3>
+                    <p class="project-description">為社區中心安裝大型定制印刷的原住民藝術作品。該項目結合了藝術表達和專業的製作與安裝工藝。</p>
+                    <button class="read-more-btn">Read more</button>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card-new" data-category="guides">
+                <div class="project-image-new">
+                    <div style="text-align: center; width: 100%;">💡</div>
+                </div>
+                <div class="project-content-new">
+                    <span class="project-category">GUIDES & PRODUCTS</span>
+                    <h3>BannerDrop 系統 - 旗幟安裝解決方案</h3>
+                    <p class="project-description">創新的旗幟安裝系統，可將空蕩蕩的空間轉變為收入產生的場所。該系統可根據個人需求進行定制。</p>
+                    <button class="read-more-btn">Read more</button>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card-new" data-category="retail">
+                <div class="project-image-new">
+                    <div style="text-align: center; width: 100%;">🚀</div>
+                </div>
+                <div class="project-content-new">
+                    <span class="project-category">RETAIL & SHOPPING</span>
+                    <h3>戶外廣告牌 - 高效能品牌推廣</h3>
+                    <p class="project-description">大型戶外廣告牌的設計與安裝，為客戶覆蓋大規模受眾。確保通過最佳位置精準到達目標客群。</p>
+                    <button class="read-more-btn">Read more</button>
+                </div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="project-card-new" data-category="government">
+                <div class="project-image-new">
+                    <div style="text-align: center; width: 100%;">🌳</div>
+                </div>
+                <div class="project-content-new">
+                    <span class="project-category">GOVERNMENT & COMMUNITY</span>
+                    <h3>Re:PURPOSE Retail Vacancies - 零售創新計劃</h3>
+                    <p class="project-description">一個關於利用零售空間創造價值的創新項目。我們提供廣告標識解決方案，幫助業主實現空間價值最大化。</p>
+                    <button class="read-more-btn">Read more</button>
+                </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="project-card-new" data-category="guides">
+                <div class="project-image-new">
+                    <div style="text-align: center; width: 100%;">📺</div>
+                </div>
+                <div class="project-content-new">
+                    <span class="project-category">GUIDES & PRODUCTS</span>
+                    <h3>BannerSaver 系統 - 旗幟收益解決方案</h3>
+                    <p class="project-description">革命性的旗幟系統，有效地將空蕩蕩的空間轉變為收入產生場所。該系統經過設計可在各種商業環境中運行。</p>
+                    <button class="read-more-btn">Read more</button>
+                </div>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="project-card-new" data-category="retail">
+                <div class="project-image-new">
+                    <div style="text-align: center; width: 100%;">✨</div>
+                </div>
+                <div class="project-content-new">
+                    <span class="project-category">RETAIL & SHOPPING</span>
+                    <h3>Column Wraps - 高流量區域廣告</h3>
+                    <p class="project-description">柱子包裝是一種獨特且高效的廣告方式，特別適合人流量大的區域。通過創意設計實現最大的客戶吸引力。</p>
+                    <button class="read-more-btn">Read more</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分頁 -->
+        <div class="projects-pagination">
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <span class="pagination-ellipsis">...</span>
+            <button class="pagination-btn">10</button>
+        </div>
+    </div>
+
+    <!-- Newsletter 區域 -->
+    <section class="newsletter-promo">
+        <div class="container">
+            <h2>訂閱最新案例和業界資訊</h2>
+            <p>了解我們最新的項目、設計靈感和創新解決方案</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="請輸入您的電子郵件">
+                <button class="btn btn-primary">訂閱</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ACE SIGN. 版權所有。</p>
+            <div class="footer-links">
+                <a href="#">隱私政策</a>
+                <a href="#">服務條款</a>
+                <a href="#">聯絡我們</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card-new');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 10);
+                } else {
+                    if (card.dataset.category === category) {
+                        card.style.display = 'block';
+                        setTimeout(() => card.style.opacity = '1', 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
