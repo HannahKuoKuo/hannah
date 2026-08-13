@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter - ACE SIGN</title>
+    <title>Signage Solutions - ACE SIGN</title>
     <style>
         * {
             margin: 0;
@@ -201,99 +201,86 @@
             max-width: 600px;
         }
 
-        /* ===== 最新文章區塊 ===== */
-        .articles-section {
+        /* ===== 產品區塊 ===== */
+        .products-section {
             padding: 100px 20px;
-            background: var(--light-bg);
-        }
-
-        .section-header {
-            max-width: 1200px;
-            margin: 0 auto 60px;
-            text-align: center;
-        }
-
-        .section-header h2 {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--primary-dark);
-            margin-bottom: 16px;
-        }
-
-        .section-header p {
-            font-size: 16px;
-            color: var(--text-light);
-        }
-
-        .articles-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .article-card {
             background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s;
         }
 
-        .article-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 32px rgba(0, 58, 163, 0.15);
+        .product-block {
+            max-width: 1200px;
+            margin: 0 auto 120px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
         }
 
-        .article-image {
+        .product-block.reverse {
+            direction: rtl;
+        }
+
+        .product-block.reverse > * {
+            direction: ltr;
+        }
+
+        .product-image {
             width: 100%;
-            height: 220px;
+            height: 400px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 80px;
+            color: var(--white);
+            font-size: 120px;
+            box-shadow: 0 20px 60px rgba(0, 58, 163, 0.2);
+            position: relative;
+            overflow: hidden;
         }
 
-        .article-content {
-            padding: 30px;
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
 
-        .article-date {
-            font-size: 12px;
+        .product-content h2 {
+            font-size: 32px;
+            font-weight: 800;
             color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .article-card h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .article-card p {
-            font-size: 14px;
+        .product-content p {
+            font-size: 15px;
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.8;
+            margin-bottom: 30px;
         }
 
-        .article-card a {
+        .btn-secondary {
             display: inline-block;
-            margin-top: 16px;
+            padding: 12px 28px;
+            border: 2px solid var(--primary);
             color: var(--primary);
             text-decoration: none;
+            border-radius: 6px;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 14px;
             transition: all 0.3s;
         }
 
-        .article-card a:hover {
-            transform: translateX(4px);
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
         }
 
         /* ===== Footer ===== */
@@ -380,16 +367,20 @@
             background: var(--accent);
         }
 
-        /* ===== 頁尾訂閱區 ===== */
-        .newsletter-section {
-            padding: 80px 20px;
-            background: var(--white);
-        }
-
         /* ===== 響應式 ===== */
         @media (max-width: 1024px) {
-            .articles-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .product-block {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-bottom: 60px;
+            }
+
+            .product-block.reverse {
+                direction: ltr;
+            }
+
+            .product-image {
+                height: 300px;
             }
 
             .footer-grid {
@@ -410,12 +401,13 @@
                 font-size: 28px;
             }
 
-            .articles-grid {
-                grid-template-columns: 1fr;
+            .product-image {
+                height: 240px;
+                font-size: 60px;
             }
 
-            .section-header h2 {
-                font-size: 32px;
+            .product-content h2 {
+                font-size: 24px;
             }
 
             .footer-grid {
@@ -467,10 +459,10 @@
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="solutions.html">Signage Solutions</a></li>
+                    <li><a href="solutions.html" class="active">Signage Solutions</a></li>
                     <li><a href="projects.html">Portfolio</a></li>
                     <li><a href="#">Services</a></li>
-                    <li><a href="newsletter.html" class="active">Newsletter</a></li>
+                    <li><a href="newsletter.html">Newsletter</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -484,62 +476,64 @@
     <!-- 頁面標題 -->
     <section class="page-header">
         <div class="container">
-            <h1>Newsletter</h1>
-            <p>訂閱我們的電子報，獲取最新的招牌設計趨勢、行業新聞和專業建議</p>
+            <h1>Signage Solutions</h1>
+            <p>從概念設計到完美安裝，我們為您提供全面的招牌和標識解決方案</p>
         </div>
     </section>
 
-    <!-- 最新文章 -->
-    <section class="articles-section">
-        <div class="section-header">
-            <h2>最新文章</h2>
-            <p>深入了解招牌設計的最新趨勢和專業知識</p>
-        </div>
-        <div class="articles-grid">
-            <div class="article-card">
-                <div class="article-image">🎨</div>
-                <div class="article-content">
-                    <div class="article-date">2024年8月</div>
-                    <h3>LED 招牌設計的未來趨勢</h3>
-                    <p>探討動態 LED 技術如何改變現代招牌設計，以及如何為您的品牌選擇最適合的解決方案。</p>
-                    <a href="#">閱讀全文 →</a>
-                </div>
-            </div>
-            <div class="article-card">
-                <div class="article-image">✨</div>
-                <div class="article-content">
-                    <div class="article-date">2024年8月</div>
-                    <h3>色彩心理學在標識設計中的應用</h3>
-                    <p>深入分析色彩選擇如何影響消費者決策，以及如何利用色彩心理學創造更有效的品牌標識。</p>
-                    <a href="#">閱讀全文 →</a>
-                </div>
-            </div>
-            <div class="article-card">
-                <div class="article-image">🏆</div>
-                <div class="article-content">
-                    <div class="article-date">2024年8月</div>
-                    <h3>2024年最佳招牌設計案例</h3>
-                    <p>精選全球優秀招牌設計作品，分析成功背後的設計理念和創意元素，為您提供靈感。</p>
-                    <a href="#">閱讀全文 →</a>
-                </div>
+    <!-- 產品區塊 -->
+    <section class="products-section">
+        <div class="product-block">
+            <div class="product-image">💡</div>
+            <div class="product-content">
+                <h2>3D & Illuminated Signs</h2>
+                <p>我們的 3D 字母可以定製成金屬、不銹鋼或壓克力等材料。這些招牌設計非常適合為您的店面或接待區創造優雅的品牌形象。</p>
+                <a href="#" class="btn-secondary">瞭解詳情</a>
             </div>
         </div>
-    </section>
 
-    <!-- 頁尾訂閱區 -->
-    <section class="newsletter-section">
-        <div class="container">
-            <div style="max-width: 800px;">
-                <h2 style="font-size: 32px; font-weight: 800; color: var(--primary); margin-bottom: 20px;">享受行業最新洞見</h2>
-                <p style="font-size: 15px; color: var(--text-light); line-height: 1.8; margin-bottom: 16px;">每週我們都會為您精選最新的招牌設計案例、行業動態和專業建議。無論您是品牌主、設計師還是廣告商，我們的 Newsletter 都將幫助您走在行業前沿。</p>
-                <p style="font-size: 15px; color: var(--text-light); line-height: 1.8; margin-bottom: 30px;">訂閱我們的電子報，加入數百位行業專業人士的行列，一起探索招牌設計和視覺標識的無限可能。</p>
+        <div class="product-block reverse">
+            <div class="product-image">📺</div>
+            <div class="product-content">
+                <h2>LED Display Screens</h2>
+                <p>發現我們的尖端 LED 屏幕技術。我們的團隊正在不懈地為您帶來沉浸式的視覺體驗。敬請期待更新，準備被驚豔吧。</p>
+                <a href="#" class="btn-secondary">瞭解詳情</a>
+            </div>
+        </div>
 
-                <form style="display: flex; flex-direction: column; gap: 16px;" onsubmit="return false;">
-                    <input type="text" placeholder="您的名字" required style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; font-family: inherit; transition: all 0.3s;">
-                    <input type="email" placeholder="您的電子郵件" required style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; font-family: inherit; transition: all 0.3s;">
-                    <input type="text" placeholder="公司名稱（選填）" style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; font-family: inherit; transition: all 0.3s;">
-                    <button type="submit" style="padding: 14px 32px; background: var(--primary); color: var(--white); border: none; border-radius: 6px; font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.3s; margin-top: 10px;">立即訂閱</button>
-                </form>
+        <div class="product-block">
+            <div class="product-image">🖼️</div>
+            <div class="product-content">
+                <h2>Large Format Printing</h2>
+                <p>大幅面印刷可以幫助您的業務在街道上脫穎而出。我們的團隊擁有豐富經驗，可以將各種材料印刷成精細的設計，經久耐用。</p>
+                <a href="#" class="btn-secondary">瞭解詳情</a>
+            </div>
+        </div>
+
+        <div class="product-block reverse">
+            <div class="product-image">🏗️</div>
+            <div class="product-content">
+                <h2>Outdoor Signage</h2>
+                <p>我們的戶外招牌解決方案經久耐用，專為應對惡劣環境條件而設計。從店面招牌到方向標誌，我們的戶外解決方案久經考驗。</p>
+                <a href="#" class="btn-secondary">瞭解詳情</a>
+            </div>
+        </div>
+
+        <div class="product-block">
+            <div class="product-image">🧭</div>
+            <div class="product-content">
+                <h2>Wayfinding & Directory</h2>
+                <p>專業導向解決方案有效引導客戶。清晰設計的目錄和導航標誌改善客戶體驗，增加商業空間的參與度。</p>
+                <a href="#" class="btn-secondary">瞭解詳情</a>
+            </div>
+        </div>
+
+        <div class="product-block reverse">
+            <div class="product-image">✨</div>
+            <div class="product-content">
+                <h2>Custom Branding Solutions</h2>
+                <p>完美代表您品牌形象的客製化標識。從概念到安裝，我們與您密切合作，創造獨特而令人難忘的品牌視覺解決方案。</p>
+                <a href="#" class="btn-secondary">瞭解詳情</a>
             </div>
         </div>
     </section>
