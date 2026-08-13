@@ -65,6 +65,48 @@ body {
     color: white;
 }
 
+/* 頂部信息欄 */
+.top-bar {
+    background-color: #4A5568;
+    color: white;
+    padding: 10px 0;
+    font-size: 12px;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.auth-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.auth-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.cart {
+    background-color: var(--secondary-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
 /* 導覽列 */
 .header {
     position: sticky;
@@ -133,6 +175,29 @@ body {
 .nav-links a:hover::after,
 .nav-links a.active::after {
     width: 100%;
+}
+
+.newsletter-link {
+    background-color: var(--secondary-color) !important;
+    color: white !important;
+    padding: 8px 16px !important;
+    border-radius: 4px;
+}
+
+.newsletter-link:hover {
+    background-color: #E55A2B !important;
+}
+
+.search-box {
+    border: 1px solid var(--border-color);
+    padding: 10px 15px;
+    border-radius: 4px;
+    width: 200px;
+    font-size: 14px;
+}
+
+.search-box::placeholder {
+    color: #999;
 }
 
 .contact-btn {
@@ -709,17 +774,38 @@ body {
 }
 
 /* RWD 響應式設計 */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 15px;
+        font-size: 13px;
+    }
+
+    .search-box {
+        width: 150px;
+    }
+}
+
 @media (max-width: 768px) {
+    .top-bar .container {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 11px;
+    }
+
     .navbar .container {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
     }
 
     .nav-links {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
         margin-left: 0;
         order: 3;
+        width: 100%;
+    }
+
+    .search-box {
         width: 100%;
     }
 
