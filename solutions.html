@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signage Solutions - ACE SIGN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #003AA3;
+            --primary-dark: #001f5c;
+            --accent: #0052D9;
+            --light-bg: #F8FAFB;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --border: #E5E7EB;
+            --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== 頂部 Bar ===== */
+        .top-bar {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 12px 0;
+            font-size: 13px;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left, .top-bar-right {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .top-bar a:hover {
+            opacity: 1;
+        }
+
+        /* ===== 導覽列 ===== */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 58, 163, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--white);
+            padding: 2px;
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            flex-shrink: 0;
+        }
+
+        .btn-primary {
+            padding: 10px 24px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 58, 163, 0.15);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 58, 163, 0.25);
+        }
+
+        /* ===== 頁面標題 ===== */
+        .page-header {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--light-bg) 0%, #E8ECF1 100%);
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .page-header p {
+            font-size: 17px;
+            color: var(--text-light);
+            max-width: 600px;
+        }
+
+        /* ===== 產品區塊 ===== */
+        .products-section {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .product-block {
+            max-width: 1200px;
+            margin: 0 auto 120px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .product-block.reverse {
+            direction: rtl;
+        }
+
+        .product-block.reverse > * {
+            direction: ltr;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 120px;
+            box-shadow: 0 20px 60px rgba(0, 58, 163, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .product-content h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-content p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 12px 28px;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-column h3 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column a {
+            display: block;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+        }
+
+        .footer-column p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+        }
+
+        /* ===== 響應式 ===== */
+        @media (max-width: 1024px) {
+            .product-block {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-bottom: 60px;
+            }
+
+            .product-block.reverse {
+                direction: ltr;
+            }
+
+            .product-image {
+                height: 300px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+
+            .product-image {
+                height: 240px;
+                font-size: 60px;
+            }
+
+            .product-content h2 {
+                font-size: 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 頂部 Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <a href="#">✉️ info@acesign.com.au</a>
+                    <a href="#">📞 1300 996 495</a>
+                </div>
+                <div class="top-bar-right">
+                    <a href="#">🇦🇺 Australia</a>
+                    <a href="#">👤 Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 導覽列 -->
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 140 160" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                            <polygon points="70,5 130,95 10,95" fill="#003AA3"/>
+                            <polygon points="70,25 105,80 35,80" fill="white"/>
+                            <rect x="25" y="85" width="35" height="10" fill="#6B7280"/>
+                            <rect x="25" y="98" width="25" height="8" fill="#6B7280"/>
+                            <rect x="25" y="109" width="35" height="10" fill="#6B7280"/>
+                            <rect x="80" y="85" width="35" height="10" fill="#6B7280"/>
+                            <rect x="80" y="98" width="25" height="8" fill="#6B7280"/>
+                            <rect x="80" y="109" width="35" height="10" fill="#6B7280"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">ACE SIGN</div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="solutions.html" class="active">Signage Solutions</a></li>
+                    <li><a href="projects.html">Portfolio</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="newsletter.html">Newsletter</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="header-cta">
+                    <button class="btn-primary">Get Quote</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 頁面標題 -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Signage Solutions</h1>
+            <p>從概念設計到完美安裝，我們為您提供全面的招牌和標識解決方案</p>
+        </div>
+    </section>
+
+    <!-- 產品區塊 -->
+    <section class="products-section">
+        <div class="product-block">
+            <div class="product-image">💡</div>
+            <div class="product-content">
+                <h2>3D & Illuminated Signs</h2>
+                <p>我們的 3D 字母可以定製成金屬、不銹鋼或壓克力等材料。這些招牌設計非常適合為您的店面或接待區創造優雅的品牌形象。</p>
+                <a href="#" class="btn-secondary">瞭解詳情</a>
+            </div>
+        </div>
+
+        <div class="product-block reverse">
+            <div class="product-image">📺</div>
+            <div class="product-content">
+                <h2>LED Display Screens</h2>
+                <p>發現我們的尖端 LED 屏幕技術。我們的團隊正在不懈地為您帶來沉浸式的視覺體驗。敬請期待更新，準備被驚豔吧。</p>
+                <a href="#" class="btn-secondary">瞭解詳情</a>
+            </div>
+        </div>
+
+        <div class="product-block">
+            <div class="product-image">🖼️</div>
+            <div class="product-content">
+                <h2>Large Format Printing</h2>
+                <p>大幅面印刷可以幫助您的業務在街道上脫穎而出。我們的團隊擁有豐富經驗，可以將各種材料印刷成精細的設計，經久耐用。</p>
+                <a href="#" class="btn-secondary">瞭解詳情</a>
+            </div>
+        </div>
+
+        <div class="product-block reverse">
+            <div class="product-image">🏗️</div>
+            <div class="product-content">
+                <h2>Outdoor Signage</h2>
+                <p>我們的戶外招牌解決方案經久耐用，專為應對惡劣環境條件而設計。從店面招牌到方向標誌，我們的戶外解決方案久經考驗。</p>
+                <a href="#" class="btn-secondary">瞭解詳情</a>
+            </div>
+        </div>
+
+        <div class="product-block">
+            <div class="product-image">🧭</div>
+            <div class="product-content">
+                <h2>Wayfinding & Directory</h2>
+                <p>專業導向解決方案有效引導客戶。清晰設計的目錄和導航標誌改善客戶體驗，增加商業空間的參與度。</p>
+                <a href="#" class="btn-secondary">瞭解詳情</a>
+            </div>
+        </div>
+
+        <div class="product-block reverse">
+            <div class="product-image">✨</div>
+            <div class="product-content">
+                <h2>Custom Branding Solutions</h2>
+                <p>完美代表您品牌形象的客製化標識。從概念到安裝，我們與您密切合作，創造獨特而令人難忘的品牌視覺解決方案。</p>
+                <a href="#" class="btn-secondary">瞭解詳情</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>服務範疇</h3>
+                <ul>
+                    <li><a href="#">招牌設計</a></li>
+                    <li><a href="#">標識製作</a></li>
+                    <li><a href="#">LED 解決方案</a></li>
+                    <li><a href="#">大幅面印刷</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>行業應用</h3>
+                <ul>
+                    <li><a href="#">零售商業</a></li>
+                    <li><a href="#">餐飲行業</a></li>
+                    <li><a href="#">房地產</a></li>
+                    <li><a href="#">企業辦公</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>公司信息</h3>
+                <ul>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">新聞中心</a></li>
+                    <li><a href="#">人才招聘</a></li>
+                    <li><a href="#">聯絡方式</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>墨爾本總部</h3>
+                <p>
+                    Unit 16/260 Wickham Rd<br>
+                    Highett, VIC 3190<br><br>
+                    📞 1300 996 495<br>
+                    ✉️ info@acesign.com.au
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; 2024 ACE SIGN. 版權所有 · 保留所有權利</span>
+            <div class="footer-social">
+                <a href="#">📱</a>
+                <a href="#">👍</a>
+                <a href="#">📷</a>
+                <a href="#">🎥</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

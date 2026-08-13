@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACE SIGN - 專業招牌與標識設計製作</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #003AA3;
+            --primary-dark: #001f5c;
+            --accent: #0052D9;
+            --light-bg: #F8FAFB;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --border: #E5E7EB;
+            --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== 頂部 Bar ===== */
+        .top-bar {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 12px 0;
+            font-size: 13px;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left, .top-bar-right {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .top-bar a:hover {
+            opacity: 1;
+        }
+
+        /* ===== 導覽列 ===== */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 58, 163, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--white);
+            padding: 2px;
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            flex-shrink: 0;
+        }
+
+        .btn-primary {
+            padding: 10px 24px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 58, 163, 0.15);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 58, 163, 0.25);
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            background: linear-gradient(135deg, #f8fafc 0%, var(--light-bg) 100%);
+            padding: 120px 20px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 82, 217, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text .highlight {
+            color: var(--accent);
+            background: linear-gradient(120deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            padding: 12px 28px;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 480px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 140px;
+            box-shadow: 0 20px 60px rgba(0, 58, 163, 0.2);
+            overflow: hidden;
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* ===== 優勢區塊 ===== */
+        .advantages {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .advantages-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .advantage-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            background: var(--light-bg);
+            transition: all 0.3s;
+        }
+
+        .advantage-item:hover {
+            transform: translateY(-8px);
+            background: #f0f4ff;
+            box-shadow: 0 12px 24px rgba(0, 58, 163, 0.1);
+        }
+
+        .advantage-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .advantage-item h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .advantage-item p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ===== 服務區塊 ===== */
+        .services {
+            padding: 100px 20px;
+            background: var(--light-bg);
+        }
+
+        .section-header {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 12px 32px rgba(0, 58, 163, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ===== 案例區塊 ===== */
+        .portfolio {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .portfolio-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .portfolio-item {
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--light-bg);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-image::after {
+            opacity: 1;
+        }
+
+        .portfolio-content {
+            padding: 30px;
+        }
+
+        .portfolio-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .portfolio-content p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ===== CTA Section ===== */
+        .cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+        }
+
+        .cta-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-light {
+            padding: 14px 36px;
+            background: var(--white);
+            color: var(--primary);
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-light:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-column h3 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column a {
+            display: block;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+        }
+
+        .footer-column p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+        }
+
+        /* ===== 響應式 ===== */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .hero-content {
+                gap: 30px;
+            }
+
+            .hero-visual {
+                height: 300px;
+                font-size: 80px;
+            }
+
+            .advantages-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 頂部 Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <a href="#">✉️ info@acesign.com.au</a>
+                    <a href="#">📞 1300 996 495</a>
+                </div>
+                <div class="top-bar-right">
+                    <a href="#">🇦🇺 Australia</a>
+                    <a href="#">👤 Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 導覽列 -->
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 140 160" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                            <!-- 藍色大三角形 A -->
+                            <polygon points="70,5 130,95 10,95" fill="#003AA3"/>
+                            <!-- 白色內部三角形 -->
+                            <polygon points="70,25 105,80 35,80" fill="white"/>
+                            <!-- 灰色 E 字上面部分 -->
+                            <rect x="25" y="85" width="35" height="10" fill="#6B7280"/>
+                            <!-- 灰色 E 字中間部分 -->
+                            <rect x="25" y="98" width="25" height="8" fill="#6B7280"/>
+                            <!-- 灰色 E 字下面部分 -->
+                            <rect x="25" y="109" width="35" height="10" fill="#6B7280"/>
+                            <!-- 第二個灰色 E 字上面 -->
+                            <rect x="80" y="85" width="35" height="10" fill="#6B7280"/>
+                            <!-- 第二個灰色 E 字中間 -->
+                            <rect x="80" y="98" width="25" height="8" fill="#6B7280"/>
+                            <!-- 第二個灰色 E 字下面 -->
+                            <rect x="80" y="109" width="35" height="10" fill="#6B7280"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">ACE SIGN</div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="solutions.html">Signage Solutions</a></li>
+                    <li><a href="projects.html">Portfolio</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="newsletter.html">Newsletter</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="header-cta">
+                    <button class="btn-primary">Get Quote</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>專業招牌設計 · 製作 · 安裝</h1>
+                <p>20年行業經驗，為500+品牌打造獨特的視覺標識。從零售商店到大型商業中心，我們將您的願景轉變為令人印象深刻的現實。</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary">立即諮詢</button>
+                    <button class="btn-secondary">查看案例</button>
+                </div>
+            </div>
+            <div class="hero-visual">🎨</div>
+        </div>
+    </section>
+
+    <!-- 優勢區塊 -->
+    <section class="advantages">
+        <div class="advantages-grid">
+            <div class="advantage-item">
+                <div class="advantage-icon">🏆</div>
+                <h3>行業領先</h3>
+                <p>20年招牌設計製作經驗，屢獲業界認可</p>
+            </div>
+            <div class="advantage-item">
+                <div class="advantage-icon">⚡</div>
+                <h3>快速交付</h3>
+                <p>專業團隊高效執行，按時交付品質項目</p>
+            </div>
+            <div class="advantage-item">
+                <div class="advantage-icon">💎</div>
+                <h3>品質保證</h3>
+                <p>採用頂級材料，確保產品耐用性和美觀度</p>
+            </div>
+            <div class="advantage-item">
+                <div class="advantage-icon">🎯</div>
+                <h3>客製化方案</h3>
+                <p>根據您的品牌需求設計獨特解決方案</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服務區塊 -->
+    <section class="services">
+        <div class="section-header">
+            <h2>核心服務方案</h2>
+            <p>從概念設計到安裝維護，我們提供完整的招牌和標識解決方案</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💡</div>
+                <h3>品牌策略</h3>
+                <p>視覺設計顧問服務，為您的品牌打造獨特識別度</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>設計服務</h3>
+                <p>創意設計團隊，呈現您品牌的視覺故事</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏭</div>
+                <h3>製作安裝</h3>
+                <p>專業製作工廠，完善安裝服務團隊</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📺</div>
+                <h3>LED 解決方案</h3>
+                <p>高清LED顯示屏，動態展示品牌魅力</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>大幅面印刷</h3>
+                <p>專業印刷技術，細節精准呈現</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>維護服務</h3>
+                <p>定期維護保養，確保長期最佳狀態</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 案例區塊 -->
+    <section class="portfolio">
+        <div class="section-header">
+            <h2>精選案例</h2>
+            <p>來自零售、餐飲、房地產等行業的成功項目</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-image">🏪</div>
+                <div class="portfolio-content">
+                    <h3>高端零售店鋪</h3>
+                    <p>為知名品牌設計製作店面標識，提升商業形象和品牌認知度</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">🏬</div>
+                <div class="portfolio-content">
+                    <h3>購物中心招牌</h3>
+                    <p>大型商業綜合體標識系統設計，整合多個品牌視覺識別</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">🍔</div>
+                <div class="portfolio-content">
+                    <h3>餐飲連鎖店</h3>
+                    <p>統一品牌標識設計，跨越多家門店的視覺一致性</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">🏢</div>
+                <div class="portfolio-content">
+                    <h3>企業辦公樓</h3>
+                    <p>辦公樓宇標識系統，展現企業專業形象和品牌實力</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>準備打造您的品牌視覺形象？</h2>
+            <p>讓我們的專業團隊為您創造令人印象深刻的招牌和標識解決方案</p>
+            <button class="btn-light">聯絡我們</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>服務範疇</h3>
+                <ul>
+                    <li><a href="#">招牌設計</a></li>
+                    <li><a href="#">標識製作</a></li>
+                    <li><a href="#">LED 解決方案</a></li>
+                    <li><a href="#">大幅面印刷</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>行業應用</h3>
+                <ul>
+                    <li><a href="#">零售商業</a></li>
+                    <li><a href="#">餐飲行業</a></li>
+                    <li><a href="#">房地產</a></li>
+                    <li><a href="#">企業辦公</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>公司信息</h3>
+                <ul>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">新聞中心</a></li>
+                    <li><a href="#">人才招聘</a></li>
+                    <li><a href="#">聯絡方式</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>墨爾本總部</h3>
+                <p>
+                    Unit 16/260 Wickham Rd<br>
+                    Highett, VIC 3190<br><br>
+                    📞 1300 996 495<br>
+                    ✉️ info@acesign.com.au
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; 2024 ACE SIGN. 版權所有 · 保留所有權利</span>
+            <div class="footer-social">
+                <a href="#">📱</a>
+                <a href="#">👍</a>
+                <a href="#">📷</a>
+                <a href="#">🎥</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
