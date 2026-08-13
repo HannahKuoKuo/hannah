@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACE SIGN 網站優化 - Demo 預覽</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
+            background: linear-gradient(135deg, #F5F7FA 0%, #E8ECF1 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #003AA3;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 58, 163, 0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 58, 163, 0.25);
+        }
+
+        .demo-preview {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #E8ECF1, #D4DCE6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #999;
+            font-weight: 600;
+        }
+
+        .demo-content {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .demo-content h2 {
+            color: #003AA3;
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .demo-content p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .demo-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .demo-features li {
+            color: #666;
+            font-size: 13px;
+            padding: 6px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .demo-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27AE60;
+            font-weight: bold;
+        }
+
+        .demo-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: #003AA3;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #002a7e;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #FF6B35;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #E55A2B;
+            transform: translateY(-2px);
+        }
+
+        .info-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .info-box h3 {
+            color: #003AA3;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .info-box p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .server-status {
+            display: inline-block;
+            background-color: #27AE60;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 ACE SIGN 公司網站優化 Demo</h1>
+
+        <div class="server-status">✓ 本地伺服器運行中 (http://localhost:8000)</div>
+
+        <div class="info-box">
+            <h3>📋 專案概述</h3>
+            <p>本專案是 ACE SIGN 公司官網的全面優化升級，包括優化的首頁設計和 Newsletter 專頁。所有頁面使用統一的品牌色彩系統和響應式設計。</p>
+            <p><strong>主要特色：</strong>現代化設計、完全響應式、平滑動畫、易於維護。</p>
+        </div>
+
+        <div class="demo-grid">
+            <!-- 首頁 Demo -->
+            <div class="demo-card">
+                <div class="demo-preview">📄 首頁</div>
+                <div class="demo-content">
+                    <h2>首頁 (index.html)</h2>
+                    <p>優化的首頁，展示公司服務、成功案例和品牌承諾，支援 EDM 訂閱整合。</p>
+                    <ul class="demo-features">
+                        <li>專業的 Hero 區塊</li>
+                        <li>6 個核心服務方案</li>
+                        <li>4 個品牌承諾項目</li>
+                        <li>4 個成功案例展示</li>
+                        <li>Newsletter 訂閱區域</li>
+                        <li>聯絡表單和資訊</li>
+                        <li>粘性導覽列</li>
+                    </ul>
+                    <div class="demo-buttons">
+                        <a href="index.html" class="btn btn-primary">查看首頁</a>
+                        <a href="#details-index" class="btn btn-secondary">詳情</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter 專頁 Demo -->
+            <div class="demo-card">
+                <div class="demo-preview">📰 Newsletter</div>
+                <div class="demo-content">
+                    <h2>Newsletter 專頁 (newsletter.html)</h2>
+                    <p>專門的新聞通訊頁面，用於展示 EDM 相關內容，支援文章分類和過濾。</p>
+                    <ul class="demo-features">
+                        <li>6 篇 Newsletter 文章</li>
+                        <li>5 種分類過濾功能</li>
+                        <li>文章預覽卡片</li>
+                        <li>分頁功能</li>
+                        <li>訂閱表單</li>
+                        <li>響應式佈局</li>
+                        <li>平滑過渡動畫</li>
+                    </ul>
+                    <div class="demo-buttons">
+                        <a href="newsletter.html" class="btn btn-primary">查看專頁</a>
+                        <a href="#details-newsletter" class="btn btn-secondary">詳情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 首頁詳情 -->
+        <div class="info-box" id="details-index">
+            <h3>📄 首頁設計詳情 (index.html)</h3>
+            <p><strong>Hero 區塊：</strong>展示公司核心價值和 CTA 按鈕，吸引訪客進一步瞭解。</p>
+            <p><strong>服務方案：</strong>6 個核心服務卡片，包括 LED 顯示屏、發光招牌、大型字體列印、戶外標識、商業標牌、一體化服務。</p>
+            <p><strong>品牌承諾：</strong>4 個關鍵承諾項目，展示公司的價值觀和優勢。</p>
+            <p><strong>成功案例：</strong>4 個真實案例展示，建立信任和信心。</p>
+            <p><strong>Newsletter 訂閱：</strong>在首頁集成訂閱表單，同時提供連結導向完整的 Newsletter 專頁。</p>
+            <p><strong>聯絡區：</strong>完整的聯絡資訊和表單，方便客戶聯繫。</p>
+        </div>
+
+        <!-- Newsletter 詳情 -->
+        <div class="info-box" id="details-newsletter">
+            <h3>📰 Newsletter 專頁設計詳情 (newsletter.html)</h3>
+            <p><strong>分類過濾：</strong>支持 5 種分類：新品發布、設計提示、成功案例、優惠活動、全部。用戶可以快速找到他們感興趣的內容。</p>
+            <p><strong>文章卡片：</strong>每篇文章包含類別標籤、標題、發佈日期、摘要和「閱讀完整文章」連結。</p>
+            <p><strong>分頁功能：</strong>支持多頁顯示，便於管理大量內容。</p>
+            <p><strong>EDM 整合：</strong>當用戶點擊 EDM 郵件中的連結時，會直接進入 Newsletter 專頁，可以看到完整的文章內容。</p>
+            <p><strong>訂閱表單：</strong>頁面底部提供訂閱表單，鼓勵用戶訂閱。</p>
+        </div>
+
+        <!-- 設計系統 -->
+        <div class="info-box">
+            <h3>🎨 設計系統</h3>
+            <p><strong>色彩方案：</strong></p>
+            <ul class="demo-features">
+                <li>主顏色：#003AA3（專業藍）- 用於標題、按鈕、強調</li>
+                <li>次要顏色：#FF6B35（活力橙）- 用於 CTA 按鈕、特殊標籤</li>
+                <li>背景色：#F5F7FA（淡灰藍）- 用於區塊背景</li>
+                <li>文字色：#1A1A1A（深灰）- 用於正文</li>
+            </ul>
+            <p><strong>響應式設計：</strong>完全支持桌面、平板和手機裝置。</p>
+            <p><strong>排版：</strong>採用 Segoe UI 和 Noto Sans TC，確保中英文都清晰易讀。</p>
+        </div>
+
+        <!-- 技術棧 -->
+        <div class="info-box">
+            <h3>🔧 技術棧</h3>
+            <p><strong>HTML5：</strong>語義化標記，利於 SEO。</p>
+            <p><strong>CSS3：</strong>現代樣式，包括 Grid、Flexbox、動畫、漸層。</p>
+            <p><strong>JavaScript（Vanilla）：</strong>無框架依賴的交互功能，輕量級高效。</p>
+            <p><strong>無依賴：</strong>所有代碼都是純 HTML/CSS/JS，無需任何第三方庫。</p>
+        </div>
+
+        <div class="footer">
+            <p>ACE SIGN 公司網站優化 Demo | 版本 1.0 | 2024 年 8 月</p>
+        </div>
+    </div>
+</body>
+</html>
