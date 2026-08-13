@@ -1020,12 +1020,15 @@
         .newsletter-cta-form {
             display: flex;
             gap: 12px;
-            max-width: 500px;
+            flex-wrap: wrap;
+            max-width: 600px;
             margin: 0 auto;
+            justify-content: center;
         }
 
         .newsletter-cta-form input {
             flex: 1;
+            min-width: 150px;
             padding: 14px 16px;
             border: none;
             border-radius: 6px;
@@ -1799,6 +1802,7 @@
                 <h2>Latest Industry Information and Offers</h2>
                 <p>Subscribe to our Newsletter for the latest product information, design insights and special offers</p>
                 <form class="newsletter-cta-form" onsubmit="return false;">
+                    <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Enter Your Email" required>
                     <button type="submit">Subscribe</button>
                 </form>
