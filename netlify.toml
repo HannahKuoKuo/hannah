@@ -1,0 +1,14 @@
+# Netlify Configuration for ACE SIGN Website
+
+[[redirects]]
+  from = "/*"
+  to = "/ace-sign-demo.html"
+  status = 200
+
+# Cache settings
+[build]
+  publish = "."
+  command = "echo 'Static site ready for deployment'"
+
+[build.environment]
+  NODE_VERSION = "18"

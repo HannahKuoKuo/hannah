@@ -1379,11 +1379,11 @@
                     <div class="logo-text">ACE SIGN</div>
                 </div>
                 <ul class="nav-links">
-                    <li><a onclick="navigateTo('home')" class="active">Home</a></li>
-                    <li><a onclick="navigateTo('solutions')">Signage Solutions</a></li>
-                    <li><a onclick="navigateTo('portfolio')">Portfolio</a></li>
+                    <li><a href="/" onclick="event.preventDefault(); navigateTo('home')" class="active">Home</a></li>
+                    <li><a href="/solutions" onclick="event.preventDefault(); navigateTo('solutions')">Signage Solutions</a></li>
+                    <li><a href="/projects" onclick="event.preventDefault(); navigateTo('portfolio')">Portfolio</a></li>
                     <li><a href="#">Services</a></li>
-                    <li><a onclick="navigateTo('newsletter')">Newsletter</a></li>
+                    <li><a href="/newsletter" onclick="event.preventDefault(); navigateTo('newsletter')">Newsletter</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -1881,6 +1881,74 @@
     </footer>
 
     <script>
+        // URL Routing System
+        function initializePageFromURL() {
+            const pathname = window.location.pathname;
+
+            if (pathname === '/' || pathname === '') {
+                navigateTo('home');
+            } else if (pathname === '/solutions' || pathname === '/solutions/') {
+                navigateTo('solutions');
+            } else if (pathname === '/projects' || pathname === '/projects/') {
+                navigateTo('portfolio');
+            } else if (pathname === '/newsletter' || pathname === '/newsletter/') {
+                navigateTo('newsletter');
+            } else if (pathname.match(/^\/article\/(\d+)/)) {
+                const articleId = parseInt(pathname.match(/^\/article\/(\d+)/)[1]);
+                navigateToArticle(articleId);
+            }
+        }
+
+        // Update navigateTo to support history
+        const originalNavigateTo = typeof navigateTo === 'function' ? navigateTo : null;
+
+        function navigateTo(page) {
+            const pageMap = {
+                'home': '/',
+                'solutions': '/solutions',
+                'portfolio': '/projects',
+                'newsletter': '/newsletter',
+                'article': '/article'
+            };
+
+            if (pageMap[page]) {
+                window.history.pushState({page: page}, '', pageMap[page]);
+            }
+
+            // Original navigation logic
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(p => p.classList.remove('active'));
+
+            const targetPage = document.getElementById(page);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => link.classList.remove('active'));
+
+            const pageMapIndex = {
+                'home': 0,
+                'solutions': 1,
+                'portfolio': 2,
+                'newsletter': 4
+            };
+            if (pageMapIndex[page] !== undefined) {
+                links[pageMapIndex[page]].classList.add('active');
+            }
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', initializePageFromURL);
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.page) {
+                navigateTo(event.state.page);
+            } else {
+                initializePageFromURL();
+            }
+        });
+
         const articles = {
             1: {
                 title: 'Future Trends in LED Signage Design',
