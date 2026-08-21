@@ -29,6 +29,7 @@ import contentCalendarRoutes from './routes/contentCalendar';
 import reportsRoutes from './routes/reports';
 import analyticsRoutes from './routes/analytics';
 import rolesRoutes from './routes/roles';
+import attributionRoutes from './routes/attribution';
 
 const app: Express = express();
 const PORT = process.env.API_PORT || 3001;
@@ -100,6 +101,7 @@ app.use('/api/content-calendar', authMiddleware, contentCalendarRoutes);
 app.use('/api/reports', authMiddleware, reportsRoutes);
 app.use('/api/analytics', authMiddleware, analyticsRoutes);
 app.use('/api/roles', authMiddleware, rolesRoutes);
+app.use('/api/attribution', authMiddleware, attributionRoutes);
 
 // 404 处理
 app.use((req: Request, res: Response) => {

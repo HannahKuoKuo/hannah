@@ -21,6 +21,7 @@ import clsx from 'clsx';
 
 const menuItems = [
   { href: '/dashboard', label: 'Dashboard', icon: FiHome },
+  { href: '/dashboard/roi-attribution', label: 'ROI & Attribution', icon: FiBarChart2 },
   { href: '/dashboard/analytics', label: 'Analytics', icon: FiBarChart2 },
   { href: '/dashboard/mailerlite', label: 'Email Campaigns', icon: FiMail },
   { href: '/dashboard/social', label: 'Social Media', icon: FiShare2 },

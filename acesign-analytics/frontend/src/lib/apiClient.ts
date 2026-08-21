@@ -265,6 +265,23 @@ class ApiClient {
     return this.client.get('/analytics/roi', { params: { days } });
   }
 
+  // Attribution & ROI Analysis
+  async getAttributionAnalysis(model: string = 'last_touch', dateRange: number = 30) {
+    return this.client.get('/attribution/analysis', { params: { model, dateRange } });
+  }
+
+  async getAttributionTimeline(model: string = 'last_touch') {
+    return this.client.get('/attribution/timeline', { params: { model } });
+  }
+
+  async compareAttributionModels() {
+    return this.client.get('/attribution/compare-models');
+  }
+
+  async getRoiMatrix(model: string = 'last_touch') {
+    return this.client.get('/attribution/roi-matrix', { params: { model } });
+  }
+
   // Roles and Permissions
   async getTeamMembers() {
     return this.client.get('/roles');
