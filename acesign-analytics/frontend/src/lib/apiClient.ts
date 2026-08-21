@@ -422,6 +422,47 @@ class ApiClient {
   async exportToTableau(scriptId: number, datasourceName: string, schedule?: string) {
     return this.client.post(`/python/${scriptId}/export-tableau`, { datasourceName, schedule });
   }
+
+  // KPI Tracking
+  async getKPIs(category?: string) {
+    return this.client.get('/kpi', { params: { category } });
+  }
+
+  async getKPI(kpiId: number) {
+    return this.client.get(`/kpi/${kpiId}`);
+  }
+
+  async createKPI(data: any) {
+    return this.client.post('/kpi', data);
+  }
+
+  async updateKPI(kpiId: number, data: any) {
+    return this.client.put(`/kpi/${kpiId}`, data);
+  }
+
+  async deleteKPI(kpiId: number) {
+    return this.client.delete(`/kpi/${kpiId}`);
+  }
+
+  async getKPIHistory(kpiId: number) {
+    return this.client.get(`/kpi/${kpiId}`);
+  }
+
+  async getKPIAlerts(kpiId: number) {
+    return this.client.get(`/kpi/${kpiId}/alerts`);
+  }
+
+  async configureKPIAlerts(kpiId: number, config: any) {
+    return this.client.post(`/kpi/${kpiId}/alerts/configure`, config);
+  }
+
+  async getKPIDashboard() {
+    return this.client.get('/kpi/dashboard/overview');
+  }
+
+  async getKPIComparison() {
+    return this.client.get('/kpi/analytics/comparison');
+  }
 }
 
 export default new ApiClient();

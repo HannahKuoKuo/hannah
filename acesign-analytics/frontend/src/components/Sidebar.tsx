@@ -30,6 +30,7 @@ const menuItems = [
   { href: '/dashboard/clv', label: 'Customer Value', icon: FiBarChart2 },
   { href: '/dashboard/sql-editor', label: 'SQL Editor', icon: FiFileText },
   { href: '/dashboard/python-analytics', label: 'Python Analytics', icon: FiFileText },
+  { href: '/dashboard/kpi', label: 'KPI Dashboard', icon: FiBarChart2 },
   { href: '/dashboard/reports', label: 'Reports', icon: FiFileText },
   { href: '/dashboard/settings', label: 'Settings', icon: FiSettings }
 ];
