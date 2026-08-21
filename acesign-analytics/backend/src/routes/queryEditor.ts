@@ -42,15 +42,38 @@ const ALLOWED_KEYWORDS = [
   'AVG', 'MAX', 'MIN', 'HAVING', 'DISTINCT', 'AS'
 ];
 
+// Strip SQL comments to prevent bypass techniques
+const stripComments = (query: string): string => {
+  return query
+    .replace(/--.*$/gm, '') // Remove line comments
+    .replace(/\/\*[\s\S]*?\*\//g, '') // Remove block comments
+    .trim();
+};
+
 // Validate query for security
 const validateQuery = (query: string): { valid: boolean; error?: string } => {
-  const upperQuery = query.toUpperCase();
+  if (!query || typeof query !== 'string' || query.length === 0) {
+    return { valid: false, error: 'Query cannot be empty' };
+  }
 
-  // Block dangerous operations
-  const dangerousKeywords = ['DROP', 'DELETE', 'INSERT', 'UPDATE', 'ALTER', 'CREATE', 'TRUNCATE'];
-  for (const keyword of dangerousKeywords) {
-    if (upperQuery.includes(keyword)) {
-      return { valid: false, error: `Operation '${keyword}' is not allowed` };
+  if (query.length > 50000) {
+    return { valid: false, error: 'Query exceeds maximum size (50KB)' };
+  }
+
+  // Strip comments first to prevent comment-based bypasses
+  const cleanQuery = stripComments(query);
+  const upperQuery = cleanQuery.toUpperCase();
+
+  // Block dangerous operations (check both original and clean queries)
+  const dangerousPatterns = [
+    /\bDROP\b/, /\bDELETE\b/, /\bINSERT\b/, /\bUPDATE\b/,
+    /\bALTER\b/, /\bCREATE\b/, /\bTRUNCATE\b/, /\bEXEC\b/,
+    /\bEXECUTE\b/, /\bPRAGMA\b/, /\bATTACH\b/, /\bDETACH\b/
+  ];
+
+  for (const pattern of dangerousPatterns) {
+    if (pattern.test(upperQuery)) {
+      return { valid: false, error: 'Query contains forbidden operations' };
     }
   }
 
@@ -62,7 +85,7 @@ const validateQuery = (query: string): { valid: boolean; error?: string } => {
   // Check for allowed tables
   let hasAllowedTable = false;
   for (const table of ALLOWED_TABLES) {
-    if (upperQuery.includes(table.toUpperCase())) {
+    if (new RegExp(`\\b${table.toUpperCase()}\\b`).test(upperQuery)) {
       hasAllowedTable = true;
       break;
     }
@@ -70,6 +93,17 @@ const validateQuery = (query: string): { valid: boolean; error?: string } => {
 
   if (!hasAllowedTable) {
     return { valid: false, error: `Query must reference one of: ${ALLOWED_TABLES.join(', ')}` };
+  }
+
+  // Ensure LIMIT is present and has a numeric value (prevent result explosion)
+  const limitMatch = cleanQuery.match(/LIMIT\s+(\d+)/i);
+  if (!limitMatch) {
+    return { valid: false, error: 'Query must include LIMIT clause (e.g., LIMIT 1000)' };
+  }
+
+  const limitValue = parseInt(limitMatch[1]);
+  if (limitValue > 10000) {
+    return { valid: false, error: `LIMIT cannot exceed 10000 (requested: ${limitValue})` };
   }
 
   return { valid: true };

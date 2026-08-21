@@ -20,6 +20,7 @@ interface KPI {
   status: 'healthy' | 'warning' | 'critical';
   last_updated: string;
   trend: number; // percentage change
+  direction?: 'higher' | 'lower'; // whether higher or lower is better
 }
 
 interface KPIAlert {
@@ -37,11 +38,19 @@ interface KPIHistory {
   target: number;
 }
 
-// Determine KPI status based on thresholds
-const determineStatus = (value: number, warning: number, critical: number): 'healthy' | 'warning' | 'critical' => {
-  if (value <= critical) return 'critical';
-  if (value <= warning) return 'warning';
-  return 'healthy';
+// Determine KPI status based on thresholds and direction (higher/lower is better)
+const determineStatus = (value: number, warning: number, critical: number, direction: 'higher' | 'lower' = 'higher'): 'healthy' | 'warning' | 'critical' => {
+  if (direction === 'higher') {
+    // For metrics where higher is better (conversion rate, open rate, ROAS, CLV)
+    if (value <= critical) return 'critical';
+    if (value <= warning) return 'warning';
+    return 'healthy';
+  } else {
+    // For metrics where lower is better (CAC, churn rate)
+    if (value >= critical) return 'critical';
+    if (value >= warning) return 'warning';
+    return 'healthy';
+  }
 };
 
 // Calculate trend (percentage change from previous period)
@@ -71,7 +80,8 @@ router.get('/', authMiddleware, async (req: Request, res: Response, next: NextFu
         threshold_warning: 45.00,
         threshold_critical: 50.00,
         unit: '$',
-        status: 'healthy',
+        direction: 'lower',
+        status: determineStatus(42.50, 45.00, 50.00, 'lower'),
         last_updated: new Date().toISOString(),
         trend: -3.5
       },
@@ -86,7 +96,8 @@ router.get('/', authMiddleware, async (req: Request, res: Response, next: NextFu
         threshold_warning: 1100.00,
         threshold_critical: 1000.00,
         unit: '$',
-        status: 'warning',
+        direction: 'higher',
+        status: determineStatus(1250.00, 1100.00, 1000.00, 'higher'),
         last_updated: new Date().toISOString(),
         trend: 2.1
       },
@@ -101,7 +112,8 @@ router.get('/', authMiddleware, async (req: Request, res: Response, next: NextFu
         threshold_warning: 3.00,
         threshold_critical: 2.50,
         unit: '%',
-        status: 'healthy',
+        direction: 'higher',
+        status: determineStatus(3.45, 3.00, 2.50, 'higher'),
         last_updated: new Date().toISOString(),
         trend: 5.2
       },
@@ -116,7 +128,8 @@ router.get('/', authMiddleware, async (req: Request, res: Response, next: NextFu
         threshold_warning: 2.50,
         threshold_critical: 2.00,
         unit: 'x',
-        status: 'warning',
+        direction: 'higher',
+        status: determineStatus(3.20, 2.50, 2.00, 'higher'),
         last_updated: new Date().toISOString(),
         trend: -8.3
       },
@@ -131,7 +144,8 @@ router.get('/', authMiddleware, async (req: Request, res: Response, next: NextFu
         threshold_warning: 25.00,
         threshold_critical: 20.00,
         unit: '%',
-        status: 'healthy',
+        direction: 'higher',
+        status: determineStatus(28.5, 25.00, 20.00, 'higher'),
         last_updated: new Date().toISOString(),
         trend: 1.8
       },
@@ -146,7 +160,8 @@ router.get('/', authMiddleware, async (req: Request, res: Response, next: NextFu
         threshold_warning: 6.00,
         threshold_critical: 8.00,
         unit: '%',
-        status: 'warning',
+        direction: 'lower',
+        status: determineStatus(5.2, 6.00, 8.00, 'lower'),
         last_updated: new Date().toISOString(),
         trend: -2.1
       }

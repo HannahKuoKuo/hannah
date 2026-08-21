@@ -63,7 +63,10 @@ const calculateCLV = (customer: any) => {
 
   // Adjusted CLV = predicted monthly revenue * remaining lifetime * (1 - churn probability)
   const remainingMonths = Math.max(0, predictedLifetime - customerAge);
-  const clv = avgMonthlyRevenue * remainingMonths * (1 - churnProbability);
+  let clv = avgMonthlyRevenue * remainingMonths * (1 - churnProbability);
+
+  // Ensure CLV is never negative (negative CLV is nonsensical)
+  clv = Math.max(0, clv);
 
   return {
     clv: Math.round(clv * 100) / 100,

@@ -29,7 +29,7 @@ interface ABTest {
   confidence_level: number;
 }
 
-// Chi-square test for statistical significance
+// Chi-square test for statistical significance with precondition validation
 const calculateChiSquare = (control: TestVariant, variant: TestVariant) => {
   const controlConversions = control.conversions;
   const controlNonConversions = control.visits - control.conversions;
@@ -42,6 +42,27 @@ const calculateChiSquare = (control: TestVariant, variant: TestVariant) => {
   const expectedVariant = (variant.visits / total) * (controlConversions + variantConversions);
   const expectedVariantNon = (variant.visits / total) * (controlNonConversions + variantNonConversions);
 
+  // Validate chi-square preconditions
+  const minExpected = 5;
+  const expectedFrequencies = [expectedControl, expectedControlNon, expectedVariant, expectedVariantNon];
+  const violationsCount = expectedFrequencies.filter(e => e < minExpected).length;
+  const preconditionsMet = violationsCount === 0;
+  const warnings: string[] = [];
+
+  if (!preconditionsMet) {
+    warnings.push(`${violationsCount} cell(s) have expected frequency < ${minExpected}. Results may be unreliable.`);
+  }
+
+  // Check minimum sample size per variant (typically 100 minimum)
+  if (control.visits < 100 || variant.visits < 100) {
+    warnings.push('Sample size below recommended 100 per variant. Increase samples for reliable results.');
+  }
+
+  // Check minimum conversion counts (need at least 10 conversions per group)
+  if (controlConversions < 10 || variantConversions < 10) {
+    warnings.push('Insufficient conversions (<10) in one or more variants. Continue collecting data.');
+  }
+
   const chiSquare =
     Math.pow(controlConversions - expectedControl, 2) / expectedControl +
     Math.pow(controlNonConversions - expectedControlNon, 2) / expectedControlNon +
@@ -51,8 +72,17 @@ const calculateChiSquare = (control: TestVariant, variant: TestVariant) => {
   // Critical value for 95% confidence (chi-square with 1 df ≈ 3.841)
   return {
     chiSquare,
-    isSignificant: chiSquare > 3.841,
-    pValue: getChiSquareP(chiSquare)
+    isSignificant: chiSquare > 3.841 && preconditionsMet,
+    pValue: getChiSquareP(chiSquare),
+    preconditionsMet,
+    expectedFrequencies: {
+      controlConversions: expectedControl.toFixed(2),
+      controlNonConversions: expectedControlNon.toFixed(2),
+      variantConversions: expectedVariant.toFixed(2),
+      variantNonConversions: expectedVariantNon.toFixed(2)
+    },
+    warnings,
+    reliability: preconditionsMet ? 'high' : 'low'
   };
 };
 
@@ -253,7 +283,13 @@ router.get('/:testId', authMiddleware, async (req: Request, res: Response, next:
         isSignificant: stats.isSignificant,
         pValue: stats.pValue.toFixed(4),
         confidenceLevel: 95,
-        winner: stats.isSignificant ? (lift > 0 ? 'variant' : 'control') : 'undetermined'
+        winner: stats.isSignificant ? (lift > 0 ? 'variant' : 'control') : 'undetermined',
+        preconditions: {
+          met: stats.preconditionsMet,
+          expectedFrequencies: stats.expectedFrequencies,
+          reliability: stats.reliability,
+          warnings: stats.warnings
+        }
       }
     });
   } catch (error) {
