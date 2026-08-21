@@ -33,6 +33,7 @@ import attributionRoutes from './routes/attribution';
 import abtestRoutes from './routes/abtest';
 import clvRoutes from './routes/clv';
 import queryEditorRoutes from './routes/queryEditor';
+import pythonIntegrationRoutes from './routes/pythonIntegration';
 
 const app: Express = express();
 const PORT = process.env.API_PORT || 3001;
@@ -108,6 +109,7 @@ app.use('/api/attribution', authMiddleware, attributionRoutes);
 app.use('/api/abtest', authMiddleware, abtestRoutes);
 app.use('/api/clv', authMiddleware, clvRoutes);
 app.use('/api/query', authMiddleware, queryEditorRoutes);
+app.use('/api/python', authMiddleware, pythonIntegrationRoutes);
 
 // 404 处理
 app.use((req: Request, res: Response) => {

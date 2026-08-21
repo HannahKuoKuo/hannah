@@ -385,6 +385,43 @@ class ApiClient {
   async getAvailableTables() {
     return this.client.get('/query/tables/list');
   }
+
+  // Python Integration
+  async createPythonScript(data: { name: string; description?: string; code: string }) {
+    return this.client.post('/python', data);
+  }
+
+  async listPythonScripts(status?: string) {
+    return this.client.get('/python', { params: { status } });
+  }
+
+  async getPythonScript(scriptId: number) {
+    return this.client.get(`/python/${scriptId}`);
+  }
+
+  async updatePythonScript(scriptId: number, data: any) {
+    return this.client.put(`/python/${scriptId}`, data);
+  }
+
+  async executePythonScript(scriptId: number, dataSource?: string) {
+    return this.client.post(`/python/${scriptId}/execute`, { dataSource });
+  }
+
+  async getPythonScriptResults(scriptId: number) {
+    return this.client.get(`/python/${scriptId}/results`);
+  }
+
+  async deletePythonScript(scriptId: number) {
+    return this.client.delete(`/python/${scriptId}`);
+  }
+
+  async schedulePythonScript(scriptId: number, frequency: string, dataSource?: string) {
+    return this.client.post(`/python/${scriptId}/schedule`, { frequency, dataSource });
+  }
+
+  async exportToTableau(scriptId: number, datasourceName: string, schedule?: string) {
+    return this.client.post(`/python/${scriptId}/export-tableau`, { datasourceName, schedule });
+  }
 }
 
 export default new ApiClient();
