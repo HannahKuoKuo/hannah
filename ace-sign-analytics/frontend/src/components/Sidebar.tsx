@@ -1,9 +1,10 @@
 import { Link, useLocation } from 'react-router-dom'
-import { FiHome, FiBarChart2, FiCalendar, FiFileText, FiSettings } from 'react-icons/fi'
+import { FiHome, FiBarChart2, FiEye, FiCalendar, FiFileText, FiSettings } from 'react-icons/fi'
 import clsx from 'clsx'
 
 const nav = [
   { path: '/', label: 'Dashboard', icon: FiHome },
+  { path: '/monitoring', label: 'Monitoring', icon: FiEye },
   { path: '/analytics', label: 'Analytics', icon: FiBarChart2 },
   { path: '/content-calendar', label: 'Content Calendar', icon: FiCalendar },
   { path: '/reports', label: 'Reports', icon: FiFileText },

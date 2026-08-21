@@ -4,6 +4,7 @@ import Layout from './components/Layout'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Analytics from './pages/Analytics'
+import MonitoringDashboard from './pages/MonitoringDashboard'
 import ContentCalendar from './pages/ContentCalendar'
 import Reports from './pages/Reports'
 import Settings from './pages/Settings'
@@ -18,6 +19,7 @@ function App() {
         {token ? (
           <Route element={<Layout />}>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/monitoring" element={<MonitoringDashboard />} />
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/content-calendar" element={<ContentCalendar />} />
             <Route path="/reports" element={<Reports />} />
