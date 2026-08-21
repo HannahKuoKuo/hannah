@@ -28,6 +28,7 @@ const menuItems = [
   { href: '/dashboard/utm', label: 'UTM Tracking', icon: FiLink2 },
   { href: '/dashboard/content-calendar', label: 'Content Calendar', icon: FiCalendar },
   { href: '/dashboard/clv', label: 'Customer Value', icon: FiBarChart2 },
+  { href: '/dashboard/sql-editor', label: 'SQL Editor', icon: FiFileText },
   { href: '/dashboard/reports', label: 'Reports', icon: FiFileText },
   { href: '/dashboard/settings', label: 'Settings', icon: FiSettings }
 ];

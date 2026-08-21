@@ -356,6 +356,35 @@ class ApiClient {
   async getCLVDistribution() {
     return this.client.get('/clv/distribution');
   }
+
+  // SQL Query Editor
+  async executeQuery(query: string) {
+    return this.client.post('/query/execute', { query });
+  }
+
+  async getQueryHistory() {
+    return this.client.get('/query/history');
+  }
+
+  async saveQuery(data: { name: string; query: string; description?: string }) {
+    return this.client.post('/query/save', data);
+  }
+
+  async updateQuery(queryId: number, data: any) {
+    return this.client.put(`/query/${queryId}`, data);
+  }
+
+  async deleteQuery(queryId: number) {
+    return this.client.delete(`/query/${queryId}`);
+  }
+
+  async getTableSchema(tableName: string) {
+    return this.client.get(`/query/schema/${tableName}`);
+  }
+
+  async getAvailableTables() {
+    return this.client.get('/query/tables/list');
+  }
 }
 
 export default new ApiClient();
