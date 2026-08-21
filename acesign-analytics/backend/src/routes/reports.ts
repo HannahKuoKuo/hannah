@@ -201,4 +201,188 @@ router.delete('/:reportId', async (req: Request, res: Response, next: NextFuncti
   }
 });
 
+// Advanced custom report generation
+router.post('/generate/custom', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const userId = req.userId!;
+    const {
+      title,
+      description,
+      sources,
+      dateRange,
+      metrics,
+      filters,
+      templateName
+    } = req.body;
+
+    logger.info(`Generating custom report for user ${userId}`, { sources });
+
+    const db = getDatabase();
+
+    const reportData = {
+      user_id: userId,
+      title: title || 'Custom Report',
+      description: description || '',
+      report_type: 'custom',
+      data: JSON.stringify({
+        sources,
+        dateRange,
+        metrics,
+        filters,
+        generateTime: new Date().toISOString()
+      }),
+      generated_at: new Date(),
+      file_path: null
+    };
+
+    const result = await db('reports').insert(reportData).returning('*');
+    const report = result[0];
+
+    // Save as template if requested
+    if (templateName) {
+      await db('report_templates').insert({
+        user_id: userId,
+        template_name: templateName,
+        config: JSON.stringify({
+          sources,
+          dateRange,
+          metrics,
+          filters
+        }),
+        created_at: new Date()
+      });
+    }
+
+    res.status(201).json({
+      message: 'Custom report generated',
+      reportId: report.id,
+      report
+    });
+  } catch (error) {
+    logger.error('Failed to generate custom report', { error });
+    next(error);
+  }
+});
+
+// Get saved report templates
+router.get('/templates', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const userId = req.userId!;
+    const db = getDatabase();
+
+    const templates = await db('report_templates')
+      .where({ user_id: userId })
+      .orderBy('created_at', 'desc');
+
+    res.json({
+      data: templates || []
+    });
+  } catch (error) {
+    logger.error('Failed to fetch templates', { error });
+    next(error);
+  }
+});
+
+// Save current report as template
+router.post('/:reportId/save-as-template', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const userId = req.userId!;
+    const { reportId } = req.params;
+    const { templateName } = req.body;
+
+    if (!templateName) {
+      const error: AppError = new Error('Template name is required');
+      error.statusCode = 400;
+      throw error;
+    }
+
+    const db = getDatabase();
+    const report = await db('reports')
+      .where({ id: reportId, user_id: userId })
+      .first();
+
+    if (!report) {
+      const error: AppError = new Error('Report not found');
+      error.statusCode = 404;
+      error.code = 'NOT_FOUND';
+      throw error;
+    }
+
+    const template = await db('report_templates').insert({
+      user_id: userId,
+      template_name: templateName,
+      config: report.data,
+      created_at: new Date()
+    }).returning('*');
+
+    res.status(201).json({
+      message: 'Template saved',
+      template: template[0]
+    });
+  } catch (error) {
+    logger.error('Failed to save template', { error });
+    next(error);
+  }
+});
+
+// Load template
+router.get('/templates/:templateId', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const userId = req.userId!;
+    const { templateId } = req.params;
+    const db = getDatabase();
+
+    const template = await db('report_templates')
+      .where({ id: templateId, user_id: userId })
+      .first();
+
+    if (!template) {
+      const error: AppError = new Error('Template not found');
+      error.statusCode = 404;
+      throw error;
+    }
+
+    const config = typeof template.config === 'string' ? JSON.parse(template.config) : template.config;
+
+    res.json({
+      data: {
+        ...template,
+        config
+      }
+    });
+  } catch (error) {
+    logger.error('Failed to fetch template', { error });
+    next(error);
+  }
+});
+
+// Delete template
+router.delete('/templates/:templateId', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const userId = req.userId!;
+    const { templateId } = req.params;
+    const db = getDatabase();
+
+    const template = await db('report_templates')
+      .where({ id: templateId, user_id: userId })
+      .first();
+
+    if (!template) {
+      const error: AppError = new Error('Template not found');
+      error.statusCode = 404;
+      throw error;
+    }
+
+    await db('report_templates').where({ id: templateId }).del();
+
+    res.json({
+      message: 'Template deleted',
+      templateId
+    });
+  } catch (error) {
+    logger.error('Failed to delete template', { error });
+    next(error);
+  }
+});
+
 export default router;

@@ -228,6 +228,26 @@ class ApiClient {
     return this.client.delete(`/reports/${reportId}`);
   }
 
+  async generateCustomReport(data: any) {
+    return this.client.post('/reports/generate/custom', data);
+  }
+
+  async getReportTemplates() {
+    return this.client.get('/reports/templates');
+  }
+
+  async getReportTemplate(templateId: number) {
+    return this.client.get(`/reports/templates/${templateId}`);
+  }
+
+  async deleteReportTemplate(templateId: number) {
+    return this.client.delete(`/reports/templates/${templateId}`);
+  }
+
+  async saveReportAsTemplate(reportId: number, templateName: string) {
+    return this.client.post(`/reports/${reportId}/save-as-template`, { templateName });
+  }
+
   // Analytics
   async getAnalyticsSummary(days = 30) {
     return this.client.get('/analytics/summary', { params: { days } });
