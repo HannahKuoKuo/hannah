@@ -265,6 +265,31 @@ class ApiClient {
     return this.client.get('/analytics/roi', { params: { days } });
   }
 
+  // A/B Testing
+  async getABTests(status?: string, type?: string) {
+    return this.client.get('/abtest', { params: { status, type } });
+  }
+
+  async getABTest(testId: number) {
+    return this.client.get(`/abtest/${testId}`);
+  }
+
+  async createABTest(data: any) {
+    return this.client.post('/abtest', data);
+  }
+
+  async updateABTestStatus(testId: number, status: string) {
+    return this.client.put(`/abtest/${testId}/status`, { status });
+  }
+
+  async recordConversion(testId: number, variantId: string, revenue?: number) {
+    return this.client.post(`/abtest/${testId}/convert`, { variantId, revenue });
+  }
+
+  async getABTestSummary() {
+    return this.client.get('/abtest/summary/overview');
+  }
+
   // Attribution & ROI Analysis
   async getAttributionAnalysis(model: string = 'last_touch', dateRange: number = 30) {
     return this.client.get('/attribution/analysis', { params: { model, dateRange } });

@@ -30,6 +30,7 @@ import reportsRoutes from './routes/reports';
 import analyticsRoutes from './routes/analytics';
 import rolesRoutes from './routes/roles';
 import attributionRoutes from './routes/attribution';
+import abtestRoutes from './routes/abtest';
 
 const app: Express = express();
 const PORT = process.env.API_PORT || 3001;
@@ -102,6 +103,7 @@ app.use('/api/reports', authMiddleware, reportsRoutes);
 app.use('/api/analytics', authMiddleware, analyticsRoutes);
 app.use('/api/roles', authMiddleware, rolesRoutes);
 app.use('/api/attribution', authMiddleware, attributionRoutes);
+app.use('/api/abtest', authMiddleware, abtestRoutes);
 
 // 404 处理
 app.use((req: Request, res: Response) => {
