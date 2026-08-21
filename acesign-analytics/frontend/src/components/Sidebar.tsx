@@ -21,13 +21,13 @@ import clsx from 'clsx';
 
 const menuItems = [
   { href: '/dashboard', label: 'Dashboard', icon: FiHome },
-  { href: '/analytics', label: 'Analytics', icon: FiBarChart2 },
-  { href: '/mailerlite', label: 'Email Campaigns', icon: FiMail },
-  { href: '/social', label: 'Social Media', icon: FiShare2 },
-  { href: '/utm', label: 'UTM Tracking', icon: FiLink2 },
-  { href: '/content-calendar', label: 'Content Calendar', icon: FiCalendar },
-  { href: '/reports', label: 'Reports', icon: FiFileText },
-  { href: '/settings', label: 'Settings', icon: FiSettings }
+  { href: '/dashboard/analytics', label: 'Analytics', icon: FiBarChart2 },
+  { href: '/dashboard/mailerlite', label: 'Email Campaigns', icon: FiMail },
+  { href: '/dashboard/social', label: 'Social Media', icon: FiShare2 },
+  { href: '/dashboard/utm', label: 'UTM Tracking', icon: FiLink2 },
+  { href: '/dashboard/content-calendar', label: 'Content Calendar', icon: FiCalendar },
+  { href: '/dashboard/reports', label: 'Reports', icon: FiFileText },
+  { href: '/dashboard/settings', label: 'Settings', icon: FiSettings }
 ];
 
 export function Sidebar() {
