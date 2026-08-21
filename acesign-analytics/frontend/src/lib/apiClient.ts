@@ -331,6 +331,31 @@ class ApiClient {
   async getRolePermissions(role: string) {
     return this.client.get(`/roles/${role}/permissions`);
   }
+
+  // CLV Analysis
+  async getCLVAnalysis(segment?: string) {
+    return this.client.get('/clv/analysis', { params: { segment } });
+  }
+
+  async getCohortAnalysis() {
+    return this.client.get('/clv/cohort');
+  }
+
+  async getSurvivalCurves() {
+    return this.client.get('/clv/survival');
+  }
+
+  async getCustomerSegments() {
+    return this.client.get('/clv/segments');
+  }
+
+  async getChurnPrediction() {
+    return this.client.get('/clv/churn-prediction');
+  }
+
+  async getCLVDistribution() {
+    return this.client.get('/clv/distribution');
+  }
 }
 
 export default new ApiClient();
