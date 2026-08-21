@@ -244,6 +244,31 @@ class ApiClient {
   async getAnalyticsROI(days = 30) {
     return this.client.get('/analytics/roi', { params: { days } });
   }
+
+  // Roles and Permissions
+  async getTeamMembers() {
+    return this.client.get('/roles');
+  }
+
+  async getUserPermissions() {
+    return this.client.get('/roles/permissions');
+  }
+
+  async updateMemberRole(memberId: number, role: string) {
+    return this.client.put(`/roles/${memberId}/role`, { role });
+  }
+
+  async removeTeamMember(memberId: number) {
+    return this.client.delete(`/roles/${memberId}`);
+  }
+
+  async resendInvite(memberId: number) {
+    return this.client.post(`/roles/${memberId}/resend-invite`);
+  }
+
+  async getRolePermissions(role: string) {
+    return this.client.get(`/roles/${role}/permissions`);
+  }
 }
 
 export default new ApiClient();
