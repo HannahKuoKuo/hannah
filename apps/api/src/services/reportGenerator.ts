@@ -5,7 +5,7 @@ export async function generatePDFReport(report: any): Promise<Buffer> {
     const chunks: Buffer[] = [];
     const doc = new PDFDocument();
 
-    doc.on('data', (chunk) => chunks.push(chunk));
+    doc.on('data', (chunk: Buffer) => chunks.push(chunk));
     doc.on('end', () => resolve(Buffer.concat(chunks)));
     doc.on('error', reject);
 

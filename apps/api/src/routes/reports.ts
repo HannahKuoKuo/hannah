@@ -54,27 +54,27 @@ router.post('/generate/monthly', async (req: AuthRequest, res) => {
       period: `${year}-${String(month).padStart(2, '0')}`,
       edm: {
         campaigns_sent: edmData.length,
-        total_recipients: edmData.reduce((sum, c) => sum + (c.sent_count || 0), 0),
+        total_recipients: edmData.reduce((sum: number, c: any) => sum + (c.sent_count || 0), 0),
         avg_open_rate: edmData.length > 0
-          ? (edmData.reduce((sum, c) => sum + ((c.opened_count || 0) / (c.sent_count || 1)), 0) / edmData.length * 100).toFixed(2)
+          ? (edmData.reduce((sum: number, c: any) => sum + ((c.opened_count || 0) / (c.sent_count || 1)), 0) / edmData.length * 100).toFixed(2)
           : 0,
         avg_click_rate: edmData.length > 0
-          ? (edmData.reduce((sum, c) => sum + ((c.clicked_count || 0) / (c.sent_count || 1)), 0) / edmData.length * 100).toFixed(2)
+          ? (edmData.reduce((sum: number, c: any) => sum + ((c.clicked_count || 0) / (c.sent_count || 1)), 0) / edmData.length * 100).toFixed(2)
           : 0
       },
       meta: {
         total_posts: metaData.length,
-        total_engagement: metaData.reduce((sum, p) => sum + ((p.likes || 0) + (p.comments || 0) + (p.shares || 0)), 0),
-        avg_likes: metaData.length > 0 ? (metaData.reduce((sum, p) => sum + (p.likes || 0), 0) / metaData.length).toFixed(2) : 0,
-        avg_comments: metaData.length > 0 ? (metaData.reduce((sum, p) => sum + (p.comments || 0), 0) / metaData.length).toFixed(2) : 0
+        total_engagement: metaData.reduce((sum: number, p: any) => sum + ((p.likes || 0) + (p.comments || 0) + (p.shares || 0)), 0),
+        avg_likes: metaData.length > 0 ? (metaData.reduce((sum: number, p: any) => sum + (p.likes || 0), 0) / metaData.length).toFixed(2) : 0,
+        avg_comments: metaData.length > 0 ? (metaData.reduce((sum: number, p: any) => sum + (p.comments || 0), 0) / metaData.length).toFixed(2) : 0
       },
       ads: {
         active_campaigns: adsData.length,
-        total_spend: adsData.reduce((sum, c) => sum + (c.spend || 0), 0).toFixed(2),
-        total_impressions: adsData.reduce((sum, c) => sum + (c.impressions || 0), 0),
-        total_conversions: adsData.reduce((sum, c) => sum + (c.conversions || 0), 0),
+        total_spend: adsData.reduce((sum: number, c: any) => sum + (c.spend || 0), 0).toFixed(2),
+        total_impressions: adsData.reduce((sum: number, c: any) => sum + (c.impressions || 0), 0),
+        total_conversions: adsData.reduce((sum: number, c: any) => sum + (c.conversions || 0), 0),
         avg_roi: adsData.length > 0
-          ? (adsData.reduce((sum, c) => sum + ((c.revenue || 0) / (c.spend || 1)), 0) / adsData.length).toFixed(2)
+          ? (adsData.reduce((sum: number, c: any) => sum + ((c.revenue || 0) / (c.spend || 1)), 0) / adsData.length).toFixed(2)
           : 0
       }
     };

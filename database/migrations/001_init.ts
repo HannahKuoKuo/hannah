@@ -76,7 +76,7 @@ export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('edm_campaign_analytics', (table) => {
     table.increments('id').primary();
     table.integer('campaign_id').notNullable().references('id').inTable('edm_campaigns');
-    table.enum('event_type', ['open', 'click', 'bounce', 'unsubscribe']);
+    table.string('event_type'); // open, click, bounce, unsubscribe
     table.string('recipient_email');
     table.datetime('timestamp');
     table.json('metadata');
@@ -91,7 +91,7 @@ export async function up(knex: Knex): Promise<void> {
     table.string('email').notNullable();
     table.string('name');
     table.json('tags');
-    table.enum('status', ['active', 'inactive', 'unsubscribed']).defaultTo('active');
+    table.string('status').defaultTo('active'); // active, inactive, unsubscribed
     table.timestamps(true, true);
     table.unique(['user_id', 'email']);
   });
@@ -101,7 +101,7 @@ export async function up(knex: Knex): Promise<void> {
     table.increments('id').primary();
     table.integer('user_id').notNullable().references('id').inTable('users');
     table.string('name').notNullable();
-    table.enum('platform', ['facebook', 'instagram', 'google', 'tiktok']).notNullable();
+    table.string('platform').notNullable(); // facebook, instagram, google, tiktok
     table.float('budget').notNullable();
     table.datetime('start_date');
     table.datetime('end_date');
@@ -166,7 +166,7 @@ export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('reports', (table) => {
     table.increments('id').primary();
     table.integer('user_id').notNullable().references('id').inTable('users');
-    table.enum('type', ['monthly', 'weekly', 'custom']).notNullable();
+    table.string('type').notNullable(); // monthly, weekly, custom
     table.string('period').notNullable();
     table.json('data');
     table.timestamps(true, true);
@@ -177,8 +177,8 @@ export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('scheduled_reports', (table) => {
     table.increments('id').primary();
     table.integer('user_id').notNullable().references('id').inTable('users');
-    table.enum('frequency', ['daily', 'weekly', 'monthly']).notNullable();
-    table.enum('report_type', ['monthly', 'weekly', 'custom']).notNullable();
+    table.string('frequency').notNullable(); // daily, weekly, monthly
+    table.string('report_type').notNullable(); // monthly, weekly, custom
     table.string('recipient_email').notNullable();
     table.boolean('is_active').defaultTo(true);
     table.datetime('last_sent_at');
@@ -279,9 +279,9 @@ export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('content_schedules', (table) => {
     table.increments('id').primary();
     table.integer('user_id').notNullable().references('id').inTable('users');
-    table.enum('platform', ['instagram', 'facebook', 'linkedin', 'newsletter']);
-    table.enum('content_type', ['post', 'story', 'reel', 'carousel']);
-    table.enum('frequency', ['daily', 'weekly', '72-hourly', 'monthly']);
+    table.string('platform'); // instagram, facebook, linkedin, newsletter
+    table.string('content_type'); // post, story, reel, carousel
+    table.string('frequency'); // daily, weekly, 72-hourly, monthly
     table.integer('posts_per_period').notNullable();
     table.json('optimal_times');
     table.boolean('auto_schedule').defaultTo(true);

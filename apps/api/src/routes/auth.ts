@@ -1,5 +1,5 @@
 import express from 'express';
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { getDatabase } from '../utils/database';
 
@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
         email: user.email
       },
       process.env.JWT_SECRET || 'secret',
-      { expiresIn: process.env.JWT_EXPIRATION || '7d' }
+      { expiresIn: process.env.JWT_EXPIRATION || '7d' } as SignOptions
     );
 
     res.json({
@@ -82,7 +82,7 @@ router.post('/register', async (req, res) => {
         email: user.email
       },
       process.env.JWT_SECRET || 'secret',
-      { expiresIn: process.env.JWT_EXPIRATION || '7d' }
+      { expiresIn: process.env.JWT_EXPIRATION || '7d' } as SignOptions
     );
 
     res.status(201).json({

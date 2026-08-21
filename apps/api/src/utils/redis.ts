@@ -7,7 +7,7 @@ export async function initializeRedis() {
     url: process.env.REDIS_URL || 'redis://localhost:6379'
   });
 
-  redisClient.on('error', (err) => console.error('Redis error:', err));
+  redisClient.on('error', (err: Error) => console.error('Redis error:', err));
 
   await redisClient.connect();
 
