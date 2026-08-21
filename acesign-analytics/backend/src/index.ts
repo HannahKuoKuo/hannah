@@ -35,6 +35,7 @@ import clvRoutes from './routes/clv';
 import queryEditorRoutes from './routes/queryEditor';
 import pythonIntegrationRoutes from './routes/pythonIntegration';
 import kpiTrackingRoutes from './routes/kpiTracking';
+import tableauExportRoutes from './routes/tableauExport';
 
 const app: Express = express();
 const PORT = process.env.API_PORT || 3001;
@@ -112,6 +113,7 @@ app.use('/api/clv', authMiddleware, clvRoutes);
 app.use('/api/query', authMiddleware, queryEditorRoutes);
 app.use('/api/python', authMiddleware, pythonIntegrationRoutes);
 app.use('/api/kpi', authMiddleware, kpiTrackingRoutes);
+app.use('/api/tableau', authMiddleware, tableauExportRoutes);
 
 // 404 处理
 app.use((req: Request, res: Response) => {

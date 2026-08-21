@@ -423,6 +423,33 @@ class ApiClient {
     return this.client.post(`/python/${scriptId}/export-tableau`, { datasourceName, schedule });
   }
 
+  // Tableau Export
+  async tableauExportData(dataType: string, format: 'csv' | 'json' | 'tsv' = 'csv', dateRange?: string) {
+    return this.client.post('/tableau/export', { dataType, format, dateRange }, {
+      responseType: 'blob' as any
+    });
+  }
+
+  async getTableauExportTypes() {
+    return this.client.get('/tableau/types');
+  }
+
+  async getTableauConnectionGuide() {
+    return this.client.get('/tableau/guide');
+  }
+
+  async downloadTableauExport(dataType: string, format: 'csv' | 'json' | 'tsv' = 'csv') {
+    const response = await this.tableauExportData(dataType, format);
+    const url = window.URL.createObjectURL(new Blob([response]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `${dataType}_${new Date().toISOString().split('T')[0]}.${format}`);
+    document.body.appendChild(link);
+    link.click();
+    link.parentNode?.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  }
+
   // KPI Tracking
   async getKPIs(category?: string) {
     return this.client.get('/kpi', { params: { category } });
