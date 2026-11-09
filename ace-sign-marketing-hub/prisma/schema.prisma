@@ -1,0 +1,322 @@
+// ACE SIGN Marketing Hub - data model
+// Phase 1 ships the schema + seed. The app reads typed demo modules until
+// Phase 2 wires these models into pages and server actions.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  MANAGER
+  EDITOR
+  VIEWER
+}
+
+/// Where a record came from. DEMO rows must always be labelled in the UI.
+enum DataSource {
+  DEMO
+  MANUAL
+  CSV_IMPORT
+  META
+  LINKEDIN
+  GA4
+  EMAIL_PROVIDER
+}
+
+enum Platform {
+  FACEBOOK
+  INSTAGRAM
+  LINKEDIN
+  GOOGLE
+  EMAIL
+}
+
+enum CampaignStatus {
+  DRAFT
+  IN_REVIEW
+  APPROVED
+  ACTIVE
+  PAUSED
+  COMPLETED
+}
+
+enum ApprovalStatus {
+  DRAFT
+  IN_REVIEW
+  APPROVED
+  CHANGES_REQUESTED
+  SCHEDULED
+  PUBLISHED
+}
+
+enum LeadStage {
+  NEW
+  CONTACTED
+  QUALIFIED
+  PROPOSAL
+  WON
+  LOST
+}
+
+// ---------------------------------------------------------------------------
+// Auth.js models (Phase 2)
+// ---------------------------------------------------------------------------
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  role          Role      @default(VIEWER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts  Account[]
+  sessions  Session[]
+  auditLogs AuditLog[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ---------------------------------------------------------------------------
+// Brand & settings
+// ---------------------------------------------------------------------------
+
+model BrandProfile {
+  id            String   @id @default(cuid())
+  name          String
+  tagline       String?
+  voice         String   @db.Text
+  audiences     String[]
+  doList        String[]
+  dontList      String[]
+  primaryColor  String?
+  updatedAt     DateTime @updatedAt
+}
+
+/// Connection state only. Secrets live in env / a secrets manager, never here.
+model IntegrationConnection {
+  id          String   @id @default(cuid())
+  provider    String   @unique
+  enabled     Boolean  @default(false)
+  status      String   @default("not_connected")
+  connectedAt DateTime?
+  updatedAt   DateTime @updatedAt
+}
+
+// ---------------------------------------------------------------------------
+// Advertising
+// ---------------------------------------------------------------------------
+
+model Campaign {
+  id          String         @id @default(cuid())
+  name        String
+  platform    Platform
+  objective   String
+  status      CampaignStatus @default(DRAFT)
+  budgetAud   Decimal?       @db.Decimal(12, 2)
+  startDate   DateTime?      @db.Date
+  endDate     DateTime?      @db.Date
+  notes       String?        @db.Text
+  source      DataSource     @default(MANUAL)
+  externalId  String?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  variations AdVariation[]
+  metrics    MetricSnapshot[]
+}
+
+model AdVariation {
+  id          String         @id @default(cuid())
+  campaignId  String
+  headline    String
+  primaryText String         @db.Text
+  cta         String
+  status      ApprovalStatus @default(DRAFT)
+  description String?
+  /// key of a creative in the asset library (uploads arrive in Phase 3)
+  assetId     String?
+  aiGenerated Boolean        @default(false)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  campaign Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+}
+
+model CreativeAsset {
+  id        String     @id @default(cuid())
+  name      String
+  kind      String
+  url       String
+  tags      String[]
+  width     Int?
+  height    Int?
+  source    DataSource @default(MANUAL)
+  createdAt DateTime   @default(now())
+}
+
+model MetricSnapshot {
+  id            String     @id @default(cuid())
+  campaignId    String
+  date          DateTime   @db.Date
+  impressions   Int        @default(0)
+  clicks        Int        @default(0)
+  spendAud      Decimal    @default(0) @db.Decimal(12, 2)
+  conversions   Int        @default(0)
+  /// null when the channel has no revenue attribution
+  revenueAud    Decimal?   @db.Decimal(12, 2)
+  engagements   Int        @default(0)
+  leads         Int        @default(0)
+  source        DataSource
+  importBatchId String?
+
+  campaign    Campaign     @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  importBatch ImportBatch? @relation(fields: [importBatchId], references: [id], onDelete: Cascade)
+
+  /// re-importing the same campaign/day/source replaces the row instead of duplicating it
+  @@unique([campaignId, date, source])
+  @@index([date])
+}
+
+/// One CSV upload. Deleting a batch removes the metric rows it created.
+model ImportBatch {
+  id         String   @id @default(cuid())
+  filename   String
+  kind       String   @default("metrics")
+  rowCount   Int
+  createdBy  String?
+  createdAt  DateTime @default(now())
+
+  metrics MetricSnapshot[]
+}
+
+// ---------------------------------------------------------------------------
+// Content & email
+// ---------------------------------------------------------------------------
+
+model ContentPost {
+  id          String         @id @default(cuid())
+  title       String
+  body        String         @db.Text
+  platform    Platform
+  status      ApprovalStatus @default(DRAFT)
+  scheduledAt DateTime
+  authorName  String?
+  reviewNote  String?
+  source      DataSource     @default(MANUAL)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+model AudienceSegment {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  rules       Json
+  createdAt   DateTime @default(now())
+}
+
+model EmailCampaign {
+  id        String         @id @default(cuid())
+  subject   String
+  body      String         @db.Text
+  segmentId String?
+  status    ApprovalStatus @default(DRAFT)
+  sentAt    DateTime?
+  source    DataSource     @default(MANUAL)
+  createdAt DateTime       @default(now())
+}
+
+// ---------------------------------------------------------------------------
+// Leads
+// ---------------------------------------------------------------------------
+
+model Company {
+  id        String     @id @default(cuid())
+  name      String
+  industry  String?
+  state     String?
+  website   String?
+  source    DataSource @default(MANUAL)
+  createdAt DateTime   @default(now())
+
+  leads Lead[]
+}
+
+model Lead {
+  id           String     @id @default(cuid())
+  companyId    String?
+  contactName  String
+  email        String?
+  phone        String?
+  stage        LeadStage  @default(NEW)
+  valueAud     Decimal?   @db.Decimal(12, 2)
+  nextFollowUp DateTime?
+  notes        String?    @db.Text
+  source       DataSource @default(MANUAL)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  company Company? @relation(fields: [companyId], references: [id])
+}
+
+// ---------------------------------------------------------------------------
+// Audit log - sensitive operations (approvals, publishing, imports, role changes)
+// Store identifiers and redacted metadata only; never raw customer PII.
+// ---------------------------------------------------------------------------
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  actorId    String?
+  action     String
+  entityType String
+  entityId   String?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  actor User? @relation(fields: [actorId], references: [id])
+
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
